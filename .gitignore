@@ -1,0 +1,10 @@
+# Raw source images (originals, not used directly by the site — see assets/)
+*.png
+!assets/*.png
+
+# Unused processed asset
+assets/yan-nobg.png
+
+# OS
+Thumbs.db
+.DS_Store
