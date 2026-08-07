@@ -236,7 +236,7 @@
   }
   @keyframes coverGradient{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
   .hero-cover .globe-wrap{position:relative;height:560px;}
-  .hero-cover canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  .hero-cover canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab;}
   .scroll-cue{
     position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;
     display:flex;flex-direction:column;align-items:center;gap:8px;
@@ -444,9 +444,15 @@
   var edges = [];
   var t = 0;
   var rotY = 0, rotX = 0.4;
-  var NODE_COUNT = 1500;
-  var NEIGHBORS = 5;
+  var IS_MOBILE = window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+  var NODE_COUNT = IS_MOBILE ? 1920 : 6000;
+  var NEIGHBORS = IS_MOBILE ? 4 : 5;
   var HUE_BUCKETS = 20;
+  var DEPTH_TIERS = 4;
+  var DPR_CAP = IS_MOBILE ? 1.5 : 2;
+
+  // pointer drag: surface pulls toward the cursor/finger near the drag point, relaxes back on release
+  var pointer = { active: false, x: 0, y: 0, startX: 0, startY: 0, strength: 0, target: 0 };
   var bulges = [
     { x: 0.6, y: 0.7, z: 0.2, freq: 3.2, speed: 0.55, amp: 0.10 },
     { x: -0.4, y: 0.3, z: 0.85, freq: 2.4, speed: 0.4, amp: 0.09 },
@@ -462,7 +468,7 @@
   })();
 
   function resize(){
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    dpr = Math.min(window.devicePixelRatio || 1, DPR_CAP);
     W = wrapEl.clientWidth;
     H = wrapEl.clientHeight;
     canvas.width = W * dpr;
@@ -579,9 +585,28 @@
     rotY += 0.0032;
     var hueShift = (t * 12) % 360;
 
+    // ease the drag strength toward its target (ramps up while held, relaxes back on release)
+    pointer.strength += (pointer.target - pointer.strength) * 0.12;
+
     ctx.clearRect(0, 0, W, H);
 
     var proj = nodes.map(project);
+
+    // pointer drag: pull nearby points (in screen space) toward the total drag offset,
+    // weighted by proximity to the pointer so the deformation stays local and organic
+    if(pointer.strength > 0.001){
+      var dragDX = (pointer.x - pointer.startX) * pointer.strength;
+      var dragDY = (pointer.y - pointer.startY) * pointer.strength;
+      var falloffR = Math.min(W, H) * 0.5;
+      for(var pi = 0; pi < proj.length; pi++){
+        var pp = proj[pi];
+        var ddx = pp.sx - pointer.x, ddy = pp.sy - pointer.y;
+        var dist = Math.sqrt(ddx*ddx + ddy*ddy);
+        var w = Math.exp(-(dist*dist) / (2 * falloffR * falloffR));
+        pp.sx += dragDX * w;
+        pp.sy += dragDY * w;
+      }
+    }
 
     // edges batched by hue bucket -> a handful of stroke() calls instead of thousands,
     // keeps a full rainbow gradient around the sphere while staying fast
@@ -603,17 +628,30 @@
       ctx.stroke(bucketPaths[hb]);
     }
 
-    // nodes (glowing dots): full rainbow per node, brighter/bigger toward viewer
+    // nodes (glowing dots): batched by hue+depth bucket -> a bounded number of fill() calls
+    // regardless of node count, so density can scale without costing frame time
+    var pointBuckets = new Array(HUE_BUCKETS * DEPTH_TIERS);
     for(var j = 0; j < proj.length; j++){
       var p2 = proj[j];
       var m = (p2.z + 1) / 2;
       var rad = 1.0 + m * 2.1;
-      var a2 = 0.3 + m * 0.6;
       var hueN = (nodes[j].hue + hueShift) % 360;
-      ctx.fillStyle = 'hsla(' + hueN + ',95%,' + (55 + m * 15) + '%,' + a2 + ')';
-      ctx.beginPath();
-      ctx.arc(p2.sx, p2.sy, rad, 0, Math.PI * 2);
-      ctx.fill();
+      var hbk = Math.floor((hueN / 360) * HUE_BUCKETS) % HUE_BUCKETS;
+      var dtk = Math.min(DEPTH_TIERS - 1, Math.floor(m * DEPTH_TIERS));
+      var pk = hbk * DEPTH_TIERS + dtk;
+      if(!pointBuckets[pk]) pointBuckets[pk] = new Path2D();
+      pointBuckets[pk].moveTo(p2.sx + rad, p2.sy);
+      pointBuckets[pk].arc(p2.sx, p2.sy, rad, 0, Math.PI * 2);
+    }
+    for(var hbk2 = 0; hbk2 < HUE_BUCKETS; hbk2++){
+      for(var dtk2 = 0; dtk2 < DEPTH_TIERS; dtk2++){
+        var pk2 = hbk2 * DEPTH_TIERS + dtk2;
+        if(!pointBuckets[pk2]) continue;
+        var hue2 = (hbk2 / HUE_BUCKETS) * 360;
+        var mTier = (dtk2 + 0.5) / DEPTH_TIERS;
+        ctx.fillStyle = 'hsla(' + hue2 + ',95%,' + (55 + mTier * 15) + '%,' + (0.3 + mTier * 0.6) + ')';
+        ctx.fill(pointBuckets[pk2]);
+      }
     }
 
     if(!reduceMotion) requestAnimationFrame(step);
@@ -623,6 +661,37 @@
     resize();
     buildSphere();
   }
+
+  function pointerPos(e){
+    var rect = canvas.getBoundingClientRect();
+    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  }
+
+  canvas.addEventListener('pointerdown', function(e){
+    var pos = pointerPos(e);
+    pointer.active = true;
+    pointer.target = 1;
+    pointer.x = pos.x; pointer.y = pos.y;
+    pointer.startX = pos.x; pointer.startY = pos.y;
+    canvas.style.cursor = 'grabbing';
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener('pointermove', function(e){
+    if(!pointer.active) return;
+    var pos = pointerPos(e);
+    pointer.x = pos.x; pointer.y = pos.y;
+  });
+  function releasePointer(){
+    if(!pointer.active) return;
+    pointer.active = false;
+    pointer.target = 0;
+    canvas.style.cursor = 'grab';
+  }
+  canvas.addEventListener('pointerup', releasePointer);
+  canvas.addEventListener('pointercancel', releasePointer);
+  canvas.addEventListener('pointerleave', function(e){
+    if(pointer.active && e.pointerType === 'mouse') releasePointer();
+  });
 
   init();
   step();
