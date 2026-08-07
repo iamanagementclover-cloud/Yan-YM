@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>YAN YM — Développeur web & produits digitaux</title>
 <meta name="description" content="Portfolio de YAN YM — sites web pour l'hôtellerie et le tourisme à Nosy Be, PMS Lemon, formation IA Mahay IA.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -38,15 +38,19 @@
     border-bottom:1px solid rgba(255,255,255,.07);
     box-shadow:0 1px 0 rgba(255,255,255,.04) inset, 0 8px 30px rgba(0,0,0,.25);
   }
-  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1100px;margin:0 auto;}
-  .logo-name{font-weight:800;font-size:20px;letter-spacing:1px;line-height:1;display:flex;align-items:center;gap:6px;}
-  .logo-name .logo-yan{height:66px;width:auto;}
+  nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;max-width:1100px;margin:0 auto;}
+  .logo-name{font-weight:800;font-size:clamp(16px,4vw,20px);letter-spacing:1px;line-height:1;display:flex;align-items:center;gap:6px;flex-shrink:0;}
+  .logo-name .logo-yan{height:clamp(34px,8vw,66px);width:auto;}
   .logo-name span{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
   .hero .slogan{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
   @media (max-width:860px){.hero .slogan{text-align:center;}}
-  nav ul{list-style:none;display:flex;gap:28px;}
-  nav a{color:var(--muted);font-size:14px;font-weight:600;transition:color .2s;}
+  nav ul{list-style:none;display:flex;gap:clamp(12px,3.5vw,28px);flex-wrap:wrap;justify-content:flex-end;}
+  nav a{color:var(--muted);font-size:clamp(12px,3vw,14px);font-weight:600;transition:color .2s;white-space:nowrap;}
   nav a:hover{color:var(--text);}
+  @media (max-width:400px){
+    nav{padding:12px 16px;}
+    .logo-name .logo-yan{height:28px;}
+  }
 
   .hero{
     position:relative;
@@ -72,9 +76,21 @@
   .hero-photo{
     width:100%;max-width:420px;aspect-ratio:1/1;
     border-radius:28px;
+    perspective:1400px;
   }
-  .hero-photo img{width:100%;height:100%;border-radius:28px;object-fit:cover;display:block;}
-  .hero h1{font-size:44px;font-weight:800;margin-bottom:14px;letter-spacing:.5px;}
+  .hero-photo img{
+    width:100%;height:100%;border-radius:28px;object-fit:cover;display:block;
+    transform-style:preserve-3d;backface-visibility:hidden;
+    animation:cardSpin 3s cubic-bezier(.65,0,.35,1) infinite;
+  }
+  @keyframes cardSpin{
+    0%{transform:rotateY(0deg);}
+    100%{transform:rotateY(360deg);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-photo img{animation:none;}
+  }
+  .hero h1{font-size:clamp(28px,4.4vw,44px);font-weight:800;margin-bottom:14px;letter-spacing:.5px;}
   .hero h1 span{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
   .hero p{color:var(--muted);font-size:18px;max-width:520px;margin:0 0 32px;}
   @media (max-width:860px){.hero p{margin:0 auto 32px;}}
@@ -99,8 +115,10 @@
   .btn-ghost:hover{border-color:var(--accent2);background:rgba(255,255,255,.07);}
 
   section{padding:80px 0;}
+  .video-section{padding:0;line-height:0;background:#000;}
+  .video-section video{width:100%;display:block;max-height:85vh;aspect-ratio:16/9;object-fit:cover;}
   .section-title{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--accent2);font-weight:800;margin-bottom:10px;}
-  .section-heading{font-size:30px;font-weight:800;margin-bottom:40px;max-width:560px;}
+  .section-heading{font-size:clamp(22px,3.6vw,30px);font-weight:800;margin-bottom:40px;max-width:560px;}
   .section-heading small{display:block;color:var(--muted);font-weight:400;font-size:16px;margin-top:10px;}
 
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
@@ -162,14 +180,17 @@
     border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);
     text-align:center;
   }
-  .contact h2{font-size:32px;font-weight:800;margin-bottom:14px;}
+  .contact h2{font-size:clamp(24px,4vw,32px);font-weight:800;margin-bottom:14px;}
   .contact p{color:var(--muted);margin-bottom:30px;}
   .contact-methods{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
 
   footer{padding:32px 24px;text-align:center;color:var(--muted);font-size:13px;}
 
   .whatsapp-btn{
-    position:fixed;bottom:24px;right:24px;z-index:60;
+    position:fixed;
+    bottom:max(24px, env(safe-area-inset-bottom));
+    right:max(24px, env(safe-area-inset-right));
+    z-index:60;
     width:58px;height:58px;border-radius:50%;
     background:#25D366;
     border:1px solid rgba(255,255,255,.25);
@@ -184,6 +205,49 @@
     .hero-bg .blob{animation:none !important;}
     html{scroll-behavior:auto;}
     .btn:hover,.card:hover,.feature-card:hover,.whatsapp-btn:hover{transform:none;}
+  }
+
+  .hero-cover{
+    position:relative;overflow:hidden;
+    min-height:100vh;min-height:100dvh;
+    display:flex;align-items:center;
+    background:var(--bg);
+  }
+  .hero-cover .wrap{position:relative;z-index:2;width:100%;}
+  .hero-cover .cover-split{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;
+  }
+  @media (max-width:900px){
+    .hero-cover .cover-split{grid-template-columns:1fr;text-align:center;}
+    .hero-cover .globe-wrap{order:-1;height:340px;}
+  }
+  .hero-cover .cover-tagline{
+    font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+    color:var(--muted);margin-bottom:16px;
+  }
+  .hero-cover h2{
+    font-size:clamp(28px,4.2vw,50px);font-weight:800;line-height:1.15;max-width:520px;
+  }
+  @media (max-width:900px){.hero-cover h2{max-width:100%;margin:0 auto;}}
+  .hero-cover h2 span{
+    background:linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    background-size:200% auto;animation:coverGradient 6s linear infinite;
+  }
+  @keyframes coverGradient{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
+  .hero-cover .globe-wrap{position:relative;height:560px;}
+  .hero-cover canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  .scroll-cue{
+    position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    color:var(--muted);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    animation:bounceCue 2.2s ease-in-out infinite;
+  }
+  .scroll-cue svg{width:18px;height:18px;}
+  @keyframes bounceCue{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+  @media (prefers-reduced-motion:reduce){
+    .hero-cover h2 span{animation:none;}
+    .scroll-cue{animation:none;}
   }
 </style>
 </head>
@@ -200,6 +264,24 @@
   </nav>
 </header>
 
+<section class="hero-cover">
+  <div class="wrap">
+    <div class="cover-split">
+      <div>
+        <div class="cover-tagline">Yield · Avantage · Numérique</div>
+        <h2>Des idées à <span>l'expérience digitale</span> qui marque</h2>
+      </div>
+      <div class="globe-wrap">
+        <canvas id="coverCanvas"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    Découvrir
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
 <section class="hero">
   <div class="hero-bg">
     <div class="blob blob1"></div>
@@ -210,8 +292,8 @@
     <div class="hero-split">
       <div>
         <div class="slogan">Yield · Avantage · Numérique</div>
-        <h1>Développeur & créateur de marque — je construis <span>sites, produits digitaux, identités visuelles</span> et <span>automatisations IA</span> qui font gagner du temps</h1>
-        <p>Basé à Nosy Be, Madagascar — sites vitrines, e-commerce, PMS hôtelier, branding et automatisations IA pour ton business.</p>
+        <h1>Développeur & créateur de marques — je conçois des <span>sites, produits digitaux, identités visuelles</span> et <span>automatisations IA</span> qui simplifient votre quotidien.</h1>
+        <p>Basé à Nosy Be, Madagascar — sites vitrines, e-commerce, PMS hôtelier, branding et automatisations IA pour votre business.</p>
         <div class="cta-row">
           <a href="#projets" class="btn btn-primary">Voir mes projets</a>
           <a href="#contact" class="btn btn-ghost">Me contacter</a>
@@ -221,6 +303,33 @@
     </div>
   </div>
 </section>
+
+<section class="video-section">
+  <video id="presoVideo" src="assets/presentation.mp4" autoplay loop playsinline preload="auto"></video>
+</section>
+<script>
+(function(){
+  var v = document.getElementById('presoVideo');
+  if(!v) return;
+  v.style.cursor = 'pointer';
+  v.addEventListener('click', function(){
+    if(v.paused) v.play(); else v.pause();
+  });
+
+  // try to autoplay with sound on; browsers that block it will reject the play() promise,
+  // in that case fall back to a muted autoplay and unmute on the first click anywhere
+  var playPromise = v.play();
+  if(playPromise !== undefined){
+    playPromise.catch(function(){
+      v.muted = true;
+      v.play();
+      document.addEventListener('click', function(){
+        v.muted = false;
+      }, { once: true });
+    });
+  }
+})();
+</script>
 
 <section id="projets">
   <div class="wrap">
@@ -306,7 +415,7 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <h2>On travaille ensemble ?</h2>
-    <p>Site vitrine, e-commerce, ou produit sur-mesure — parlons de ton projet.</p>
+    <p>Site vitrine, e-commerce, ou produit sur-mesure — parlons de votre projet.</p>
     <div class="contact-methods">
       <a class="btn btn-primary" href="https://wa.me/261321926659" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
     </div>
@@ -322,6 +431,209 @@
     <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.34.64 4.53 1.75 6.41L4 29l7.78-1.7A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.63 28 15S22.63 3 16.004 3zm0 21.8c-1.98 0-3.83-.55-5.41-1.5l-.39-.23-4.62 1.01 1-4.5-.25-.4A9.77 9.77 0 0 1 5.2 15c0-5.96 4.85-10.8 10.8-10.8S26.8 9.04 26.8 15 21.96 24.8 16.004 24.8zm5.98-8.13c-.33-.16-1.93-.95-2.23-1.06-.3-.11-.52-.16-.74.16-.22.33-.85 1.06-1.04 1.27-.19.22-.38.24-.71.08-.33-.16-1.38-.51-2.63-1.63-.97-.87-1.63-1.94-1.82-2.27-.19-.33-.02-.5.14-.67.14-.14.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.72s1.17 3.15 1.33 3.37c.16.22 2.3 3.51 5.57 4.92.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.93-.79 2.2-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.63-.38z"/>
   </svg>
 </a>
+
+<script>
+(function(){
+  var canvas = document.getElementById('coverCanvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var wrapEl = canvas.parentElement;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W, H, dpr, cx, cy, baseR;
+  var nodes = [];
+  var edges = [];
+  var t = 0;
+  var rotY = 0, rotX = 0.4;
+  var NODE_COUNT = 1500;
+  var NEIGHBORS = 5;
+  var HUE_BUCKETS = 20;
+  var bulges = [
+    { x: 0.6, y: 0.7, z: 0.2, freq: 3.2, speed: 0.55, amp: 0.10 },
+    { x: -0.4, y: 0.3, z: 0.85, freq: 2.4, speed: 0.4, amp: 0.09 },
+    { x: 0.1, y: -0.8, z: 0.5, freq: 4.1, speed: 0.7, amp: 0.07 },
+    { x: -0.7, y: -0.3, z: -0.6, freq: 2.8, speed: 0.5, amp: 0.08 }
+  ];
+  (function normalizeBulges(){
+    for(var i=0;i<bulges.length;i++){
+      var b = bulges[i];
+      var len = Math.sqrt(b.x*b.x + b.y*b.y + b.z*b.z);
+      b.x/=len; b.y/=len; b.z/=len;
+    }
+  })();
+
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = wrapEl.clientWidth;
+    H = wrapEl.clientHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    cx = W / 2;
+    cy = H / 2;
+    baseR = Math.min(W, H) * 0.72;
+  }
+
+  // Distribute points evenly on a sphere (fibonacci sphere)
+  function buildSphere(){
+    nodes = [];
+    var golden = Math.PI * (3 - Math.sqrt(5));
+    for(var i = 0; i < NODE_COUNT; i++){
+      var y = 1 - (i / (NODE_COUNT - 1)) * 2;
+      var radiusAtY = Math.sqrt(1 - y * y);
+      var theta = golden * i;
+      var x = Math.cos(theta) * radiusAtY;
+      var z = Math.sin(theta) * radiusAtY;
+      var hue = ((Math.atan2(z, x) + Math.PI) / (Math.PI * 2)) * 360;
+      nodes.push({ ox: x, oy: y, oz: z, seed: Math.random() * 1000, hue: hue });
+    }
+
+    // spatial grid so nearest-neighbour search stays fast even with thousands of nodes
+    var gridDim = Math.max(4, Math.ceil(Math.cbrt(NODE_COUNT / 4)));
+    var cellOf = function(v){ return Math.min(gridDim - 1, Math.max(0, Math.floor((v + 1) / 2 * gridDim))); };
+    var grid = {};
+    for(var gi = 0; gi < nodes.length; gi++){
+      var n = nodes[gi];
+      var ix = cellOf(n.ox), iy = cellOf(n.oy), iz = cellOf(n.oz);
+      var key = ix + '_' + iy + '_' + iz;
+      if(!grid[key]) grid[key] = [];
+      grid[key].push(gi);
+    }
+
+    var edgeSet = {};
+    edges = [];
+    for(var a = 0; a < nodes.length; a++){
+      var na = nodes[a];
+      var ax = cellOf(na.ox), ay = cellOf(na.oy), az = cellOf(na.oz);
+      var candidates = [];
+      for(var dx = -1; dx <= 1; dx++){
+        for(var dy = -1; dy <= 1; dy++){
+          for(var dz = -1; dz <= 1; dz++){
+            var cx2 = ax + dx, cy2 = ay + dy, cz2 = az + dz;
+            if(cx2 < 0 || cy2 < 0 || cz2 < 0 || cx2 >= gridDim || cy2 >= gridDim || cz2 >= gridDim) continue;
+            var bucket = grid[cx2 + '_' + cy2 + '_' + cz2];
+            if(bucket) candidates = candidates.concat(bucket);
+          }
+        }
+      }
+      var dists = [];
+      for(var ci = 0; ci < candidates.length; ci++){
+        var b = candidates[ci];
+        if(b === a) continue;
+        var nb = nodes[b];
+        var ddx = na.ox - nb.ox, ddy = na.oy - nb.oy, ddz = na.oz - nb.oz;
+        dists.push({ i: b, d: ddx*ddx + ddy*ddy + ddz*ddz });
+      }
+      dists.sort(function(p, q){ return p.d - q.d; });
+      for(var k = 0; k < NEIGHBORS && k < dists.length; k++){
+        var i1 = a, i2 = dists[k].i;
+        var key2 = i1 < i2 ? i1 + '_' + i2 : i2 + '_' + i1;
+        if(!edgeSet[key2]){
+          edgeSet[key2] = true;
+          edges.push([i1, i2]);
+        }
+      }
+    }
+  }
+
+  function bulgeDisplace(ox, oy, oz){
+    var d = 0;
+    for(var i = 0; i < bulges.length; i++){
+      var b = bulges[i];
+      var dot = ox * b.x + oy * b.y + oz * b.z;
+      d += b.amp * Math.sin(b.freq * dot + t * b.speed);
+    }
+    return d;
+  }
+
+  function project(p){
+    // organic displacement: overlapping traveling waves, as if something pushes from inside
+    var wobble = 1 + bulgeDisplace(p.ox, p.oy, p.oz);
+    var r = baseR * wobble;
+
+    var x = p.ox, y = p.oy, z = p.oz;
+
+    // rotate around Y
+    var cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+    var x1 = x * cosY - z * sinY;
+    var z1 = x * sinY + z * cosY;
+
+    // slight rotate around X for tilt + gentle sway
+    var tiltX = rotX + Math.sin(t * 0.15) * 0.08;
+    var cosX = Math.cos(tiltX), sinX = Math.sin(tiltX);
+    var y2 = y * cosX - z1 * sinX;
+    var z2 = y * sinX + z1 * cosX;
+
+    var scale = 1 / (1.9 - z2 * 0.55);
+    return {
+      sx: cx + x1 * r * scale,
+      sy: cy + y2 * r * scale,
+      z: z2,
+      scale: scale
+    };
+  }
+
+  function step(){
+    t += 0.012;
+    rotY += 0.0032;
+    var hueShift = (t * 12) % 360;
+
+    ctx.clearRect(0, 0, W, H);
+
+    var proj = nodes.map(project);
+
+    // edges batched by hue bucket -> a handful of stroke() calls instead of thousands,
+    // keeps a full rainbow gradient around the sphere while staying fast
+    var bucketPaths = new Array(HUE_BUCKETS);
+    for(var i = 0; i < edges.length; i++){
+      var ia = edges[i][0], ib = edges[i][1];
+      var a = proj[ia], b = proj[ib];
+      var avgHue = (nodes[ia].hue + nodes[ib].hue) / 2;
+      var bucket = Math.floor((((avgHue + hueShift) % 360) / 360) * HUE_BUCKETS) % HUE_BUCKETS;
+      if(!bucketPaths[bucket]) bucketPaths[bucket] = new Path2D();
+      bucketPaths[bucket].moveTo(a.sx, a.sy);
+      bucketPaths[bucket].lineTo(b.sx, b.sy);
+    }
+    ctx.lineWidth = 1;
+    for(var hb = 0; hb < HUE_BUCKETS; hb++){
+      if(!bucketPaths[hb]) continue;
+      var hue = (hb / HUE_BUCKETS) * 360;
+      ctx.strokeStyle = 'hsla(' + hue + ',95%,62%,0.16)';
+      ctx.stroke(bucketPaths[hb]);
+    }
+
+    // nodes (glowing dots): full rainbow per node, brighter/bigger toward viewer
+    for(var j = 0; j < proj.length; j++){
+      var p2 = proj[j];
+      var m = (p2.z + 1) / 2;
+      var rad = 1.0 + m * 2.1;
+      var a2 = 0.3 + m * 0.6;
+      var hueN = (nodes[j].hue + hueShift) % 360;
+      ctx.fillStyle = 'hsla(' + hueN + ',95%,' + (55 + m * 15) + '%,' + a2 + ')';
+      ctx.beginPath();
+      ctx.arc(p2.sx, p2.sy, rad, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    if(!reduceMotion) requestAnimationFrame(step);
+  }
+
+  function init(){
+    resize();
+    buildSphere();
+  }
+
+  init();
+  step();
+  if(reduceMotion){
+    for(var i = 0; i < 4; i++) step();
+  }
+  window.addEventListener('resize', function(){
+    resize();
+  });
+})();
+</script>
 
 </body>
 </html>
