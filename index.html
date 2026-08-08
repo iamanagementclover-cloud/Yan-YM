@@ -87,17 +87,20 @@
     position:absolute;inset:0;border-radius:26px;
     backface-visibility:hidden;-webkit-backface-visibility:hidden;
   }
-  .card-front{transform:translateZ(1px);-webkit-transform:translateZ(1px);overflow:visible;}
-  .card-front .face-inner{width:100%;height:100%;}
-  .card-front img, .card-front video{
-    width:100%;height:100%;object-fit:cover;display:block;
-    border-radius:26px;overflow:hidden;
-  }
   .card-back{
     overflow:hidden;
     transform:rotateY(180deg) translateZ(30px);
     background:linear-gradient(135deg,var(--accent1),var(--accent2));
   }
+  /* video/photo sit outside the preserve-3d box, as their own single-level rotating
+     element — video inside a doubly-nested preserve-3d ancestor fails to composite
+     on some browser/GPU combos, this keeps it to one 3D transform layer */
+  .card-media{
+    position:absolute;inset:0;border-radius:26px;overflow:hidden;
+    backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    animation:cardSpin 3s cubic-bezier(.65,0,.35,1) infinite;
+  }
+  .card-media img, .card-media video{width:100%;height:100%;object-fit:cover;display:block;}
   .card-edge{position:absolute;transform-origin:0 0;border-radius:26px;}
   .card-edge-l, .card-edge-r{width:30px;top:0;height:100%;background:linear-gradient(180deg,var(--accent1),var(--accent2));}
   .card-edge-l{left:0;transform-origin:left center;transform:rotateY(90deg);}
@@ -343,13 +346,13 @@
       </div>
       <div class="hero-photo">
         <div class="card-3d">
-          <div class="card-face card-front"><div class="face-inner"><video src="assets/hero-yan.mp4" autoplay muted loop playsinline preload="auto"></video></div></div>
           <div class="card-face card-back"></div>
           <div class="card-edge card-edge-l"></div>
           <div class="card-edge card-edge-r"></div>
           <div class="card-edge card-edge-t"></div>
           <div class="card-edge card-edge-b"></div>
         </div>
+        <div class="card-media"><video src="assets/hero-yan.mp4" autoplay muted loop playsinline preload="auto"></video></div>
       </div>
     </div>
   </div>

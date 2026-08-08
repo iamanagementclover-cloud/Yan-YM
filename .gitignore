@@ -9,6 +9,10 @@ assets/yan-nobg.png
 assets/Yan YM presentation*.mp4
 assets/Yan YM*.mp4
 assets/Yan YM.mp4
+assets/aa.mp4
+
+# Raw logo source duplicate (site uses assets/yan-logo.png)
+assets/Yan Logo*.png
 
 # Firebase deploy build folder (generated copy of index.html + assets)
 public/
