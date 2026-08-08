@@ -84,13 +84,17 @@
     animation:cardSpin 3s cubic-bezier(.65,0,.35,1) infinite;
   }
   .card-face{
-    position:absolute;inset:0;border-radius:26px;overflow:hidden;
+    position:absolute;inset:0;border-radius:26px;
     backface-visibility:hidden;-webkit-backface-visibility:hidden;
   }
-  .card-front{transform:translateZ(1px);-webkit-transform:translateZ(1px);}
-  .card-front .face-inner{width:100%;height:100%;transform:translateZ(0);}
-  .card-front img, .card-front video{width:100%;height:100%;object-fit:cover;display:block;}
+  .card-front{transform:translateZ(1px);-webkit-transform:translateZ(1px);overflow:visible;}
+  .card-front .face-inner{width:100%;height:100%;}
+  .card-front img, .card-front video{
+    width:100%;height:100%;object-fit:cover;display:block;
+    border-radius:26px;overflow:hidden;
+  }
   .card-back{
+    overflow:hidden;
     transform:rotateY(180deg) translateZ(30px);
     background:linear-gradient(135deg,var(--accent1),var(--accent2));
   }
