@@ -80,14 +80,15 @@
   }
   .card-3d{
     position:relative;width:100%;height:100%;
-    transform-style:preserve-3d;
+    transform-style:preserve-3d;-webkit-transform-style:preserve-3d;
     animation:cardSpin 3s cubic-bezier(.65,0,.35,1) infinite;
   }
   .card-face{
     position:absolute;inset:0;border-radius:26px;overflow:hidden;
-    backface-visibility:hidden;
+    backface-visibility:hidden;-webkit-backface-visibility:hidden;
   }
-  .card-front{transform:translateZ(0);}
+  .card-front{transform:translateZ(1px);-webkit-transform:translateZ(1px);}
+  .card-front .face-inner{width:100%;height:100%;transform:translateZ(0);}
   .card-front img, .card-front video{width:100%;height:100%;object-fit:cover;display:block;}
   .card-back{
     transform:rotateY(180deg) translateZ(30px);
@@ -338,7 +339,7 @@
       </div>
       <div class="hero-photo">
         <div class="card-3d">
-          <div class="card-face card-front"><video src="assets/hero-yan.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+          <div class="card-face card-front"><div class="face-inner"><video src="assets/hero-yan.mp4" autoplay muted loop playsinline preload="auto"></video></div></div>
           <div class="card-face card-back"></div>
           <div class="card-edge card-edge-l"></div>
           <div class="card-edge card-edge-r"></div>
