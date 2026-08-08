@@ -92,7 +92,7 @@
     background:linear-gradient(135deg,var(--accent1),var(--accent2));
     display:flex;align-items:center;justify-content:center;padding:18%;
   }
-  .card-back img{width:100%;height:100%;object-fit:contain;transform:scale(1);}
+  .card-back img{width:100%;height:100%;object-fit:contain;transform:scale(1.4);}
   /* video/photo sit outside the preserve-3d box, as their own single-level rotating
      element — video inside a doubly-nested preserve-3d ancestor fails to composite
      on some browser/GPU combos, this keeps it to one 3D transform layer */
@@ -164,12 +164,12 @@
     background:rgba(2,15,33,.65);
     backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
     border:1px solid rgba(255,255,255,.05);
-    border-radius:10px;padding:18px;
-    display:flex;align-items:center;justify-content:center;min-height:80px;
+    border-radius:10px;padding:5px;height:96px;
+    display:flex;align-items:center;justify-content:center;
   }
-  .card .logo-box img{max-height:48px;width:auto;object-fit:contain;}
+  .card .logo-box img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transition:transform .3s ease,filter .3s ease;}
+  .card .logo-box:hover img{transform:scale(1.12);filter:drop-shadow(0 4px 14px rgba(255,138,61,.5));}
   .invert-logo{filter:brightness(0) invert(1);}
-  .logo-lg{max-height:64px !important;}
   .card h3{font-size:17px;font-weight:700;}
   .tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent3);margin-bottom:4px;}
   .card p{color:var(--muted);font-size:14px;flex:1;}
@@ -197,7 +197,8 @@
     border-radius:10px;padding:24px;margin-bottom:22px;
   }
   .feature-card.light .logo-box{background:#fff;border:none;}
-  .feature-card .logo-box img{max-height:56px;margin:0 auto;}
+  .feature-card .logo-box img{max-height:56px;margin:0 auto;transition:transform .3s ease,filter .3s ease;}
+  .feature-card .logo-box:hover img{transform:scale(1.12);filter:drop-shadow(0 4px 14px rgba(255,138,61,.5));}
   .feature-card p{color:var(--muted);font-size:14px;margin-bottom:18px;}
 
   .contact{
@@ -427,7 +428,7 @@
       </div>
 
       <div class="card">
-        <div class="logo-box"><img class="logo-lg" src="assets/nosy-mitsio.png" alt="Nosy Mitsio"></div>
+        <div class="logo-box"><img src="assets/nosy-mitsio.png" alt="Nosy Mitsio"></div>
         <span class="tag">Tourisme</span>
         <h3>Nosy Mitsio</h3>
         <p>Excursions & séjours premium à Nosy Mitsio au départ de Nosy Be.</p>
