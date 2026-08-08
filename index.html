@@ -277,15 +277,17 @@
   @keyframes bounceCue{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
 
   .play-cue{
-    position:absolute;top:8%;left:41%;transform:translateX(-50%);z-index:2;
+    --cue-x:40px;
+    position:absolute;top:8%;left:41%;transform:translateX(calc(-50% + var(--cue-x)));z-index:2;
     display:flex;flex-direction:column;align-items:center;gap:6px;
     color:#8a94a6;font-weight:300;font-size:13px;letter-spacing:0.5px;
     pointer-events:none;transition:opacity .5s ease,transform .5s ease;
   }
-  @media (max-width:900px){.play-cue{left:50%;top:4%;}}
-  .play-cue.is-hidden{opacity:0;transform:translateX(-50%) translateY(-10px);}
+  @media (max-width:900px){.play-cue{--cue-x:0px;left:50%;top:4%;}.play-cue-arrow{display:none;}}
+  .play-cue.is-hidden{opacity:0;transform:translateX(calc(-50% + var(--cue-x))) translateY(-10px);}
   .play-cue-icon{width:26px;height:26px;stroke:#8a94a6;animation:playCuePulse 1.8s ease-in-out infinite;}
   .play-cue-arrow{width:46px;height:58px;margin-left:34px;}
+  .play-cue-hint{font-size:11px;font-weight:300;letter-spacing:0.3px;}
   @keyframes playCuePulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(0.82);opacity:0.55;}}
   @media (prefers-reduced-motion:reduce){
     .hero-cover h2 span{animation:none;}
@@ -321,6 +323,7 @@
   <div class="play-cue" id="playCue">
     <img class="play-cue-icon" src="assets/LOGO (3).png" alt="">
     <span>Amusez-vous…</span>
+    <span class="play-cue-hint">Cliquez et étirez la sphère</span>
     <img class="play-cue-arrow" src="assets/fleche.png" alt="">
   </div>
   <div class="scroll-cue">
