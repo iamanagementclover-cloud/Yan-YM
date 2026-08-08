@@ -91,7 +91,9 @@
     overflow:hidden;
     transform:rotateY(180deg) translateZ(30px);
     background:linear-gradient(135deg,var(--accent1),var(--accent2));
+    display:flex;align-items:center;justify-content:center;padding:18%;
   }
+  .card-back img{width:100%;height:100%;object-fit:contain;transform:scale(1);}
   /* video/photo sit outside the preserve-3d box, as their own single-level rotating
      element — video inside a doubly-nested preserve-3d ancestor fails to composite
      on some browser/GPU combos, this keeps it to one 3D transform layer */
@@ -101,7 +103,7 @@
     animation:cardSpin 3s cubic-bezier(.65,0,.35,1) infinite;
   }
   .card-media img, .card-media video{width:100%;height:100%;object-fit:cover;display:block;}
-  .card-edge{position:absolute;transform-origin:0 0;border-radius:26px;}
+  .card-edge{position:absolute;transform-origin:0 0;border-radius:14px;}
   .card-edge-l, .card-edge-r{width:30px;top:0;height:100%;background:linear-gradient(180deg,var(--accent1),var(--accent2));}
   .card-edge-l{left:0;transform-origin:left center;transform:rotateY(90deg);}
   .card-edge-r{left:100%;transform-origin:left center;transform:rotateY(90deg);}
@@ -346,7 +348,7 @@
       </div>
       <div class="hero-photo">
         <div class="card-3d">
-          <div class="card-face card-back"></div>
+          <div class="card-face card-back"><img src="assets/Design sans titre.png" alt="Yan YM"></div>
           <div class="card-edge card-edge-l"></div>
           <div class="card-edge card-edge-r"></div>
           <div class="card-edge card-edge-t"></div>
