@@ -5,8 +5,10 @@
 # Unused processed asset
 assets/yan-nobg.png
 
-# Raw video source duplicate (site uses assets/presentation.mp4)
+# Raw video source duplicates (site uses assets/presentation.mp4 and assets/hero-yan.mp4)
 assets/Yan YM presentation*.mp4
+assets/Yan YM*.mp4
+assets/Yan YM.mp4
 
 # Firebase deploy build folder (generated copy of index.html + assets)
 public/
