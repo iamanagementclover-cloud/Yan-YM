@@ -4,19 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>YAN YM — Développeur web & produits digitaux</title>
-<meta name="description" content="Portfolio de YAN YM — développeur web à Nosy Be, sites vitrines, e-commerce et produits digitaux sur-mesure, PMS Lemon, formation IA Mahay IA.">
+<meta name="description" content="Portfolio de YAN YM — sites web pour l'hôtellerie et le tourisme à Nosy Be, PMS Lemon, formation IA Mahay IA.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "YAN YM",
-  "url": "https://yan-ym.web.app",
-  "description": "Développeur web à Nosy Be — sites vitrines, e-commerce, produits digitaux et automatisations IA pour tout type de projet.",
-  "areaServed": "Nosy Be, Madagascar",
-  "address": { "@type": "PostalAddress", "addressLocality": "Nosy Be", "addressCountry": "MG" }
-}
-</script>
 <style>
   :root{
     --bg:#020f21;
@@ -53,20 +42,35 @@
   .logo-name{font-weight:800;font-size:clamp(16px,4vw,20px);letter-spacing:1px;line-height:1;display:flex;align-items:center;gap:6px;flex-shrink:0;}
   .logo-name .logo-yan{height:clamp(34px,8vw,66px);width:auto;}
   .logo-name span{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
-  nav ul{list-style:none;display:flex;align-items:center;gap:clamp(12px,3.5vw,28px);flex-wrap:wrap;justify-content:flex-end;}
+  .hero .slogan{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+  @media (max-width:860px){.hero .slogan{text-align:center;}}
+  nav ul{list-style:none;display:flex;gap:clamp(12px,3.5vw,28px);flex-wrap:wrap;justify-content:flex-end;}
   nav a{color:var(--muted);font-size:clamp(12px,3vw,14px);font-weight:600;transition:color .2s;white-space:nowrap;}
   nav a:hover{color:var(--text);}
-  nav a.nav-cta{
-    color:#0b0d10;background:linear-gradient(90deg,var(--accent1),var(--accent2));
-    padding:8px 16px;border-radius:8px;font-weight:700;
-  }
-  nav a.nav-cta:hover{color:#0b0d10;filter:brightness(1.08);}
   @media (max-width:400px){
     nav{padding:12px 16px;}
     .logo-name .logo-yan{height:28px;}
   }
 
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:80px 24px;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0;filter:blur(60px);pointer-events:none;}
+  .hero-bg .blob{position:absolute;border-radius:50%;opacity:.4;}
+  .hero-bg .blob1{width:320px;height:320px;background:var(--accent1);top:-100px;left:8%;animation:float1 11s ease-in-out infinite;}
+  .hero-bg .blob2{width:280px;height:280px;background:var(--accent2);top:20px;right:10%;animation:float2 13s ease-in-out infinite;}
+  .hero-bg .blob3{width:220px;height:220px;background:var(--accent3);bottom:-90px;left:45%;animation:float3 9s ease-in-out infinite;}
+  @keyframes float1{0%,100%{transform:translate(0,0);}50%{transform:translate(60px,50px) scale(1.2);}}
+  @keyframes float2{0%,100%{transform:translate(0,0);}50%{transform:translate(-50px,-30px) scale(1.15);}}
+  @keyframes float3{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-40px,30px) scale(.85);}}
+  .hero .wrap{position:relative;z-index:1;}
+  .hero-split{
+    display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;
+  }
   @media (max-width:860px){
+    .hero-split{grid-template-columns:1fr;text-align:center;}
     .hero-photo{order:-1;margin:0 auto;}
   }
   .hero-photo{
@@ -76,7 +80,7 @@
   .card-3d{
     position:relative;width:100%;height:100%;
     transform-style:preserve-3d;-webkit-transform-style:preserve-3d;
-    transition:transform .9s cubic-bezier(.65,0,.35,1);
+    animation:cardSpin 3s cubic-bezier(.65,0,.35,1) infinite;
   }
   .card-face{
     position:absolute;inset:0;
@@ -95,7 +99,7 @@
   .card-media{
     position:absolute;inset:0;overflow:hidden;
     backface-visibility:hidden;-webkit-backface-visibility:hidden;
-    transition:transform .9s cubic-bezier(.65,0,.35,1);
+    animation:cardSpin 3s cubic-bezier(.65,0,.35,1) infinite;
   }
   .card-media img, .card-media video{width:100%;height:100%;object-fit:cover;display:block;}
   .card-edge{position:absolute;transform-origin:0 0;}
@@ -105,19 +109,17 @@
   .card-edge-t, .card-edge-b{height:30px;left:0;width:100%;background:linear-gradient(90deg,var(--accent1),var(--accent2));}
   .card-edge-t{top:0;transform-origin:center top;transform:rotateX(-90deg);}
   .card-edge-b{top:100%;transform-origin:center top;transform:rotateX(-90deg);}
-  .hero-photo{cursor:pointer;}
-  .hero-photo:hover .card-3d,.hero-photo:hover .card-media,
-  .hero-photo.is-flipped .card-3d,.hero-photo.is-flipped .card-media{
-    transform:rotateY(180deg);
+  @keyframes cardSpin{
+    0%{transform:rotateY(0deg);}
+    100%{transform:rotateY(360deg);}
   }
-  .hero-photo:focus-visible{outline:2px solid var(--accent2);outline-offset:6px;}
-  .flip-hint{
-    display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:14px;
-  }
-  @media (max-width:860px){.flip-hint{text-align:center;}}
   @media (prefers-reduced-motion:reduce){
-    .card-3d,.card-media{transition:none;}
+    .card-3d{animation:none;}
   }
+  .hero h1{font-size:clamp(28px,4.4vw,44px);font-weight:800;margin-bottom:14px;letter-spacing:.5px;}
+  .hero h1 span{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p{color:var(--muted);font-size:18px;max-width:520px;margin:0 0 32px;}
+  @media (max-width:860px){.hero p{margin:0 auto 32px;}}
   .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
   @media (max-width:860px){.cta-row{justify-content:center;}}
   .btn{
@@ -139,29 +141,8 @@
   .btn-ghost:hover{border-color:var(--accent2);background:rgba(255,255,255,.07);}
 
   section{padding:80px 0;}
-  .video-section{padding:0;line-height:0;background:#000;position:relative;}
+  .video-section{padding:0;line-height:0;background:#000;}
   .video-section video{width:100%;display:block;height:auto;}
-  .video-caption{
-    position:absolute;top:20px;left:20px;z-index:2;line-height:1.3;
-    font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-    color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);pointer-events:none;
-  }
-  .video-mute{
-    position:absolute;bottom:20px;right:20px;z-index:2;
-    width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
-    background:rgba(0,0,0,.45);backdrop-filter:blur(8px);
-    display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;
-  }
-  .video-mute svg{width:18px;height:18px;}
-
-  .meet{padding:60px 0 20px;}
-  .meet .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center;}
-  @media (max-width:860px){.meet .wrap{grid-template-columns:1fr;text-align:center;}}
-  .meet .hero-photo{max-width:280px;}
-  @media (max-width:860px){.meet .hero-photo{margin:0 auto;}}
-  .meet h3{font-size:22px;font-weight:800;margin-bottom:10px;}
-  .meet p{color:var(--muted);max-width:52ch;}
-  @media (max-width:860px){.meet p{margin:0 auto;}}
   .section-title{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--accent2);font-weight:800;margin-bottom:10px;}
   .section-heading{font-size:clamp(22px,3.6vw,30px);font-weight:800;margin-bottom:40px;max-width:560px;}
   .section-heading small{display:block;color:var(--muted);font-weight:400;font-size:16px;margin-top:10px;}
@@ -248,6 +229,7 @@
   .whatsapp-btn svg{width:30px;height:30px;}
 
   @media (prefers-reduced-motion:reduce){
+    .hero-bg .blob{animation:none !important;}
     html{scroll-behavior:auto;}
     .btn:hover,.card:hover,.feature-card:hover,.whatsapp-btn:hover{transform:none;}
   }
@@ -262,33 +244,23 @@
   .hero-cover .cover-split{
     display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;
   }
-  .hero-cover .cover-split > div:first-child{pointer-events:auto;}
   @media (max-width:900px){
     .hero-cover .cover-split{grid-template-columns:1fr;text-align:center;}
-    .hero-cover .globe-wrap{height:260px;}
+    .hero-cover .globe-wrap{order:-1;height:340px;}
   }
-  .stats-row{
-    display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:30px;
-    font-size:13px;color:var(--muted);pointer-events:auto;
-  }
-  @media (max-width:900px){.stats-row{justify-content:center;}}
-  .stats-row b{color:var(--text);font-weight:800;}
-  .stats-row .dot{opacity:.4;}
   .hero-cover .cover-tagline{
     font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
     color:var(--muted);margin-bottom:16px;
   }
-  .hero-cover h1{
-    font-size:clamp(28px,4.2vw,46px);font-weight:800;line-height:1.15;max-width:560px;letter-spacing:.3px;
+  .hero-cover h2{
+    font-size:clamp(28px,4.2vw,50px);font-weight:800;line-height:1.15;max-width:520px;
   }
-  @media (max-width:900px){.hero-cover h1{max-width:100%;margin:0 auto;}}
-  .hero-cover h1 span{
+  @media (max-width:900px){.hero-cover h2{max-width:100%;margin:0 auto;}}
+  .hero-cover h2 span{
     background:linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3));
     -webkit-background-clip:text;background-clip:text;color:transparent;
     background-size:200% auto;animation:coverGradient 6s linear infinite;
   }
-  .hero-cover p{color:var(--muted);font-size:18px;max-width:520px;margin:16px 0 0;}
-  @media (max-width:900px){.hero-cover p{margin:16px auto 0;}}
   @keyframes coverGradient{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
   .hero-cover .globe-wrap{position:relative;height:560px;}
   .hero-cover canvas{
@@ -305,17 +277,20 @@
   @keyframes bounceCue{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
 
   .play-cue{
-    position:absolute;top:6%;left:50%;transform:translateX(-50%);z-index:2;
+    --cue-x:40px;
+    position:absolute;top:8%;left:41%;transform:translateX(calc(-50% + var(--cue-x)));z-index:2;
     display:flex;flex-direction:column;align-items:center;gap:6px;
-    color:#8a94a6;font-weight:300;font-size:13px;letter-spacing:0.5px;text-align:center;
+    color:#8a94a6;font-weight:300;font-size:13px;letter-spacing:0.5px;
     pointer-events:none;transition:opacity .5s ease,transform .5s ease;
   }
-  .play-cue.is-hidden{opacity:0;transform:translateX(-50%) translateY(-10px);}
+  @media (max-width:900px){.play-cue{--cue-x:0px;left:50%;top:4%;}.play-cue-arrow{display:none;}}
+  .play-cue.is-hidden{opacity:0;transform:translateX(calc(-50% + var(--cue-x))) translateY(-10px);}
   .play-cue-icon{width:26px;height:26px;stroke:#8a94a6;animation:playCuePulse 1.8s ease-in-out infinite;}
+  .play-cue-arrow{width:46px;height:58px;margin-left:34px;}
   .play-cue-hint{font-size:11px;font-weight:300;letter-spacing:0.3px;}
   @keyframes playCuePulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(0.82);opacity:0.55;}}
   @media (prefers-reduced-motion:reduce){
-    .hero-cover h1 span{animation:none;}
+    .hero-cover h2 span{animation:none;}
     .scroll-cue{animation:none;}
     .play-cue-icon{animation:none;}
   }
@@ -329,7 +304,7 @@
     <ul>
       <li><a href="#projets">Projets</a></li>
       <li><a href="#produits">Produits</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -340,28 +315,16 @@
     <div class="cover-split">
       <div>
         <div class="cover-tagline">Yield · Avantage · Numérique</div>
-        <h1>Des sites web qui donnent <span>vie</span> à vos <span>projets</span></h1>
-        <p>Développeur web à Nosy Be, Madagascar — sites vitrines, e-commerce, produits digitaux et automatisations IA, pour tout type de projet.</p>
-        <div class="cta-row">
-          <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-          <a href="https://wa.me/261321926659?text=Bonjour%20Yan%2C%20je%20souhaite%20un%20site%20pour..." class="btn btn-ghost" target="_blank" rel="noopener">Me contacter</a>
-        </div>
-        <div class="stats-row">
-          <span><b>6</b> sites livrés</span>
-          <span class="dot">·</span>
-          <span>Sites vitrines, <b>e-commerce &amp; sur-mesure</b></span>
-          <span class="dot">·</span>
-          <span>Basé à <b>Nosy Be</b></span>
-        </div>
+        <h2>Des idées à <span>l'expérience digitale</span> qui marque</h2>
       </div>
-      <div class="globe-wrap">
-        <div class="play-cue" id="playCue">
-          <img class="play-cue-icon" src="assets/LOGO (3).png" alt="">
-          <span>Amusez-vous…</span>
-          <span class="play-cue-hint">Cliquez et étirez la sphère</span>
-        </div>
-      </div>
+      <div class="globe-wrap"></div>
     </div>
+  </div>
+  <div class="play-cue" id="playCue">
+    <img class="play-cue-icon" src="assets/LOGO (3).png" alt="">
+    <span>Amusez-vous…</span>
+    <span class="play-cue-hint">Cliquez et étirez la sphère</span>
+    <img class="play-cue-arrow" src="assets/fleche.png" alt="">
   </div>
   <div class="scroll-cue">
     Découvrir
@@ -369,50 +332,61 @@
   </div>
 </section>
 
-<section class="meet">
+<section class="hero">
+  <div class="hero-bg">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+  </div>
   <div class="wrap">
-    <div class="hero-photo" tabindex="0" role="button" aria-label="Retourner la carte de visite de Yan">
-      <div class="card-3d">
-        <div class="card-face card-back"><img src="assets/card-sticker.png" alt="Yan YM"></div>
-        <div class="card-edge card-edge-l"></div>
-        <div class="card-edge card-edge-r"></div>
-        <div class="card-edge card-edge-t"></div>
-        <div class="card-edge card-edge-b"></div>
+    <div class="hero-split">
+      <div>
+        <div class="slogan">Yield · Avantage · Numérique</div>
+        <h1>Développeur & créateur de marques — je conçois des <span>sites, produits digitaux, identités visuelles</span> et <span>automatisations IA</span> qui simplifient votre quotidien.</h1>
+        <p>Basé à Nosy Be, Madagascar — sites vitrines, e-commerce, PMS hôtelier, branding et automatisations IA pour votre business.</p>
+        <div class="cta-row">
+          <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+          <a href="#contact" class="btn btn-ghost">Me contacter</a>
+        </div>
       </div>
-      <div class="card-media"><video src="assets/hero-yan.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-    </div>
-    <div>
-      <div class="section-title">À propos</div>
-      <h3>Yan, développeur &amp; créateur de marques</h3>
-      <p>Je conçois des sites, produits digitaux, identités visuelles et automatisations IA qui simplifient le quotidien des indépendants et petites structures, tous secteurs confondus.</p>
-      <span class="flip-hint">Survolez ou touchez la carte pour la retourner</span>
+      <div class="hero-photo">
+        <div class="card-3d">
+          <div class="card-face card-back"><img src="assets/Design sans titre.png" alt="Yan YM"></div>
+          <div class="card-edge card-edge-l"></div>
+          <div class="card-edge card-edge-r"></div>
+          <div class="card-edge card-edge-t"></div>
+          <div class="card-edge card-edge-b"></div>
+        </div>
+        <div class="card-media"><video src="assets/hero-yan.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="video-section">
-  <span class="video-caption">Yan YM — comment je travaille</span>
-  <video id="presoVideo" src="assets/presentation.mp4" autoplay muted loop playsinline preload="auto"></video>
-  <button type="button" class="video-mute" id="videoMuteBtn" aria-label="Activer le son">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-  </button>
+  <video id="presoVideo" src="assets/presentation.mp4" autoplay loop playsinline preload="auto"></video>
 </section>
 <script>
 (function(){
   var v = document.getElementById('presoVideo');
-  var btn = document.getElementById('videoMuteBtn');
-  if(!v || !btn) return;
-  function syncIcon(){
-    btn.innerHTML = v.muted
-      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>'
-      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>';
-    btn.setAttribute('aria-label', v.muted ? 'Activer le son' : 'Couper le son');
-  }
-  btn.addEventListener('click', function(){
-    v.muted = !v.muted;
-    syncIcon();
+  if(!v) return;
+  v.style.cursor = 'pointer';
+  v.addEventListener('click', function(){
+    if(v.paused) v.play(); else v.pause();
   });
-  syncIcon();
+
+  // try to autoplay with sound on; browsers that block it will reject the play() promise,
+  // in that case fall back to a muted autoplay and unmute on the first click anywhere
+  var playPromise = v.play();
+  if(playPromise !== undefined){
+    playPromise.catch(function(){
+      v.muted = true;
+      v.play();
+      document.addEventListener('click', function(){
+        v.muted = false;
+      }, { once: true });
+    });
+  }
 })();
 </script>
 
@@ -500,18 +474,18 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <h2>Parlons de votre projet.</h2>
-    <p>Site vitrine, e-commerce, ou produit sur-mesure. Décrivez votre besoin en quelques lignes, sans engagement.</p>
+    <p>Site vitrine, e-commerce, ou produit sur-mesure.</p>
     <div class="contact-methods">
-      <a class="btn btn-primary" href="https://wa.me/261321926659?text=Bonjour%20Yan%2C%20je%20souhaite%20un%20site%20pour..." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+      <a class="btn btn-primary" href="https://wa.me/261321926659" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 YAN YM. Tous droits réservés. — Nosy Be, Madagascar
+  © 2026 YAN YM. Tous droits réservés.
 </footer>
 
-<a class="whatsapp-btn" href="https://wa.me/261321926659?text=Bonjour%20Yan%2C%20je%20souhaite%20un%20site%20pour..." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+<a class="whatsapp-btn" href="https://wa.me/261321926659" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
   <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg">
     <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.34.64 4.53 1.75 6.41L4 29l7.78-1.7A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.63 28 15S22.63 3 16.004 3zm0 21.8c-1.98 0-3.83-.55-5.41-1.5l-.39-.23-4.62 1.01 1-4.5-.25-.4A9.77 9.77 0 0 1 5.2 15c0-5.96 4.85-10.8 10.8-10.8S26.8 9.04 26.8 15 21.96 24.8 16.004 24.8zm5.98-8.13c-.33-.16-1.93-.95-2.23-1.06-.3-.11-.52-.16-.74.16-.22.33-.85 1.06-1.04 1.27-.19.22-.38.24-.71.08-.33-.16-1.38-.51-2.63-1.63-.97-.87-1.63-1.94-1.82-2.27-.19-.33-.02-.5.14-.67.14-.14.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.72s1.17 3.15 1.33 3.37c.16.22 2.3 3.51 5.57 4.92.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.93-.79 2.2-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.63-.38z"/>
   </svg>
@@ -796,22 +770,6 @@
   }
   window.addEventListener('resize', function(){
     resize();
-  });
-})();
-</script>
-
-<script>
-(function(){
-  var card = document.querySelector('.meet .hero-photo');
-  if(!card) return;
-  card.addEventListener('click', function(){
-    card.classList.toggle('is-flipped');
-  });
-  card.addEventListener('keydown', function(e){
-    if(e.key === 'Enter' || e.key === ' '){
-      e.preventDefault();
-      card.classList.toggle('is-flipped');
-    }
   });
 })();
 </script>
