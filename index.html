@@ -141,11 +141,6 @@
   section{padding:80px 0;}
   .video-section{padding:0;line-height:0;background:#000;position:relative;}
   .video-section video{width:100%;display:block;height:auto;}
-  .video-caption{
-    position:absolute;top:20px;left:20px;z-index:2;line-height:1.3;
-    font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-    color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);pointer-events:none;
-  }
   .video-mute{
     position:absolute;bottom:20px;right:20px;z-index:2;
     width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
@@ -219,6 +214,29 @@
   .feature-card .logo-box img{max-height:56px;margin:0 auto;transition:transform .3s ease,filter .3s ease;}
   .feature-card .logo-box:hover img{transform:scale(1.12);filter:drop-shadow(0 4px 14px rgba(255,138,61,.5));}
   .feature-card p{color:var(--muted);font-size:14px;margin-bottom:18px;}
+
+  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media (max-width:860px){.process-grid{grid-template-columns:1fr;gap:32px;}}
+  .step{position:relative;text-align:center;opacity:0;transform:translateY(36px) scale(.96);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
+  .process-grid.is-visible .step{opacity:1;transform:translateY(0) scale(1);}
+  .process-grid.is-visible .step:nth-child(1){transition-delay:0s;}
+  .process-grid.is-visible .step:nth-child(2){transition-delay:.5s;}
+  .process-grid.is-visible .step:nth-child(3){transition-delay:1s;}
+  .step-icon{
+    width:30px;height:30px;color:var(--accent2);margin-bottom:18px;
+  }
+  .step-num{
+    font-size:12px;font-weight:800;letter-spacing:.1em;margin-bottom:10px;
+    color:var(--muted);
+  }
+  .step h3{font-size:18px;font-weight:700;margin-bottom:8px;}
+  .step p{color:var(--muted);font-size:14px;}
+  @media (max-width:860px){
+    .process-grid .step:not(:last-child){padding-bottom:28px;border-bottom:1px solid var(--border);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .step{opacity:1;transform:none;transition:none;}
+  }
 
   .contact{
     background:rgba(7,26,51,.55);
@@ -347,10 +365,6 @@
           <a href="https://wa.me/261321926659?text=Bonjour%20Yan%2C%20je%20souhaite%20un%20site%20pour..." class="btn btn-ghost" target="_blank" rel="noopener">Me contacter</a>
         </div>
         <div class="stats-row">
-          <span><b>6</b> sites livrés</span>
-          <span class="dot">·</span>
-          <span>Sites vitrines, <b>e-commerce &amp; sur-mesure</b></span>
-          <span class="dot">·</span>
           <span>Basé à <b>Nosy Be</b></span>
         </div>
       </div>
@@ -391,7 +405,6 @@
 </section>
 
 <section class="video-section">
-  <span class="video-caption">Yan YM — comment je travaille</span>
   <video id="presoVideo" src="assets/presentation.mp4" autoplay muted loop playsinline preload="auto"></video>
   <button type="button" class="video-mute" id="videoMuteBtn" aria-label="Activer le son">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
@@ -492,6 +505,35 @@
         <div class="logo-box"><img src="assets/mahay-ia.png" alt="Mahay IA"></div>
         <p>Mahay IA — formation pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.</p>
         <a class="link" href="https://mahay-ia--mahay-ia.us-central1.hosted.app" target="_blank" rel="noopener">Voir le site →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-title">Processus</div>
+    <h2 class="section-heading">Comment on travaille ensemble
+      <small>Simple, cadré, sans mauvaise surprise.</small>
+    </h2>
+    <div class="process-grid">
+      <div class="step">
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        <div class="step-num">01</div>
+        <h3>On discute de votre projet</h3>
+        <p>Un échange pour comprendre votre besoin, vos objectifs et votre budget.</p>
+      </div>
+      <div class="step">
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+        <div class="step-num">02</div>
+        <h3>On élabore le plan et la structure</h3>
+        <p>Structure du site, design et fonctionnalités — validés ensemble avant de commencer.</p>
+      </div>
+      <div class="step">
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+        <div class="step-num">03</div>
+        <h3>Site livré en maximum 2 semaines</h3>
+        <p>Développement, tests et mise en ligne.</p>
       </div>
     </div>
   </div>
@@ -813,6 +855,22 @@
       card.classList.toggle('is-flipped');
     }
   });
+})();
+</script>
+
+<script>
+(function(){
+  var grid = document.querySelector('.process-grid');
+  if(!grid || !('IntersectionObserver' in window)) return;
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        grid.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(grid);
 })();
 </script>
 
