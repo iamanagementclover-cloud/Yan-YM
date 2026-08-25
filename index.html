@@ -161,7 +161,19 @@
   .section-heading{font-size:clamp(22px,3.6vw,30px);font-weight:800;margin-bottom:40px;max-width:560px;}
   .section-heading small{display:block;color:var(--muted);font-weight:400;font-size:16px;margin-top:10px;}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
+  .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent);}
+  .marquee-track{display:flex;width:max-content;animation:marquee-scroll linear infinite;}
+  .marquee-set{display:contents;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  .marquee-projects .marquee-track{gap:22px;animation-duration:38s;}
+  .marquee-projects .card{flex:0 0 300px;}
+  .marquee-produits .marquee-track{gap:28px;animation-duration:22s;}
+  .marquee-produits .feature-card{flex:0 0 340px;}
+  @keyframes marquee-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion:reduce){
+    .marquee-track{animation:none;}
+    .marquee{overflow-x:auto;}
+  }
   .card{
     background:rgba(12,31,59,.45);
     backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
@@ -191,8 +203,6 @@
   .card .link:hover,.feature-card .link:hover{text-decoration:underline;}
   .feature-card .link{margin-top:-6px;}
 
-  .split{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-  @media (max-width:720px){.split{grid-template-columns:1fr;}}
   .feature-card{
     background:rgba(12,31,59,.45);
     backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
@@ -435,64 +445,127 @@
     <h2 class="section-heading">Sites web livrés pour l'hôtellerie & le tourisme
       <small>Chaque projet : cahier des charges, design, dev, mise en ligne.</small>
     </h2>
-    <div class="grid">
+    <div class="marquee marquee-projects">
+      <div class="marquee-track">
+      <div class="marquee-set">
 
-      <div class="card">
-        <div class="logo-box"><img src="assets/maxi-market.png" alt="Maxi Market"></div>
-        <span class="tag">E-commerce</span>
-        <h3>Maxi Market</h3>
-        <p>Livraison de courses en ligne à Nosy Be, commande via site ou WhatsApp, livraison en moins de 3h.</p>
-        <a class="link" href="https://maximarket.mg/fr" target="_blank" rel="noopener">Voir le site →</a>
+        <div class="card">
+          <div class="logo-box"><img src="assets/maxi-market.png" alt="Maxi Market"></div>
+          <span class="tag">E-commerce</span>
+          <h3>Maxi Market</h3>
+          <p>Livraison de courses en ligne à Nosy Be, commande via site ou WhatsApp, livraison en moins de 3h.</p>
+          <a class="link" href="https://maximarket.mg/fr" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img src="assets/fleur-dylang.png" alt="Hôtel Fleur d'Ylang"></div>
+          <span class="tag">Hôtellerie</span>
+          <h3>Hôtel Fleur d'Ylang</h3>
+          <p>Site vitrine boutique hôtel à Nosy Be — charme authentique, confort & calme.</p>
+          <a class="link" href="https://www.hotelfleurdylang-nosybe.com/home" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img src="assets/vaovao-hotel.png" alt="VaoVao Hotel"></div>
+          <span class="tag">Hôtellerie</span>
+          <h3>VaoVao Hotel</h3>
+          <p>Hébergement familial en bord de mer, chambres & appartements T2, partenariats excursions.</p>
+          <a class="link" href="https://www.vaovaohotel.com" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img class="invert-logo" src="assets/immersion-evasion.png" alt="Immersion Evasion"></div>
+          <span class="tag">Agence de voyage</span>
+          <h3>Immersion Evasion</h3>
+          <p>Agence de voyage spécialisée dans les retraites immersives bien-être & culture à Nosy Be.</p>
+          <a class="link" href="https://www.immersion-evasion.com" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img src="assets/nosy-mitsio.png" alt="Nosy Mitsio"></div>
+          <span class="tag">Tourisme</span>
+          <h3>Nosy Mitsio</h3>
+          <p>Excursions & séjours premium à Nosy Mitsio au départ de Nosy Be.</p>
+          <a class="link" href="https://www.nosymitsio.com" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img src="assets/akonba-kite.png" alt="Akomba Kite"></div>
+          <span class="tag">Tourisme & sport</span>
+          <h3>Akomba Kite</h3>
+          <p>École de kitesurf & sports nautiques à Nosy Be — cours, location de matériel, excursions encadrées par des moniteurs certifiés IKO.</p>
+          <a class="link" href="https://www.kitesurfnosybe.com/fr" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img src="assets/bat-store.png" alt="Bat'Store"></div>
+          <span class="tag">Quincaillerie</span>
+          <h3>Bat'Store</h3>
+          <p>Quincaillerie en ligne à Nosy Be — outillage, plomberie, électricité, peinture, matériaux, jardin. Livraison rapide sur toute l'île.</p>
+          <a class="link" href="https://bat-store.com" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+
       </div>
+      <div class="marquee-set" aria-hidden="true">
 
-      <div class="card">
-        <div class="logo-box"><img src="assets/fleur-dylang.png" alt="Hôtel Fleur d'Ylang"></div>
-        <span class="tag">Hôtellerie</span>
-        <h3>Hôtel Fleur d'Ylang</h3>
-        <p>Site vitrine boutique hôtel à Nosy Be — charme authentique, confort & calme.</p>
-        <a class="link" href="https://www.hotelfleurdylang-nosybe.com/home" target="_blank" rel="noopener">Voir le site →</a>
+        <div class="card">
+          <div class="logo-box"><img src="assets/maxi-market.png" alt="" aria-hidden="true"></div>
+          <span class="tag">E-commerce</span>
+          <h3>Maxi Market</h3>
+          <p>Livraison de courses en ligne à Nosy Be, commande via site ou WhatsApp, livraison en moins de 3h.</p>
+          <a class="link" href="https://maximarket.mg/fr" tabindex="-1">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img src="assets/fleur-dylang.png" alt="" aria-hidden="true"></div>
+          <span class="tag">Hôtellerie</span>
+          <h3>Hôtel Fleur d'Ylang</h3>
+          <p>Site vitrine boutique hôtel à Nosy Be — charme authentique, confort & calme.</p>
+          <a class="link" href="https://www.hotelfleurdylang-nosybe.com/home" tabindex="-1">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img src="assets/vaovao-hotel.png" alt="" aria-hidden="true"></div>
+          <span class="tag">Hôtellerie</span>
+          <h3>VaoVao Hotel</h3>
+          <p>Hébergement familial en bord de mer, chambres & appartements T2, partenariats excursions.</p>
+          <a class="link" href="https://www.vaovaohotel.com" tabindex="-1">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img class="invert-logo" src="assets/immersion-evasion.png" alt="" aria-hidden="true"></div>
+          <span class="tag">Agence de voyage</span>
+          <h3>Immersion Evasion</h3>
+          <p>Agence de voyage spécialisée dans les retraites immersives bien-être & culture à Nosy Be.</p>
+          <a class="link" href="https://www.immersion-evasion.com" tabindex="-1">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img src="assets/nosy-mitsio.png" alt="" aria-hidden="true"></div>
+          <span class="tag">Tourisme</span>
+          <h3>Nosy Mitsio</h3>
+          <p>Excursions & séjours premium à Nosy Mitsio au départ de Nosy Be.</p>
+          <a class="link" href="https://www.nosymitsio.com" tabindex="-1">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img src="assets/akonba-kite.png" alt="" aria-hidden="true"></div>
+          <span class="tag">Tourisme & sport</span>
+          <h3>Akomba Kite</h3>
+          <p>École de kitesurf & sports nautiques à Nosy Be — cours, location de matériel, excursions encadrées par des moniteurs certifiés IKO.</p>
+          <a class="link" href="https://www.kitesurfnosybe.com/fr" tabindex="-1">Voir le site →</a>
+        </div>
+
+        <div class="card">
+          <div class="logo-box"><img src="assets/bat-store.png" alt="" aria-hidden="true"></div>
+          <span class="tag">Quincaillerie</span>
+          <h3>Bat'Store</h3>
+          <p>Quincaillerie en ligne à Nosy Be — outillage, plomberie, électricité, peinture, matériaux, jardin. Livraison rapide sur toute l'île.</p>
+          <a class="link" href="https://bat-store.com" tabindex="-1">Voir le site →</a>
+        </div>
+
       </div>
-
-      <div class="card">
-        <div class="logo-box"><img src="assets/vaovao-hotel.png" alt="VaoVao Hotel"></div>
-        <span class="tag">Hôtellerie</span>
-        <h3>VaoVao Hotel</h3>
-        <p>Hébergement familial en bord de mer, chambres & appartements T2, partenariats excursions.</p>
-        <a class="link" href="https://www.vaovaohotel.com" target="_blank" rel="noopener">Voir le site →</a>
       </div>
-
-      <div class="card">
-        <div class="logo-box"><img class="invert-logo" src="assets/immersion-evasion.png" alt="Immersion Evasion"></div>
-        <span class="tag">Agence de voyage</span>
-        <h3>Immersion Evasion</h3>
-        <p>Agence de voyage spécialisée dans les retraites immersives bien-être & culture à Nosy Be.</p>
-        <a class="link" href="https://www.immersion-evasion.com" target="_blank" rel="noopener">Voir le site →</a>
-      </div>
-
-      <div class="card">
-        <div class="logo-box"><img src="assets/nosy-mitsio.png" alt="Nosy Mitsio"></div>
-        <span class="tag">Tourisme</span>
-        <h3>Nosy Mitsio</h3>
-        <p>Excursions & séjours premium à Nosy Mitsio au départ de Nosy Be.</p>
-        <a class="link" href="https://www.nosymitsio.com" target="_blank" rel="noopener">Voir le site →</a>
-      </div>
-
-      <div class="card">
-        <div class="logo-box"><img src="assets/akonba-kite.png" alt="Akomba Kite"></div>
-        <span class="tag">Tourisme & sport</span>
-        <h3>Akomba Kite</h3>
-        <p>École de kitesurf & sports nautiques à Nosy Be — cours, location de matériel, excursions encadrées par des moniteurs certifiés IKO.</p>
-        <a class="link" href="https://www.kitesurfnosybe.com/fr" target="_blank" rel="noopener">Voir le site →</a>
-      </div>
-
-      <div class="card">
-        <div class="logo-box"><img src="assets/bat-store.png" alt="Bat'Store"></div>
-        <span class="tag">Quincaillerie</span>
-        <h3>Bat'Store</h3>
-        <p>Quincaillerie en ligne à Nosy Be — outillage, plomberie, électricité, peinture, matériaux, jardin. Livraison rapide sur toute l'île.</p>
-        <a class="link" href="https://bat-store.com" target="_blank" rel="noopener">Voir le site →</a>
-      </div>
-
     </div>
   </div>
 </section>
@@ -503,21 +576,42 @@
     <h2 class="section-heading">Au-delà des sites vitrines
       <small>Les marques que je développe en parallèle.</small>
     </h2>
-    <div class="split">
-      <div class="feature-card">
-        <div class="logo-box"><img src="assets/lemon.png" alt="Lemon PMS"></div>
-        <p>Lemon — logiciel de gestion hôtelière (PMS) : réservations, chambres, facturation, pensé pour les indépendants et petites structures.</p>
-        <a class="link" href="https://lemon-hotel-site.web.app" target="_blank" rel="noopener">Voir le site →</a>
+    <div class="marquee marquee-produits">
+      <div class="marquee-track">
+      <div class="marquee-set">
+        <div class="feature-card">
+          <div class="logo-box"><img src="assets/lemon.png" alt="Lemon PMS"></div>
+          <p>Lemon — logiciel de gestion hôtelière (PMS) : réservations, chambres, facturation, pensé pour les indépendants et petites structures.</p>
+          <a class="link" href="https://lemon-hotel-site.web.app" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+        <div class="feature-card">
+          <div class="logo-box"><img src="assets/mahay-ia.png" alt="Mahay IA"></div>
+          <p>Mahay IA — formation pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.</p>
+          <a class="link" href="https://mahay-ia--mahay-ia.us-central1.hosted.app" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+        <div class="feature-card">
+          <div class="logo-box"><img src="assets/orbit.png" alt="Orbit"></div>
+          <p>Orbit — logiciel de caisse intelligente : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.</p>
+          <a class="link" href="https://orbit-ia-site.web.app" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="logo-box"><img src="assets/mahay-ia.png" alt="Mahay IA"></div>
-        <p>Mahay IA — formation pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.</p>
-        <a class="link" href="https://mahay-ia--mahay-ia.us-central1.hosted.app" target="_blank" rel="noopener">Voir le site →</a>
+      <div class="marquee-set" aria-hidden="true">
+        <div class="feature-card">
+          <div class="logo-box"><img src="assets/lemon.png" alt="" aria-hidden="true"></div>
+          <p>Lemon — logiciel de gestion hôtelière (PMS) : réservations, chambres, facturation, pensé pour les indépendants et petites structures.</p>
+          <a class="link" href="https://lemon-hotel-site.web.app" tabindex="-1">Voir le site →</a>
+        </div>
+        <div class="feature-card">
+          <div class="logo-box"><img src="assets/mahay-ia.png" alt="" aria-hidden="true"></div>
+          <p>Mahay IA — formation pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.</p>
+          <a class="link" href="https://mahay-ia--mahay-ia.us-central1.hosted.app" tabindex="-1">Voir le site →</a>
+        </div>
+        <div class="feature-card">
+          <div class="logo-box"><img src="assets/orbit.png" alt="" aria-hidden="true"></div>
+          <p>Orbit — logiciel de caisse intelligente : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.</p>
+          <a class="link" href="https://orbit-ia-site.web.app" tabindex="-1">Voir le site →</a>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="logo-box"><img src="assets/orbit.png" alt="Orbit"></div>
-        <p>Orbit — logiciel de caisse intelligente : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.</p>
-        <a class="link" href="https://orbit-ia-site.web.app" target="_blank" rel="noopener">Voir le site →</a>
       </div>
     </div>
   </div>
