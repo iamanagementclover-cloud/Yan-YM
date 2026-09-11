@@ -6,6 +6,21 @@
 <title>YAN YM — Développeur web & produits digitaux</title>
 <meta name="description" content="Portfolio de YAN YM — développeur web à Nosy Be, sites vitrines, e-commerce et produits digitaux sur-mesure, PMS Lemon, formation IA Mahay IA.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yan-ym.web.app">
+<meta property="og:title" content="YAN YM — Des sites web qui donnent vie à vos projets">
+<meta property="og:description" content="Sites vitrines, e-commerce, produits digitaux et automatisations IA — pour indépendants et petites structures. Basé à Nosy Be, Madagascar.">
+<meta property="og:image" content="https://yan-ym.web.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YAN YM — Des sites web qui donnent vie à vos projets">
+<meta name="twitter:description" content="Sites vitrines, e-commerce, produits digitaux et automatisations IA — pour indépendants et petites structures. Basé à Nosy Be, Madagascar.">
+<meta name="twitter:image" content="https://yan-ym.web.app/assets/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -19,340 +34,325 @@
 </script>
 <style>
   :root{
-    --bg:#020f21;
-    --bg-alt:#071a33;
-    --card:#0c1f3b;
-    --border:#1c3455;
-    --text:#eef1f4;
-    --muted:#9aa4b2;
-    --accent1:#ff2f6e;
-    --accent2:#ff8a3d;
-    --accent3:#caff33;
+    --bg:#050b16;
+    --bg-alt:#0a1626;
+    --glass:rgba(255,255,255,.045);
+    --glass-hover:rgba(255,255,255,.075);
+    --border:rgba(255,255,255,.09);
+    --border-strong:rgba(255,255,255,.16);
+    --text:#f3f5f8;
+    --muted:#93a0b3;
+    --muted-dim:#5f6c80;
+    --pink:#ff2f6e;
+    --orange:#ff8a3d;
+    --lime:#caff33;
+    --grad: linear-gradient(90deg,var(--pink),var(--orange));
+    --glow: 0 0 0 1px rgba(255,138,61,.25), 0 8px 30px -6px rgba(255,47,110,.45);
+    --radius-lg:24px;
+    --radius-md:16px;
+    --radius-sm:10px;
+    --maxw:1180px;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--bg);
+    background:
+      radial-gradient(900px 500px at 15% -8%, rgba(255,47,110,.14), transparent 60%),
+      radial-gradient(800px 480px at 100% 10%, rgba(255,138,61,.10), transparent 55%),
+      var(--bg);
     color:var(--text);
-    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-    line-height:1.5;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
   }
-  a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:'Manrope',sans-serif;text-wrap:balance;}
+  ::selection{background:var(--pink);color:#05060a;}
 
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(2,15,33,.55);
-    backdrop-filter:blur(20px) saturate(160%);
-    -webkit-backdrop-filter:blur(20px) saturate(160%);
-    border-bottom:1px solid rgba(255,255,255,.07);
-    box-shadow:0 1px 0 rgba(255,255,255,.04) inset, 0 8px 30px rgba(0,0,0,.25);
+  /* eyebrow badge */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:8px 16px 8px 12px;border-radius:999px;
+    background:var(--glass);border:1px solid var(--border);
+    font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--muted);
   }
-  nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;max-width:1100px;margin:0 auto;}
-  .logo-name{font-weight:800;font-size:clamp(16px,4vw,20px);letter-spacing:1px;line-height:1;display:flex;align-items:center;gap:6px;flex-shrink:0;}
-  .logo-name .logo-yan{height:clamp(34px,8vw,66px);width:auto;}
-  .logo-name span{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
-  nav ul{list-style:none;display:flex;align-items:center;gap:clamp(12px,3.5vw,28px);flex-wrap:wrap;justify-content:flex-end;}
-  nav a{color:var(--muted);font-size:clamp(12px,3vw,14px);font-weight:600;transition:color .2s;white-space:nowrap;}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px 2px rgba(202,255,51,.6);flex-shrink:0;}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:15px 28px;border-radius:999px;
+    font-weight:700;font-size:15px;white-space:nowrap;
+    transition:filter .2s, transform .2s;
+    border:none;cursor:pointer;font-family:inherit;
+  }
+  .btn-primary{background:var(--grad);color:#0b0508;box-shadow:var(--glow);}
+  .btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px);}
+  .btn-ghost{background:var(--glass);border:1px solid var(--border-strong);color:var(--text);}
+  .btn-ghost:hover{background:var(--glass-hover);}
+
+  /* header */
+  header{position:sticky;top:0;z-index:100;background:rgba(5,11,22,.7);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border-bottom:1px solid var(--border);}
+  nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;max-width:var(--maxw);margin:0 auto;}
+  .logo-name{font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;letter-spacing:.01em;display:flex;align-items:center;gap:7px;flex-shrink:0;}
+  .logo-name .logo-yan{height:clamp(32px,7vw,52px);width:auto;}
+  .logo-name .ym{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  nav ul{list-style:none;display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
+  nav a{color:var(--muted);font-size:14px;font-weight:600;transition:color .2s;}
   nav a:hover{color:var(--text);}
-  nav a.nav-cta{
-    color:#0b0d10;background:linear-gradient(90deg,var(--accent1),var(--accent2));
-    padding:8px 16px;border-radius:8px;font-weight:700;
-  }
-  nav a.nav-cta:hover{color:#0b0d10;filter:brightness(1.08);}
-  @media (max-width:400px){
-    nav{padding:12px 16px;}
-    .logo-name .logo-yan{height:28px;}
-  }
+  nav .btn-primary{padding:11px 22px;font-size:14px;}
 
-  @media (max-width:860px){
-    .hero-photo{order:-1;margin:0 auto;}
-  }
+  section{padding:112px 0;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;margin:16px 0 12px;line-height:1.12;}
+  .section-head p{color:var(--muted);font-size:16.5px;}
+  .eyebrow-row{margin-bottom:16px;}
+
+  /* HERO */
+  .hero{padding-top:88px;padding-bottom:80px;position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+    background-image:radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+    background-size:26px 26px;
+    -webkit-mask-image:radial-gradient(700px 460px at 30% 20%, #000, transparent 75%);
+    mask-image:radial-gradient(700px 460px at 30% 20%, #000, transparent 75%);}
+  #heroCanvas{position:absolute;inset:0;z-index:0;pointer-events:none;}
+
+  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+  .hero h1{font-size:clamp(38px,5.2vw,58px);font-weight:800;line-height:1.06;margin:22px 0 20px;letter-spacing:-.01em;}
+  .hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p.lead{font-size:18px;color:var(--muted);max-width:460px;margin-bottom:34px;}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-tag-line{display:flex;align-items:center;gap:12px;margin-top:32px;font-size:13px;color:var(--muted-dim);font-weight:600;}
+  .hero-tag-line .dashln{width:28px;height:1px;background:var(--border-strong);display:block;}
+
+  /* HERO dashboard mockup (Orbit demo) */
+  .hero-dash{position:relative;background:var(--bg-alt);border:1px solid var(--border-strong);border-radius:20px;overflow:visible;box-shadow:0 30px 70px -20px rgba(0,0,0,.55);}
+  .dash-bar{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--border);border-radius:20px 20px 0 0;background:rgba(255,255,255,.02);}
+  .dash-dots{display:flex;gap:6px;}
+  .dash-dots i{width:8px;height:8px;border-radius:50%;background:var(--border-strong);display:block;}
+  .dash-title{font-size:12.5px;font-weight:700;color:var(--muted);}
+  .dash-badge{margin-left:auto;font-size:9.5px;font-weight:700;letter-spacing:.05em;color:var(--orange);background:rgba(255,138,61,.1);border:1px solid rgba(255,138,61,.25);padding:4px 9px;border-radius:999px;white-space:nowrap;}
+  .dash-body{padding:20px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden;border-radius:0 0 20px 20px;}
+  .dash-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .dash-stat{background:var(--glass);border:1px solid var(--border);border-radius:12px;padding:12px 14px;}
+  .dash-stat .dl{display:block;font-size:9px;font-weight:700;letter-spacing:.06em;color:var(--muted-dim);margin-bottom:6px;}
+  .dash-stat .dv{font-family:'Manrope';font-weight:800;font-size:16.5px;}
+  .dash-notif{position:absolute;top:14px;right:14px;max-width:180px;background:var(--bg);border:1px solid var(--border-strong);border-radius:12px;padding:10px 12px;display:flex;gap:8px;align-items:flex-start;box-shadow:0 14px 30px -8px rgba(0,0,0,.5);z-index:2;opacity:0;transform:translateY(8px) scale(.96);transition:opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1);}
+  .dash-notif.show{opacity:1;transform:translateY(0) scale(1);}
+  .dash-notif .check{width:16px;height:16px;border-radius:50%;background:var(--lime);color:#05060a;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .dash-notif b{display:block;font-size:11.5px;font-weight:700;}
+  .dash-notif small{font-size:10px;color:var(--muted-dim);}
+  .dash-chart .dl{display:block;font-size:9px;font-weight:700;letter-spacing:.06em;color:var(--muted-dim);margin-bottom:10px;}
+  .bars{display:flex;align-items:flex-end;gap:7px;height:60px;}
+  .bars i{flex:1;height:0;background:var(--border-strong);border-radius:4px 4px 0 0;display:block;transition:height .8s cubic-bezier(.16,1,.3,1);}
+  .bars i.hi{background:var(--lime);}
+  .dash-invoices .dl{display:block;font-size:9px;font-weight:700;letter-spacing:.06em;color:var(--muted-dim);margin-bottom:8px;}
+  .inv-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--border);font-size:12.5px;gap:8px;}
+  .inv-row:first-of-type{border-top:none;}
+  .inv-row b{font-weight:700;display:block;}
+  .inv-row small{color:var(--muted-dim);font-size:10px;}
+  .inv-amt{text-align:right;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+  .pill{font-size:9px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap;}
+  .pill.paid{background:rgba(202,255,51,.12);color:var(--lime);border:1px solid rgba(202,255,51,.3);}
+  .pill.pending{background:rgba(255,138,61,.12);color:var(--orange);border:1px solid rgba(255,138,61,.3);}
+  .dash-alert{position:absolute;left:-14px;bottom:-16px;max-width:195px;background:var(--bg);border:1px solid var(--border-strong);border-radius:12px;padding:10px 12px;display:flex;gap:8px;align-items:flex-start;box-shadow:0 14px 30px -8px rgba(0,0,0,.5);z-index:2;opacity:0;transform:translateY(8px) scale(.96);transition:opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1);}
+  .dash-alert.show{opacity:1;transform:translateY(0) scale(1);}
+  .dash-alert .warn{width:16px;height:16px;border-radius:50%;background:var(--pink);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .dash-alert b{display:block;font-size:11.5px;font-weight:700;}
+  .dash-alert small{font-size:10px;color:var(--muted-dim);}
+
+  /* ABOUT (3D flip business card) */
+  .about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;}
   .hero-photo{
     width:100%;max-width:420px;aspect-ratio:1/1;
-    perspective:1400px;
+    perspective:1400px;cursor:pointer;
+    border-radius:var(--radius-lg);overflow:hidden;
+    border:1px solid var(--border-strong);
+    box-shadow:0 30px 70px -24px rgba(0,0,0,.6);
   }
-  .card-3d{
-    position:relative;width:100%;height:100%;
-    transform-style:preserve-3d;-webkit-transform-style:preserve-3d;
-    transition:transform .9s cubic-bezier(.65,0,.35,1);
-  }
-  .card-face{
-    position:absolute;inset:0;
-    backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  }
-  .card-back{
-    overflow:hidden;
-    transform:rotateY(180deg) translateZ(30px);
-    background:linear-gradient(135deg,var(--accent1),var(--accent2));
-    display:flex;align-items:center;justify-content:center;padding:18%;
-  }
+  .card-3d{position:relative;width:100%;height:100%;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .9s cubic-bezier(.65,0,.35,1);}
+  .card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;}
+  .card-back{overflow:hidden;transform:rotateY(180deg) translateZ(30px);background:var(--grad);display:flex;align-items:center;justify-content:center;padding:18%;}
   .card-back img{width:100%;height:100%;object-fit:contain;transform:scale(1.4);}
-  /* video/photo sit outside the preserve-3d box, as their own single-level rotating
-     element — video inside a doubly-nested preserve-3d ancestor fails to composite
-     on some browser/GPU combos, this keeps it to one 3D transform layer */
-  .card-media{
-    position:absolute;inset:0;overflow:hidden;
-    backface-visibility:hidden;-webkit-backface-visibility:hidden;
-    transition:transform .9s cubic-bezier(.65,0,.35,1);
-  }
+  .card-media{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .9s cubic-bezier(.65,0,.35,1);}
   .card-media img, .card-media video{width:100%;height:100%;object-fit:cover;display:block;}
   .card-edge{position:absolute;transform-origin:0 0;}
-  .card-edge-l, .card-edge-r{width:30px;top:0;height:100%;background:linear-gradient(180deg,var(--accent1),var(--accent2));}
+  .card-edge-l, .card-edge-r{width:30px;top:0;height:100%;background:var(--grad);}
   .card-edge-l{left:0;transform-origin:left center;transform:rotateY(90deg);}
   .card-edge-r{left:100%;transform-origin:left center;transform:rotateY(90deg);}
-  .card-edge-t, .card-edge-b{height:30px;left:0;width:100%;background:linear-gradient(90deg,var(--accent1),var(--accent2));}
+  .card-edge-t, .card-edge-b{height:30px;left:0;width:100%;background:var(--grad);}
   .card-edge-t{top:0;transform-origin:center top;transform:rotateX(-90deg);}
   .card-edge-b{top:100%;transform-origin:center top;transform:rotateX(-90deg);}
-  .hero-photo{cursor:pointer;}
   .hero-photo:hover .card-3d,.hero-photo:hover .card-media,
-  .hero-photo.is-flipped .card-3d,.hero-photo.is-flipped .card-media{
-    transform:rotateY(180deg);
-  }
-  .hero-photo:focus-visible{outline:2px solid var(--accent2);outline-offset:6px;}
-  .flip-hint{
-    display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:14px;
-  }
-  @media (max-width:860px){.flip-hint{text-align:center;}}
-  @media (prefers-reduced-motion:reduce){
-    .card-3d,.card-media{transition:none;}
-  }
-  .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
-  @media (max-width:860px){.cta-row{justify-content:center;}}
-  .btn{
-    padding:13px 26px;border-radius:10px;font-weight:700;font-size:14px;
-    border:1px solid var(--border);transition:transform .15s, border-color .15s;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-primary{
-    background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#0b0d10;border:none;
-    box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 6px 20px rgba(255,47,110,.25);
-  }
-  .btn-ghost{
-    color:var(--text);
-    background:rgba(255,255,255,.04);
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 1px 0 rgba(255,255,255,.08) inset;
-  }
-  .btn-ghost:hover{border-color:var(--accent2);background:rgba(255,255,255,.07);}
+  .hero-photo.is-flipped .card-3d,.hero-photo.is-flipped .card-media{transform:rotateY(180deg);}
+  .hero-photo:focus-visible{outline:2px solid var(--orange);outline-offset:6px;}
+  @media (prefers-reduced-motion:reduce){.card-3d,.card-media{transition:none;}}
+  .about h3{font-size:clamp(24px,3vw,32px);font-weight:800;margin:14px 0 14px;}
+  .about p{color:var(--muted);font-size:16.5px;max-width:480px;}
+  .flip-hint{display:inline-block;margin-top:18px;font-size:12.5px;color:var(--muted-dim);font-weight:600;}
 
-  section{padding:80px 0;}
-  .video-section{padding:0;line-height:0;background:#000;position:relative;}
-  .video-section video{width:100%;display:block;height:auto;}
-  .video-mute{
-    position:absolute;bottom:20px;right:20px;z-index:2;
-    width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
-    background:rgba(0,0,0,.45);backdrop-filter:blur(8px);
-    display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;
-  }
-  .video-mute svg{width:18px;height:18px;}
-
-  .meet{padding:60px 0 20px;}
-  .meet .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center;}
-  @media (max-width:860px){.meet .wrap{grid-template-columns:1fr;text-align:center;}}
-  .meet .hero-photo{max-width:280px;}
-  @media (max-width:860px){.meet .hero-photo{margin:0 auto;}}
-  .meet h3{font-size:22px;font-weight:800;margin-bottom:10px;}
-  .meet p{color:var(--muted);max-width:52ch;}
-  @media (max-width:860px){.meet p{margin:0 auto;}}
-  .section-title{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--accent2);font-weight:800;margin-bottom:10px;}
-  .section-heading{font-size:clamp(22px,3.6vw,30px);font-weight:800;margin-bottom:40px;max-width:560px;}
-  .section-heading small{display:block;color:var(--muted);font-weight:400;font-size:16px;margin-top:10px;}
-
+  /* SECTEURS BAND — bandeau défilant gradient + drag-to-scroll */
+  .metiers{padding:64px 0;}
+  .metiers .wrap{margin-bottom:26px;}
   .marquee{overflow:hidden;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent);}
   .marquee.dragging{cursor:grabbing;}
   .marquee-track{display:flex;width:max-content;animation:marquee-scroll linear infinite;touch-action:pan-y;}
   .marquee-set{display:contents;user-select:none;}
   .marquee.dragging .marquee-set{user-select:none;}
-  .marquee-projects .marquee-track{gap:22px;animation-duration:38s;}
-  .marquee-projects .card{flex:0 0 300px;}
-  .marquee-produits .marquee-track{gap:28px;animation-duration:22s;}
-  .marquee-produits .feature-card{flex:0 0 340px;}
   @keyframes marquee-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-  @media (prefers-reduced-motion:reduce){
-    .marquee-track{animation:none;}
-    .marquee{overflow-x:auto;}
-  }
-
-  .metiers-band{background:linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3),var(--accent2),var(--accent1));background-size:200% auto;padding:22px 0;border-top:1px solid rgba(0,0,0,.15);border-bottom:1px solid rgba(0,0,0,.15);}
+  @media (prefers-reduced-motion:reduce){.marquee-track{animation:none;}.marquee{overflow-x:auto;}}
+  .metiers-band{background:linear-gradient(90deg,var(--pink),var(--orange),var(--lime),var(--orange),var(--pink));background-size:200% auto;padding:22px 0;border-top:1px solid rgba(0,0,0,.15);border-bottom:1px solid rgba(0,0,0,.15);}
   .metiers-band .marquee-track{animation-duration:32s;animation-direction:reverse;gap:0;}
-  .metier-item{display:flex;align-items:center;gap:12px;padding:0 28px;color:#0b0d10;font-weight:800;text-transform:uppercase;letter-spacing:.5px;font-size:clamp(18px,2.4vw,26px);white-space:nowrap;border-right:2px solid rgba(11,13,16,.25);}
-  .metier-item svg{width:26px;height:26px;flex:none;stroke:#0b0d10;}
-  @media (max-width:600px){.metier-item{font-size:16px;gap:8px;padding:0 16px;}.metier-item svg{width:20px;height:20px;}}
-  .card{
-    background:rgba(12,31,59,.45);
-    backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
-    border:1px solid rgba(255,255,255,.08);border-radius:16px;
-    padding:28px;display:flex;flex-direction:column;gap:18px;
-    box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 10px 30px rgba(0,0,0,.3);
-    transition:border-color .2s, transform .2s, box-shadow .2s;
-  }
-  .card:hover{
-    border-color:rgba(255,138,61,.4);transform:translateY(-4px);
-    box-shadow:0 1px 0 rgba(255,255,255,.08) inset, 0 16px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(255,138,61,.15);
-  }
-  .card .logo-box{
-    background:rgba(2,15,33,.65);
-    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-    border:1px solid rgba(255,255,255,.05);
-    border-radius:10px;padding:5px;height:96px;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .card .logo-box img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transition:transform .3s ease,filter .3s ease;}
-  .card .logo-box:hover img{transform:scale(1.12);filter:drop-shadow(0 4px 14px rgba(255,138,61,.5));}
+  .metier-item{display:flex;align-items:center;gap:12px;padding:0 28px;color:#0b0d10;font-weight:800;text-transform:uppercase;letter-spacing:.5px;font-size:clamp(16px,2vw,22px);white-space:nowrap;border-right:2px solid rgba(11,13,16,.25);}
+  .metier-item svg{width:22px;height:22px;flex:none;stroke:#0b0d10;}
+
+  /* VIDEO PRESENTATION */
+  .video-section{padding:0;line-height:0;background:#000;position:relative;}
+  .video-section video{width:100%;display:block;height:auto;}
+  .video-mute{position:absolute;bottom:20px;right:20px;z-index:2;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.45);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;}
+  .video-mute svg{width:18px;height:18px;}
+
+  /* PLAY SPHERE — mini-jeu interactif */
+  .play-section{position:relative;height:600px;background:var(--bg);overflow:hidden;border-bottom:1px solid var(--border);}
+  .play-section canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab;}
+  .play-cue{position:absolute;top:9%;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;pointer-events:none;transition:opacity .5s ease, transform .5s ease;}
+  .play-cue.is-hidden{opacity:0;transform:translateX(-50%) translateY(-10px);}
+  .play-cue-icon{width:32px;height:32px;animation:playCuePulse 1.8s ease-in-out infinite;filter:drop-shadow(0 0 10px rgba(255,255,255,.3));}
+  .play-cue-title{font-size:16px;font-weight:800;color:var(--text);font-family:'Manrope',sans-serif;}
+  .play-cue-hint{font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.02em;}
+  @keyframes playCuePulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(.84);opacity:.6;}}
+  @media (max-width:900px){.play-section{height:360px;}}
+  @media (prefers-reduced-motion:reduce){.play-cue-icon{animation:none;}}
+
+  /* SERVICES */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .svc-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius-md);padding:30px;transition:border-color .2s, transform .2s, background .2s;}
+  .svc-card:hover{border-color:var(--border-strong);background:var(--glass-hover);transform:translateY(-3px);}
+  .svc-icon{width:46px;height:46px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+  .svc-icon svg{width:22px;height:22px;color:#0b0508;}
+  .svc-card h3{font-size:18px;font-weight:800;margin-bottom:9px;}
+  .svc-card p{color:var(--muted);font-size:14.5px;margin-bottom:16px;}
+  .svc-tags{display:flex;flex-wrap:wrap;gap:7px;}
+  .svc-tags span{font-size:11.5px;font-weight:600;color:var(--muted-dim);padding:4px 10px;border:1px solid var(--border);border-radius:999px;}
+
+  /* REALISATIONS — bandeau défilant */
+  .marquee-projects .marquee-track{gap:20px;animation-duration:38s;}
+  .proj-card{flex:0 0 300px;background:var(--glass);border:1px solid var(--border);border-radius:var(--radius-md);padding:22px;transition:border-color .2s, transform .2s;}
+  .proj-card:hover{border-color:var(--border-strong);transform:translateY(-3px);}
+  .proj-logo{width:100%;height:120px;border-radius:12px;background:var(--bg-alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:18px;overflow:hidden;}
+  .proj-logo img{max-width:66%;max-height:60%;object-fit:contain;}
   .invert-logo{filter:brightness(0) invert(1);}
-  .card h3{font-size:17px;font-weight:700;}
-  .tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent3);margin-bottom:4px;}
-  .card p{color:var(--muted);font-size:14px;flex:1;}
-  .card .link,.feature-card .link{font-size:13px;font-weight:700;color:var(--accent2);display:flex;align-items:center;gap:6px;}
-  .card .link:hover,.feature-card .link:hover{text-decoration:underline;}
-  .feature-card .link{margin-top:-6px;}
+  .tag-chip{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--lime);background:rgba(202,255,51,.08);border:1px solid rgba(202,255,51,.25);padding:5px 11px;border-radius:999px;margin-bottom:12px;}
+  .proj-card h3{font-size:16.5px;font-weight:800;margin-bottom:7px;}
+  .proj-card p{font-size:13.5px;color:var(--muted);margin-bottom:14px;}
+  .proj-card .link{font-size:13px;font-weight:700;color:var(--orange);}
 
-  .feature-card{
-    background:rgba(12,31,59,.45);
-    backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
-    border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:36px;
-    box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 10px 30px rgba(0,0,0,.3);
-    transition:border-color .2s, transform .2s, box-shadow .2s;
-  }
-  .feature-card:hover{
-    border-color:rgba(255,138,61,.4);transform:translateY(-4px);
-    box-shadow:0 1px 0 rgba(255,255,255,.08) inset, 0 16px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(255,138,61,.15);
-  }
-  .feature-card .logo-box{
-    background:rgba(2,15,33,.65);
-    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-    border:1px solid rgba(255,255,255,.05);
-    border-radius:10px;padding:24px;margin-bottom:22px;
-  }
-  .feature-card.light .logo-box{background:#fff;border:none;}
-  .feature-card .logo-box img{max-height:56px;margin:0 auto;transition:transform .3s ease,filter .3s ease;}
-  .feature-card .logo-box:hover img{transform:scale(1.12);filter:drop-shadow(0 4px 14px rgba(255,138,61,.5));}
-  .feature-card p{color:var(--muted);font-size:14px;margin-bottom:18px;}
+  /* SOLUTIONS TEASER */
+  .solutions-teaser{padding:64px 0;}
+  .solutions-cta-panel{position:relative;overflow:hidden;background:linear-gradient(155deg,rgba(255,47,110,.14),rgba(255,138,61,.06) 55%,var(--glass));border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:64px 56px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .solutions-cta-panel::before{content:"";position:absolute;top:-40%;right:-10%;width:420px;height:420px;background:radial-gradient(circle, rgba(202,255,51,.16), transparent 70%);pointer-events:none;}
+  .solutions-cta-panel > div{position:relative;max-width:560px;}
+  .solutions-cta-panel h2{font-size:clamp(26px,3.2vw,36px);font-weight:800;margin:16px 0 12px;line-height:1.15;}
+  .solutions-cta-panel p{color:var(--muted);font-size:16px;}
+  .btn-lg{position:relative;padding:21px 42px;font-size:16.5px;flex-shrink:0;}
 
-  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
-  @media (max-width:860px){.process-grid{grid-template-columns:1fr;gap:32px;}}
-  .step{position:relative;text-align:center;opacity:0;transform:translateY(36px) scale(.96);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
-  .process-grid.is-visible .step{opacity:1;transform:translateY(0) scale(1);}
+  /* PRODUITS */
+  .produits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .prod-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius-md);padding:26px;display:flex;flex-direction:column;gap:16px;}
+  .prod-logo{width:52px;height:52px;border-radius:12px;background:var(--bg-alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;}
+  .prod-logo img{max-width:70%;max-height:70%;object-fit:contain;}
+  .prod-card p{color:var(--muted);font-size:14px;flex:1;}
+  .prod-card .link{font-size:13px;font-weight:700;color:var(--orange);}
+
+  /* SOLUTIONS (grid + pages détail) */
+  .solutions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .sol-card{display:flex;flex-direction:column;gap:12px;background:var(--glass);border:1px solid var(--border);border-radius:var(--radius-md);padding:26px;cursor:pointer;transition:border-color .2s, transform .2s, background .2s;}
+  .sol-card:hover{border-color:var(--border-strong);background:var(--glass-hover);transform:translateY(-3px);}
+  .sol-card h3{font-size:16.5px;font-weight:800;}
+  .sol-card p{font-size:13.5px;color:var(--muted);flex:1;}
+  .sol-card .go{font-size:12.5px;font-weight:700;color:var(--orange);}
+
+  .page-solutions{padding:64px 0 110px;min-height:55vh;}
+  .back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:30px;}
+  .back-link:hover{color:var(--text);}
+  #sdTitle{font-size:clamp(28px,3.6vw,42px);font-weight:800;margin-bottom:16px;line-height:1.12;}
+  .sd-lead{font-size:17px;color:var(--muted);max-width:660px;margin-bottom:44px;}
+  .sd-features{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 40px;margin-bottom:44px;}
+  .sd-feat h4{font-size:15.5px;font-weight:800;margin-bottom:7px;}
+  .sd-feat p{font-size:14px;color:var(--muted);}
+  .sd-cases{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+  .sd-case{display:flex;align-items:center;gap:10px;padding:11px 16px;border:1px solid var(--border);border-radius:999px;background:var(--glass);font-size:13px;font-weight:700;transition:border-color .2s;}
+  .sd-case:hover{border-color:var(--border-strong);}
+  .sd-case img{width:22px;height:22px;object-fit:contain;border-radius:5px;}
+  .sd-case.cross{color:var(--orange);border-color:rgba(255,138,61,.3);background:rgba(255,138,61,.06);}
+
+  /* ENGAGEMENTS */
+  .engage-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .engage-item{display:flex;align-items:center;gap:12px;padding:16px 18px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--glass);font-size:14px;font-weight:600;color:var(--text);}
+  .engage-item svg{width:18px;height:18px;color:var(--lime);flex-shrink:0;}
+
+  /* PROCESS / MÉTHODE */
+  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;}
+  .process-grid::before{content:"";position:absolute;top:26px;left:8%;right:8%;height:1px;background:var(--border);z-index:0;}
+  .step{position:relative;z-index:1;padding-right:24px;opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.2,.7,.3,1), transform .6s cubic-bezier(.2,.7,.3,1);}
+  .process-grid.is-visible .step{opacity:1;transform:translateY(0);}
   .process-grid.is-visible .step:nth-child(1){transition-delay:0s;}
-  .process-grid.is-visible .step:nth-child(2){transition-delay:.5s;}
-  .process-grid.is-visible .step:nth-child(3){transition-delay:1s;}
-  .step-icon{
-    width:30px;height:30px;color:var(--accent2);margin-bottom:18px;
-  }
-  .step-num{
-    font-size:12px;font-weight:800;letter-spacing:.1em;margin-bottom:10px;
-    color:var(--muted);
-  }
-  .step h3{font-size:18px;font-weight:700;margin-bottom:8px;}
-  .step p{color:var(--muted);font-size:14px;}
-  @media (max-width:860px){
-    .process-grid .step:not(:last-child){padding-bottom:28px;border-bottom:1px solid var(--border);}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .step{opacity:1;transform:none;transition:none;}
-  }
+  .process-grid.is-visible .step:nth-child(2){transition-delay:.15s;}
+  .process-grid.is-visible .step:nth-child(3){transition-delay:.3s;}
+  .step-num{font-family:'Manrope';font-weight:800;font-size:14px;color:var(--bg);background:var(--grad);width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:22px;box-shadow:var(--glow);}
+  .step h3{font-size:17px;font-weight:800;margin-bottom:8px;}
+  .step p{font-size:14px;color:var(--muted);}
+  @media (prefers-reduced-motion:reduce){.step{opacity:1;transform:none;transition:none;}}
 
-  .contact{
-    background:rgba(7,26,51,.55);
-    backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
-    border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);
-    text-align:center;
-  }
-  .contact h2{font-size:clamp(24px,4vw,32px);font-weight:800;margin-bottom:14px;}
-  .contact p{color:var(--muted);margin-bottom:30px;}
-  .contact-methods{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  /* CONTACT */
+  .contact-panel{background:linear-gradient(155deg,rgba(255,47,110,.12),rgba(255,138,61,.05) 60%,var(--glass));border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:56px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;}
+  .contact-panel h2{font-size:clamp(26px,3.4vw,36px);font-weight:800;margin-bottom:14px;}
+  .contact-panel > div:first-child p{color:var(--muted);font-size:16px;max-width:420px;}
+  .contact-side{border-left:1px solid var(--border);padding-left:40px;display:flex;flex-direction:column;gap:16px;}
+  .contact-side .label{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-dim);}
+  .contact-side span{font-size:15px;font-weight:700;}
 
-  footer{padding:32px 24px;text-align:center;color:var(--muted);font-size:13px;}
+  /* FOOTER */
+  footer{border-top:1px solid var(--border);}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding:64px 0 40px;}
+  .footer-brand .logo-name{margin-bottom:0;}
+  .footer-brand p{color:var(--muted-dim);font-size:13.5px;margin-top:14px;max-width:260px;}
+  footer h4{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-dim);margin-bottom:16px;}
+  footer .footer-grid > div > a{display:block;font-size:13.5px;color:var(--muted);font-weight:500;margin-bottom:11px;}
+  footer .footer-grid > div > a:hover{color:var(--text);}
+  .footer-bottom{border-top:1px solid var(--border);padding:22px 0;font-size:13px;color:var(--muted-dim);}
 
   .whatsapp-btn{
-    position:fixed;
-    bottom:max(24px, env(safe-area-inset-bottom));
-    right:max(24px, env(safe-area-inset-right));
-    z-index:60;
-    width:58px;height:58px;border-radius:50%;
-    background:#25D366;
-    border:1px solid rgba(255,255,255,.25);
+    position:fixed;bottom:max(24px, env(safe-area-inset-bottom));right:max(24px, env(safe-area-inset-right));z-index:60;
+    width:58px;height:58px;border-radius:50%;background:#25D366;border:1px solid rgba(255,255,255,.25);
     display:flex;align-items:center;justify-content:center;
-    box-shadow:0 1px 0 rgba(255,255,255,.3) inset, 0 6px 20px rgba(0,0,0,.4);
-    transition:transform .2s;
+    box-shadow:0 1px 0 rgba(255,255,255,.3) inset, 0 6px 20px rgba(0,0,0,.4);transition:transform .2s;
   }
   .whatsapp-btn:hover{transform:scale(1.08);}
   .whatsapp-btn svg{width:30px;height:30px;}
 
+  [hidden]{display:none!important;}
+
+  @media (max-width:900px){
+    .hero-inner, .about .wrap{grid-template-columns:1fr;}
+    .hero-dash{order:-1;max-width:420px;margin:0 auto 20px;}
+    .dash-notif, .dash-alert{display:none;}
+    .hero-photo{margin:0 auto;}
+    .services-grid, .produits-grid, .engage-strip, .process-grid, .solutions-grid{grid-template-columns:1fr;}
+    .sd-features{grid-template-columns:1fr;}
+    .process-grid::before{display:none;}
+    .contact-panel{grid-template-columns:1fr;padding:34px;}
+    .contact-side{border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:28px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .solutions-cta-panel{padding:40px 28px;flex-direction:column;align-items:flex-start;}
+    .btn-lg{width:100%;justify-content:center;}
+    section{padding:72px 0;}
+  }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
-    .btn:hover,.card:hover,.feature-card:hover,.whatsapp-btn:hover{transform:none;}
-  }
-
-  .hero-cover{
-    position:relative;overflow:hidden;
-    min-height:100vh;min-height:100dvh;
-    display:flex;align-items:center;
-    background:var(--bg);
-  }
-  .hero-cover .wrap{position:relative;z-index:2;width:100%;pointer-events:none;}
-  .hero-cover .cover-split{
-    display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;
-  }
-  .hero-cover .cover-split > div:first-child{pointer-events:auto;}
-  @media (max-width:900px){
-    .hero-cover .cover-split{grid-template-columns:1fr;text-align:center;}
-    .hero-cover .globe-wrap{height:260px;}
-  }
-  .stats-row{
-    display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:30px;
-    font-size:13px;color:var(--muted);pointer-events:auto;
-  }
-  @media (max-width:900px){.stats-row{justify-content:center;}}
-  .stats-row b{color:var(--text);font-weight:800;}
-  .stats-row .dot{opacity:.4;}
-  .hero-cover .cover-tagline{
-    font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
-    color:var(--muted);margin-bottom:16px;
-  }
-  .hero-cover h1{
-    font-size:clamp(28px,4.2vw,46px);font-weight:800;line-height:1.15;max-width:560px;letter-spacing:.3px;
-  }
-  @media (max-width:900px){.hero-cover h1{max-width:100%;margin:0 auto;}}
-  .hero-cover h1 span{
-    background:linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    background-size:200% auto;animation:coverGradient 6s linear infinite;
-  }
-  .hero-cover p{color:var(--muted);font-size:18px;max-width:520px;margin:16px 0 0;}
-  @media (max-width:900px){.hero-cover p{margin:16px auto 0;}}
-  @keyframes coverGradient{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
-  .hero-cover .globe-wrap{position:relative;height:560px;}
-  .hero-cover canvas{
-    position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;
-    touch-action:pan-y;cursor:grab;pointer-events:auto;
-  }
-  .scroll-cue{
-    position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;
-    display:flex;flex-direction:column;align-items:center;gap:8px;
-    color:var(--muted);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-    animation:bounceCue 2.2s ease-in-out infinite;
-  }
-  .scroll-cue svg{width:18px;height:18px;}
-  @keyframes bounceCue{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
-
-  .play-cue{
-    position:absolute;top:6%;left:50%;transform:translateX(-50%);z-index:2;
-    display:flex;flex-direction:column;align-items:center;gap:6px;
-    color:#8a94a6;font-weight:300;font-size:13px;letter-spacing:0.5px;text-align:center;
-    pointer-events:none;transition:opacity .5s ease,transform .5s ease;
-  }
-  .play-cue.is-hidden{opacity:0;transform:translateX(-50%) translateY(-10px);}
-  .play-cue-icon{width:26px;height:26px;stroke:#8a94a6;animation:playCuePulse 1.8s ease-in-out infinite;}
-  .play-cue-hint{font-size:11px;font-weight:300;letter-spacing:0.3px;}
-  @keyframes playCuePulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(0.82);opacity:0.55;}}
-  @media (prefers-reduced-motion:reduce){
-    .hero-cover h1 span{animation:none;}
-    .scroll-cue{animation:none;}
-    .play-cue-icon{animation:none;}
+    .btn:hover,.whatsapp-btn:hover{transform:none;}
   }
 </style>
 </head>
@@ -360,47 +360,70 @@
 
 <header>
   <nav>
-    <div class="logo-name"><img class="logo-yan" src="assets/yan-logo.png" alt="Yan"> <span>YM</span></div>
+    <a href="#/" class="logo-name"><img class="logo-yan" src="assets/yan-logo.png" alt="Yan"><span class="ym">YM</span></a>
     <ul>
-      <li><a href="#projets">Projets</a></li>
-      <li><a href="#produits">Produits</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li><a href="#/">Accueil</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projets">Réalisations</a></li>
+      <li><a href="#/solutions">Solutions</a></li>
+      <li><a href="#process">Méthode</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#contact" class="btn btn-primary">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<section class="hero-cover">
-  <canvas id="coverCanvas"></canvas>
-  <div class="wrap">
-    <div class="cover-split">
-      <div>
-        <div class="cover-tagline">Yield · Avantage · Numérique</div>
-        <h1>Des sites web qui donnent <span>vie</span> à vos <span>projets</span></h1>
-        <p>Développeur web à Nosy Be, Madagascar — sites vitrines, e-commerce, produits digitaux et automatisations IA, pour tout type de projet.</p>
-        <div class="cta-row">
-          <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-          <a href="https://wa.me/261321926659?text=Bonjour%20Yan%2C%20je%20souhaite%20un%20site%20pour..." class="btn btn-ghost" target="_blank" rel="noopener">Me contacter</a>
-        </div>
-        <div class="stats-row">
-          <span>Basé à <b>Nosy Be</b></span>
-        </div>
+<div id="pageHome">
+
+<section class="hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>DÉVELOPPEUR WEB · NOSY BE, MADAGASCAR</div>
+      <h1>Des sites web qui donnent <em>vie</em> à vos projets</h1>
+      <p class="lead">Sites web qui donnent envie d'acheter, systèmes de gestion qui évitent les erreurs et automatisations qui font gagner du temps. YAN YM construit les outils nécessaires à la croissance de votre entreprise.</p>
+      <div class="cta-row">
+        <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+        <a href="#contact" class="btn btn-ghost">Me contacter</a>
       </div>
-      <div class="globe-wrap">
-        <div class="play-cue" id="playCue">
-          <img class="play-cue-icon" src="assets/LOGO (3).png" alt="">
-          <span>Amusez-vous…</span>
-          <span class="play-cue-hint">Cliquez et étirez la sphère</span>
+      <div class="hero-tag-line"><span class="dashln"></span>Nosy Be, Madagascar</div>
+    </div>
+
+    <div class="hero-dash">
+      <div class="dash-bar">
+        <span class="dash-dots"><i></i><i></i><i></i></span>
+        <span class="dash-title">Orbit — Tableau de bord</span>
+        <span class="dash-badge">DÉMONSTRATION</span>
+      </div>
+      <div class="dash-body">
+        <div class="dash-notif">
+          <span class="check">✓</span>
+          <div><b>Facture envoyée</b><small>F-2026-042 envoyée au client</small></div>
+        </div>
+        <div class="dash-stats">
+          <div class="dash-stat"><span class="dl">CHIFFRE D'AFFAIRES</span><span class="dv" id="dvCA" data-target="3240000" data-suffix=" Ar">0 Ar</span></div>
+          <div class="dash-stat"><span class="dl">COMMANDES</span><span class="dv" id="dvCmd" data-target="128">0</span></div>
+        </div>
+        <div class="dash-chart">
+          <span class="dl">VENTES DES 7 DERNIERS JOURS</span>
+          <div class="bars" id="dashBars"><i data-h="38"></i><i data-h="52"></i><i data-h="44"></i><i data-h="66"></i><i data-h="58"></i><i class="hi" data-h="88"></i><i data-h="40"></i></div>
+        </div>
+        <div class="dash-invoices">
+          <span class="dl">DERNIÈRES FACTURES</span>
+          <div class="inv-row"><div><b>VaoVao Hotel</b><small>F-2026-041</small></div><div class="inv-amt">860 000 Ar<span class="pill paid">Payée</span></div></div>
+          <div class="inv-row"><div><b>Maxi Market</b><small>F-2026-042</small></div><div class="inv-amt">240 000 Ar<span class="pill paid">Payée</span></div></div>
+          <div class="inv-row"><div><b>Bat'Store</b><small>F-2026-043</small></div><div class="inv-amt">1 120 000 Ar<span class="pill pending">En attente</span></div></div>
+        </div>
+        <div class="dash-alert">
+          <span class="warn">!</span>
+          <div><b>Stock faible</b><small>Peinture blanche 5L — 3 unités</small></div>
         </div>
       </div>
     </div>
   </div>
-  <div class="scroll-cue">
-    Découvrir
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-  </div>
 </section>
 
-<section class="meet">
+<section class="about" id="about">
   <div class="wrap">
     <div class="hero-photo" tabindex="0" role="button" aria-label="Retourner la carte de visite de Yan">
       <div class="card-3d">
@@ -413,40 +436,45 @@
       <div class="card-media"><video src="assets/hero-yan.mp4" autoplay muted loop playsinline preload="auto"></video></div>
     </div>
     <div>
-      <div class="section-title">À propos</div>
+      <div class="eyebrow"><span class="dot"></span>À PROPOS</div>
       <h3>Yan, développeur &amp; créateur de marques</h3>
       <p>Je conçois des sites, produits digitaux, identités visuelles et automatisations IA qui simplifient le quotidien des indépendants et petites structures, tous secteurs confondus.</p>
-      <span class="flip-hint">Survolez ou touchez la carte pour la retourner</span>
+      <span class="flip-hint">Survolez ou touchez la carte pour la retourner →</span>
     </div>
   </div>
 </section>
 
-<section class="metiers-band" aria-label="Secteurs accompagnés">
-  <div class="marquee marquee-metiers">
-    <div class="marquee-track">
-      <div class="marquee-set">
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16M2 12h20M6 12V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M2 20v-4h20v4"/></svg>Hôtellerie</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h1v11M6 2v6M10 2v6M14 2c0 3-2 4-2 7s2 4 2 4v9"/></svg>Restauration</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Artisans</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>E-commerce</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Professions libérales</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>Coachs &amp; formateurs</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></svg>Immobilier</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 4.5 2.5C11.5 6 13 5 15 5c3.5 0 5.5 3.5 3.5 7.5C16 16.65 12 21 12 21Z"/></svg>Bien-être &amp; beauté</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12Z"/></svg>Tourisme</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>Auto-entrepreneurs</span>
-      </div>
-      <div class="marquee-set" aria-hidden="true">
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16M2 12h20M6 12V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M2 20v-4h20v4"/></svg>Hôtellerie</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h1v11M6 2v6M10 2v6M14 2c0 3-2 4-2 7s2 4 2 4v9"/></svg>Restauration</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Artisans</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>E-commerce</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Professions libérales</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>Coachs &amp; formateurs</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></svg>Immobilier</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 4.5 2.5C11.5 6 13 5 15 5c3.5 0 5.5 3.5 3.5 7.5C16 16.65 12 21 12 21Z"/></svg>Bien-être &amp; beauté</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12Z"/></svg>Tourisme</span>
-        <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>Auto-entrepreneurs</span>
+<section class="metiers">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>SECTEURS ACCOMPAGNÉS</div>
+  </div>
+  <div class="metiers-band">
+    <div class="marquee marquee-metiers">
+      <div class="marquee-track">
+        <div class="marquee-set">
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16M2 12h20M6 12V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M2 20v-4h20v4"/></svg>Hôtellerie</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h1v11M6 2v6M10 2v6M14 2c0 3-2 4-2 7s2 4 2 4v9"/></svg>Restauration</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Artisans</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>E-commerce</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Professions libérales</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>Coachs &amp; formateurs</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></svg>Immobilier</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 4.5 2.5C11.5 6 13 5 15 5c3.5 0 5.5 3.5 3.5 7.5C16 16.65 12 21 12 21Z"/></svg>Bien-être &amp; beauté</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12Z"/></svg>Tourisme</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>Auto-entrepreneurs</span>
+        </div>
+        <div class="marquee-set" aria-hidden="true">
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16M2 12h20M6 12V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M2 20v-4h20v4"/></svg>Hôtellerie</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h1v11M6 2v6M10 2v6M14 2c0 3-2 4-2 7s2 4 2 4v9"/></svg>Restauration</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Artisans</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>E-commerce</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Professions libérales</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>Coachs &amp; formateurs</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></svg>Immobilier</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2.5 5 6 5c2 0 3.5 1 4.5 2.5C11.5 6 13 5 15 5c3.5 0 5.5 3.5 3.5 7.5C16 16.65 12 21 12 21Z"/></svg>Bien-être &amp; beauté</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12Z"/></svg>Tourisme</span>
+          <span class="metier-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>Auto-entrepreneurs</span>
+        </div>
       </div>
     </div>
   </div>
@@ -458,6 +486,571 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
   </button>
 </section>
+
+<section class="play-section" id="playSection">
+  <canvas id="playSphereCanvas"></canvas>
+  <div class="play-cue" id="playCue">
+    <img class="play-cue-icon" src="assets/LOGO (3).png" alt="">
+    <span class="play-cue-title">Amusez-vous…</span>
+    <span class="play-cue-hint">Cliquez et étirez la sphère</span>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-row"><div class="eyebrow"><span class="dot"></span>SERVICES</div></div>
+      <h2>Un seul interlocuteur, tous les outils dont votre activité a besoin.</h2>
+      <p>Du site vitrine au produit digital sur-mesure, chaque projet est pensé pour résoudre un vrai problème métier.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 8h20"/></svg></div>
+        <h3>Sites vitrines</h3>
+        <p>Design sur-mesure, mobile-first, pensé pour convertir un visiteur en client.</p>
+        <div class="svc-tags"><span>Design personnalisé</span><span>Mobile-first</span><span>SEO de base</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <h3>E-commerce &amp; réservation</h3>
+        <p>Catalogue, panier, commande WhatsApp ou paiement en ligne — vendez sans friction.</p>
+        <div class="svc-tags"><span>Catalogue</span><span>Commande WhatsApp</span><span>Gestion commandes</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 5v5l4 2"/></svg></div>
+        <h3>Produits digitaux</h3>
+        <p>Logiciels et applications sur-mesure — Lemon, Mahay IA, Orbit en sont la preuve.</p>
+        <div class="svc-tags"><span>SaaS</span><span>Dashboard</span><span>Sur-mesure</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg></div>
+        <h3>Automatisation &amp; IA</h3>
+        <p>Faites gagner du temps à votre activité avec des automatisations concrètes.</p>
+        <div class="svc-tags"><span>Assistant IA</span><span>Workflows</span><span>Gain de temps</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
+        <h3>Identité de marque</h3>
+        <p>Logo, charte graphique et supports cohérents pour une image professionnelle.</p>
+        <div class="svc-tags"><span>Logo</span><span>Charte graphique</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></div>
+        <h3>Refonte &amp; maintenance</h3>
+        <p>Site déjà en ligne mais daté ou lent ? Refonte complète ou mises à jour continues.</p>
+        <div class="svc-tags"><span>Refonte</span><span>Suivi continu</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:36px;">
+      <div class="eyebrow-row"><div class="eyebrow"><span class="dot"></span>RÉALISATIONS</div></div>
+      <h2>Sites livrés pour l'hôtellerie, le tourisme &amp; l'e-commerce</h2>
+      <p>Chaque projet : cahier des charges, design, développement, mise en ligne.</p>
+    </div>
+  </div>
+  <div class="marquee marquee-projects">
+    <div class="marquee-track">
+      <div class="marquee-set">
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/maxi-market.png" alt="Maxi Market"></div>
+          <span class="tag-chip">E-commerce</span>
+          <h3>Maxi Market</h3>
+          <p>Livraison de courses en ligne à Nosy Be, commande via site ou WhatsApp, livraison en moins de 3h.</p>
+          <a class="link" href="https://maximarket.mg/fr" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/fleur-dylang.png" alt="Hôtel Fleur d'Ylang"></div>
+          <span class="tag-chip">Hôtellerie</span>
+          <h3>Hôtel Fleur d'Ylang</h3>
+          <p>Site vitrine boutique hôtel à Nosy Be — charme authentique, confort &amp; calme.</p>
+          <a class="link" href="https://www.hotelfleurdylang-nosybe.com/home" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/vaovao-hotel.png" alt="VaoVao Hotel"></div>
+          <span class="tag-chip">Hôtellerie</span>
+          <h3>VaoVao Hotel</h3>
+          <p>Hébergement familial en bord de mer, chambres &amp; appartements T2.</p>
+          <a class="link" href="https://www.vaovaohotel.com" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img class="invert-logo" src="assets/immersion-evasion.png" alt="Immersion Evasion"></div>
+          <span class="tag-chip">Agence de voyage</span>
+          <h3>Immersion Evasion</h3>
+          <p>Agence de voyage spécialisée dans les retraites immersives bien-être &amp; culture à Nosy Be.</p>
+          <a class="link" href="https://www.immersion-evasion.com" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/nosy-mitsio.png" alt="Nosy Mitsio"></div>
+          <span class="tag-chip">Tourisme</span>
+          <h3>Nosy Mitsio</h3>
+          <p>Excursions &amp; séjours premium à Nosy Mitsio au départ de Nosy Be.</p>
+          <a class="link" href="https://www.nosymitsio.com" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/akonba-kite.png" alt="Akomba Kite"></div>
+          <span class="tag-chip">Tourisme &amp; sport</span>
+          <h3>Akomba Kite</h3>
+          <p>École de kitesurf &amp; sports nautiques à Nosy Be — cours, location, moniteurs certifiés IKO.</p>
+          <a class="link" href="https://www.kitesurfnosybe.com/fr" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/bat-store.png" alt="Bat'Store"></div>
+          <span class="tag-chip">Quincaillerie</span>
+          <h3>Bat'Store</h3>
+          <p>Quincaillerie en ligne — outillage, plomberie, électricité, livraison rapide.</p>
+          <a class="link" href="https://bat-store.com" target="_blank" rel="noopener">Voir le site →</a>
+        </div>
+      </div>
+      <div class="marquee-set" aria-hidden="true">
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/maxi-market.png" alt="" aria-hidden="true"></div>
+          <span class="tag-chip">E-commerce</span>
+          <h3>Maxi Market</h3>
+          <p>Livraison de courses en ligne à Nosy Be, commande via site ou WhatsApp, livraison en moins de 3h.</p>
+          <a class="link" href="https://maximarket.mg/fr" tabindex="-1">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/fleur-dylang.png" alt="" aria-hidden="true"></div>
+          <span class="tag-chip">Hôtellerie</span>
+          <h3>Hôtel Fleur d'Ylang</h3>
+          <p>Site vitrine boutique hôtel à Nosy Be — charme authentique, confort &amp; calme.</p>
+          <a class="link" href="https://www.hotelfleurdylang-nosybe.com/home" tabindex="-1">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/vaovao-hotel.png" alt="" aria-hidden="true"></div>
+          <span class="tag-chip">Hôtellerie</span>
+          <h3>VaoVao Hotel</h3>
+          <p>Hébergement familial en bord de mer, chambres &amp; appartements T2.</p>
+          <a class="link" href="https://www.vaovaohotel.com" tabindex="-1">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img class="invert-logo" src="assets/immersion-evasion.png" alt="" aria-hidden="true"></div>
+          <span class="tag-chip">Agence de voyage</span>
+          <h3>Immersion Evasion</h3>
+          <p>Agence de voyage spécialisée dans les retraites immersives bien-être &amp; culture à Nosy Be.</p>
+          <a class="link" href="https://www.immersion-evasion.com" tabindex="-1">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/nosy-mitsio.png" alt="" aria-hidden="true"></div>
+          <span class="tag-chip">Tourisme</span>
+          <h3>Nosy Mitsio</h3>
+          <p>Excursions &amp; séjours premium à Nosy Mitsio au départ de Nosy Be.</p>
+          <a class="link" href="https://www.nosymitsio.com" tabindex="-1">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/akonba-kite.png" alt="" aria-hidden="true"></div>
+          <span class="tag-chip">Tourisme &amp; sport</span>
+          <h3>Akomba Kite</h3>
+          <p>École de kitesurf &amp; sports nautiques à Nosy Be — cours, location, moniteurs certifiés IKO.</p>
+          <a class="link" href="https://www.kitesurfnosybe.com/fr" tabindex="-1">Voir le site →</a>
+        </div>
+        <div class="proj-card">
+          <div class="proj-logo"><img src="assets/bat-store.png" alt="" aria-hidden="true"></div>
+          <span class="tag-chip">Quincaillerie</span>
+          <h3>Bat'Store</h3>
+          <p>Quincaillerie en ligne — outillage, plomberie, électricité, livraison rapide.</p>
+          <a class="link" href="https://bat-store.com" tabindex="-1">Voir le site →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solutions-teaser">
+  <div class="wrap">
+    <div class="solutions-cta-panel">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>NOS SOLUTIONS</div>
+        <h2>Une solution pensée pour votre type de projet</h2>
+        <p>Hôtel, boutique en ligne, tourisme, gestion d'entreprise ou formation IA — chaque activité a ses propres besoins. Découvrez l'approche et les outils adaptés à la vôtre.</p>
+      </div>
+      <a href="#/solutions" class="btn btn-primary btn-lg">Voir nos solutions →</a>
+    </div>
+  </div>
+</section>
+
+<section id="produits">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-row"><div class="eyebrow"><span class="dot"></span>PRODUITS</div></div>
+      <h2>Au-delà des sites vitrines</h2>
+      <p>Les marques que je développe en parallèle.</p>
+    </div>
+    <div class="produits-grid">
+      <div class="prod-card">
+        <div class="prod-logo"><img src="assets/lemon.png" alt="Lemon PMS"></div>
+        <p>Lemon — logiciel de gestion hôtelière (PMS) : réservations, chambres, facturation, pensé pour les indépendants et petites structures.</p>
+        <a class="link" href="#/solutions/lemon">En savoir plus →</a>
+      </div>
+      <div class="prod-card">
+        <div class="prod-logo"><img src="assets/mahay-ia.png" alt="Mahay IA"></div>
+        <p>Mahay IA — formation pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.</p>
+        <a class="link" href="#/solutions/mahay-ia">En savoir plus →</a>
+      </div>
+      <div class="prod-card">
+        <div class="prod-logo"><img src="assets/orbit.png" alt="Orbit"></div>
+        <p>Orbit — logiciel de caisse intelligente : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.</p>
+        <a class="link" href="#/solutions/orbit">En savoir plus →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="engagements">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:32px;">
+      <div class="eyebrow-row"><div class="eyebrow"><span class="dot"></span>ENGAGEMENTS</div></div>
+      <h2>Une technologie soignée qui reste simple à utiliser.</h2>
+    </div>
+    <div class="engage-strip">
+      <div class="engage-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Design réellement personnalisé</div>
+      <div class="engage-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Site rapide sur mobile</div>
+      <div class="engage-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Livraison en 2 semaines max</div>
+      <div class="engage-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Accompagnement après lancement</div>
+      <div class="engage-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Communication claire, sans jargon</div>
+      <div class="engage-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Évolutif dans le temps</div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-row"><div class="eyebrow"><span class="dot"></span>MÉTHODE</div></div>
+      <h2>Comment on travaille ensemble</h2>
+      <p>Simple, cadré, sans mauvaise surprise.</p>
+    </div>
+    <div class="process-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>On discute de votre projet</h3>
+        <p>Un échange pour comprendre votre besoin, vos objectifs et votre budget.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>On élabore le plan et la structure</h3>
+        <p>Structure du site, design et fonctionnalités — validés ensemble avant de commencer.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Site livré en maximum 2 semaines</h3>
+        <p>Développement, tests et mise en ligne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <div>
+        <h2>Parlons de votre projet.</h2>
+        <p>Site vitrine, e-commerce, ou produit sur-mesure. Décrivez votre besoin en quelques lignes, sans engagement.</p>
+        <div class="cta-row" style="margin-top:26px;">
+          <a href="https://wa.me/261321926659?text=Bonjour%20Yan%2C%20je%20souhaite%20un%20site%20pour..." class="btn btn-primary" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+        </div>
+      </div>
+      <div class="contact-side">
+        <div><div class="label">Basé à</div><span>Nosy Be, Madagascar</span></div>
+        <div><div class="label">Réponse</div><span>Sous 24h en semaine</span></div>
+        <div><div class="label">Langues</div><span>Français · English</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /pageHome -->
+
+<div id="pageSolutions" class="page-solutions" hidden>
+  <div class="wrap">
+    <a href="#/" class="back-link">← Accueil</a>
+    <div class="section-head" style="margin-bottom:52px;">
+      <div class="eyebrow-row"><div class="eyebrow"><span class="dot"></span>SOLUTIONS</div></div>
+      <h2>Une solution pour chaque type de projet</h2>
+      <p>Sites vitrines, boutiques en ligne et logiciels de gestion — développés et utilisés en conditions réelles, pas des maquettes.</p>
+    </div>
+    <div class="solutions-grid" id="solutionsCards"></div>
+  </div>
+</div>
+
+<div id="pageSolutionDetail" class="page-solutions" hidden>
+  <div class="wrap">
+    <a href="#/solutions" class="back-link">← Solutions</a>
+    <div class="eyebrow-row"><div class="eyebrow"><span class="dot"></span><span id="sdCat">SOLUTIONS</span></div></div>
+    <h2 id="sdTitle"></h2>
+    <p class="sd-lead" id="sdLead"></p>
+    <div class="sd-features" id="sdFeatures"></div>
+    <div class="sd-cases" id="sdCases"></div>
+    <div class="cta-row" id="sdCta"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <div class="logo-name"><img class="logo-yan" src="assets/yan-logo.png" alt="Yan"><span class="ym">YM</span></div>
+      <p>Développeur web à Nosy Be — sites vitrines, e-commerce, produits digitaux et automatisations IA.</p>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <a href="#services">Services</a>
+      <a href="#projets">Réalisations</a>
+      <a href="#process">Méthode</a>
+      <a href="#about">À propos</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div>
+      <h4>Solutions</h4>
+      <a href="#/solutions/site-web-madagascar">Site web à Madagascar</a>
+      <a href="#/solutions/site-hotel">Site pour hôtel</a>
+      <a href="#/solutions/boutique-en-ligne">Boutique en ligne</a>
+      <a href="#/solutions/lemon">Lemon — PMS hôtelier</a>
+      <a href="#/solutions/orbit">Orbit — caisse &amp; gestion</a>
+      <a href="#/solutions/mahay-ia">Mahay IA — formation</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="https://wa.me/261321926659?text=Bonjour%20Yan%2C%20je%20souhaite%20un%20site%20pour..." target="_blank" rel="noopener">WhatsApp</a>
+      <span style="display:block;color:var(--muted-dim);font-size:13.5px;margin-top:2px;">Nosy Be, Madagascar</span>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">© 2026 YAN YM. Tous droits réservés.</div>
+</footer>
+
+<a class="whatsapp-btn" href="https://wa.me/261321926659?text=Bonjour%20Yan%2C%20je%20souhaite%20un%20site%20pour..." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.34.64 4.53 1.75 6.41L4 29l7.78-1.7A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.63 28 15S22.63 3 16.004 3zm0 21.8c-1.98 0-3.83-.55-5.41-1.5l-.39-.23-4.62 1.01 1-4.5-.25-.4A9.77 9.77 0 0 1 5.2 15c0-5.96 4.85-10.8 10.8-10.8S26.8 9.04 26.8 15 21.96 24.8 16.004 24.8zm5.98-8.13c-.33-.16-1.93-.95-2.23-1.06-.3-.11-.52-.16-.74.16-.22.33-.85 1.06-1.04 1.27-.19.22-.38.24-.71.08-.33-.16-1.38-.51-2.63-1.63-.97-.87-1.63-1.94-1.82-2.27-.19-.33-.02-.5.14-.67.14-.14.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.72s1.17 3.15 1.33 3.37c.16.22 2.3 3.51 5.57 4.92.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.93-.79 2.2-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.63-.38z"/>
+  </svg>
+</a>
+
+<script>
+const SOLUTIONS = [
+  {
+    slug:'site-web-madagascar', cat:'Sites vitrines',
+    title:'Site web à Nosy Be & Madagascar',
+    summary:"Une entreprise malgache mérite un site à la hauteur de son marché : rapide, clair sur mobile, et pensé pour convertir — pas un modèle générique déjà vu ailleurs.",
+    lead:"Que vous soyez artisan, commerce ou indépendant, votre site est souvent le premier contact avec vos clients. Il doit charger vite avec une connexion mobile moyenne, se lire clairement sur un petit écran, et donner une seule action claire à faire : appeler, écrire sur WhatsApp, ou commander.",
+    features:[
+      {h:'Design réellement sur-mesure', p:"Pas de thème générique : l'identité, les couleurs et la structure sont construites pour votre activité."},
+      {h:"Pensé mobile d'abord", p:"La majorité de vos visiteurs arrivent depuis leur téléphone — chaque page est conçue et testée sur mobile en premier."},
+      {h:'Livré en 2 semaines maximum', p:'Du cahier des charges à la mise en ligne, sans traîner ni mauvaise surprise.'},
+      {h:'Référencement de base inclus', p:"Structure propre, titres et descriptions optimisés pour être trouvé sur Google dès le lancement."}
+    ],
+    cases:[{name:'Akomba Kite', img:'assets/akonba-kite.png', href:'https://www.kitesurfnosybe.com/fr'}],
+    ctaLabel:'Parler de mon projet'
+  },
+  {
+    slug:'site-hotel', cat:'Hôtellerie',
+    title:'Site pour hôtel',
+    summary:"Un site d'hôtel doit donner envie de réserver en quelques secondes : belles chambres mises en valeur, disponibilités claires, et un chemin de réservation sans friction.",
+    lead:"Vos clients décident souvent en comparant plusieurs hôtels en quelques minutes. Les photos, la clarté de l'offre et la simplicité pour vous contacter font la différence entre une réservation et un onglet fermé.",
+    features:[
+      {h:'Chambres mises en valeur', p:'Galeries et descriptions pensées pour donner envie de réserver, pas juste montrer.'},
+      {h:'Chemin de réservation sans friction', p:'Contact direct par WhatsApp ou formulaire — évolutif vers un moteur de réservation complet avec Lemon.'},
+      {h:'Bilingue par défaut', p:'Clientèle locale et internationale : le site existe en français et en anglais dès le lancement.'}
+    ],
+    cases:[
+      {name:"Hôtel Fleur d'Ylang", img:'assets/fleur-dylang.png', href:'https://www.hotelfleurdylang-nosybe.com/home'},
+      {name:'VaoVao Hotel', img:'assets/vaovao-hotel.png', href:'https://www.vaovaohotel.com'}
+    ],
+    crossSell:{text:'Besoin aussi de gérer réservations, chambres et facturation au quotidien ?', linkText:'Découvrir Lemon →', slug:'lemon'},
+    ctaLabel:'Parler de mon projet'
+  },
+  {
+    slug:'boutique-en-ligne', cat:'E-commerce',
+    title:'Boutique en ligne',
+    summary:"Une boutique qui vend vraiment : catalogue clair, commande simple, et une gestion qui ne vous fait pas perdre de temps.",
+    lead:"Vendre en ligne à Madagascar veut souvent dire composer avec WhatsApp, la livraison locale et un catalogue qui change vite. La boutique s'adapte à ces contraintes plutôt que d'imposer un modèle standard.",
+    features:[
+      {h:'Commande en ligne ou WhatsApp', p:'Le client choisit son canal préféré — le suivi de commande reste centralisé.'},
+      {h:'Catalogue large et structuré', p:'Des centaines de références classées par catégorie, faciles à mettre à jour.'},
+      {h:'Délais de livraison affichés clairement', p:"La confiance se joue avant l'achat : le client sait à quoi s'attendre."}
+    ],
+    cases:[
+      {name:'Maxi Market', img:'assets/maxi-market.png', href:'https://maximarket.mg/fr'},
+      {name:"Bat'Store", img:'assets/bat-store.png', href:'https://bat-store.com'}
+    ],
+    crossSell:{text:'Besoin aussi de gérer stock, caisse et comptabilité au quotidien ?', linkText:'Découvrir Orbit →', slug:'orbit'},
+    ctaLabel:'Parler de mon projet'
+  },
+  {
+    slug:'lemon', cat:'Produit · PMS hôtelier',
+    title:'Gestion hôtelière avec Lemon',
+    summary:"Lemon est le logiciel de gestion hôtelière (PMS) développé par Yan : réservations, chambres, facturation et IA, pensé pour les indépendants et petites structures.",
+    lead:"Plutôt que d'empiler un tableur pour les réservations, un carnet pour le ménage et une appli pour la caisse du restaurant, Lemon centralise l'hôtel dans une seule application — disponible sur iOS, Android, Web et Windows.",
+    features:[
+      {h:'Réservations & disponibilités', p:'Calendrier en temps réel, devis multi-chambres exportables en PDF, réservations de groupe.'},
+      {h:'Synchronisation Booking.com & Expedia', p:'Créations, modifications et annulations synchronisées automatiquement toutes les 10 minutes via Channex.'},
+      {h:'Facturation & comptabilité intégrées', p:'Numérotation automatique des factures, rapports journaliers, mensuels et annuels, suivi de trésorerie.'},
+      {h:'Messagerie unifiée', p:'WhatsApp, Gmail, Booking, Airbnb et TripAdvisor regroupés dans une seule boîte, liée à la réservation du client.'},
+      {h:'Assistante IA « Yara »', p:'Répond aux questions sur les chambres, ajoute des charges, gère les check-in / check-out en langage naturel.'},
+      {h:'Module restaurant intégré', p:'Caisse, plan de salle, paiements multiples et rapports du jour, connectés à la même comptabilité.'}
+    ],
+    cases:[],
+    ctaLabel:'Voir le site Lemon',
+    ctaHref:'https://lemon-hotel-site.web.app'
+  },
+  {
+    slug:'orbit', cat:'Produit · Caisse & gestion',
+    title:'Caisse & gestion d’entreprise avec Orbit',
+    summary:"Orbit est le logiciel de caisse intelligente développé par Yan : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.",
+    lead:"Pensé pour un commerce ou une petite entreprise malgache : une caisse rapide au comptoir, une vue claire sur le stock et la trésorerie, et une IA qui répond aux questions plutôt que d'obliger à fouiller des rapports.",
+    features:[
+      {h:'Caisse pensée pour aller vite', p:'Vente, produits favoris, sélection client, stock décrémenté automatiquement, ticket numéroté sans doublon.'},
+      {h:'Stock & alertes intelligentes', p:'Seuils minimum par produit et alerte IA quotidienne avant la rupture.'},
+      {h:'Comptabilité & trésorerie', p:'Entrées/sorties, rapprochement bancaire, prévisionnel de trésorerie, échéances fournisseurs avec relances automatiques.'},
+      {h:'Scan de facture par IA', p:'Une photo de facture devient une écriture comptable, automatiquement rapprochée du catalogue produit.'},
+      {h:'Assistant IA vocal', p:"Interroge le chiffre d'affaires, les dépenses ou le stock à la voix ou à l'écrit, en ariary."},
+      {h:'Clients & fournisseurs', p:'Historique complet et segmentation automatique — VIP, fidèle, nouveau, inactif.'}
+    ],
+    cases:[],
+    ctaLabel:'Voir le site Orbit',
+    ctaHref:'https://orbit-ia-site.web.app'
+  },
+  {
+    slug:'mahay-ia', cat:'Produit · Formation',
+    title:'Formation IA avec Mahay IA',
+    summary:"Mahay IA est la formation développée par Yan pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.",
+    lead:"123 leçons réparties en 15 modules, en français, sans jargon technique — pour des indépendants, coachs ou salariés qui veulent des outils concrets plutôt qu'un cours théorique.",
+    features:[
+      {h:'123 leçons, 15 modules', p:'ChatGPT et prompt engineering, Leonardo AI, ElevenLabs, Suno, n8n, Vibe Coding, et un module complet sur Claude Code.'},
+      {h:'Accessible aux débutants', p:"Un langage clair, pensé pour quelqu'un qui découvre l'IA — pas pour des développeurs."},
+      {h:'Accès à vie', p:'150 000 Ar en paiement unique, sans abonnement.'},
+      {h:'Plateforme dédiée', p:'Espace membre avec navigation par module et suivi de la progression.'}
+    ],
+    cases:[],
+    ctaLabel:'Voir Mahay IA',
+    ctaHref:'https://mahay-ia--mahay-ia.us-central1.hosted.app'
+  },
+  {
+    slug:'automatisation', cat:'Automatisation',
+    title:'Automatisation & IA sur-mesure',
+    summary:"Chaque heure passée sur une tâche répétitive est une heure en moins pour développer votre activité. On automatise ce qui peut l'être.",
+    lead:"Relances clients, scan de factures, réponses automatiques, synchronisation entre outils : les mêmes briques qui font tourner Lemon et Orbit peuvent être adaptées à votre propre flux de travail, même sans logiciel complet.",
+    features:[
+      {h:'Assistants IA sur mesure', p:'Un assistant qui répond en langage naturel sur vos propres données — factures, stock, réservations.'},
+      {h:'Connexion entre vos outils', p:'WhatsApp, Gmail, tableurs, plateformes de réservation — reliés pour éviter la ressaisie.'},
+      {h:'Automatisations concrètes', p:'Relances de paiement, alertes de stock, génération de documents — pas des promesses abstraites.'}
+    ],
+    cases:[],
+    ctaLabel:'Parler de mon projet'
+  }
+];
+
+function renderGrid(){
+  const el = document.getElementById('solutionsCards');
+  if(!el) return;
+  el.innerHTML = SOLUTIONS.map(s => `
+    <a class="sol-card" href="#/solutions/${s.slug}">
+      <h3>${s.title}</h3>
+      <p>${s.summary}</p>
+      <span class="go">Voir le projet ↗</span>
+    </a>`).join('');
+}
+
+function renderDetail(slug){
+  const s = SOLUTIONS.find(x => x.slug === slug);
+  if(!s){ location.hash = '#/solutions'; return; }
+  document.getElementById('sdCat').textContent = 'SOLUTIONS · ' + s.cat.toUpperCase();
+  document.getElementById('sdTitle').textContent = s.title;
+  document.getElementById('sdLead').textContent = s.lead;
+  document.getElementById('sdFeatures').innerHTML = s.features.map(f => `<div class="sd-feat"><h4>${f.h}</h4><p>${f.p}</p></div>`).join('');
+  let casesHtml = (s.cases||[]).map(c => `<a class="sd-case" href="${c.href}" target="_blank" rel="noopener"><img src="${c.img}" alt="">${c.name} ↗</a>`).join('');
+  if(s.crossSell){ casesHtml += `<a class="sd-case cross" href="#/solutions/${s.crossSell.slug}">${s.crossSell.linkText}</a>`; }
+  document.getElementById('sdCases').innerHTML = casesHtml;
+  const ctaHref = s.ctaHref || ('https://wa.me/261321926659?text=' + encodeURIComponent('Bonjour Yan, je souhaite un site pour...'));
+  document.getElementById('sdCta').innerHTML = `<a href="${ctaHref}" class="btn btn-primary" target="_blank" rel="noopener">${s.ctaLabel}</a><a href="#projets" class="btn btn-ghost">Voir mes réalisations</a>`;
+}
+
+function showPage(name){
+  document.getElementById('pageHome').hidden = name !== 'home';
+  document.getElementById('pageSolutions').hidden = name !== 'solutions';
+  document.getElementById('pageSolutionDetail').hidden = name !== 'detail';
+  window.scrollTo(0,0);
+}
+
+function route(){
+  const h = location.hash;
+  if(h === '#/solutions'){ renderGrid(); showPage('solutions'); }
+  else if(h.startsWith('#/solutions/')){ renderDetail(h.replace('#/solutions/','')); showPage('detail'); }
+  else if(h && h.startsWith('#') && h !== '#/'){
+    showPage('home');
+    requestAnimationFrame(() => { const el = document.querySelector(h); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); });
+  } else {
+    showPage('home');
+  }
+}
+renderGrid();
+window.addEventListener('hashchange', route);
+route();
+</script>
+
+<script>
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.marquee-track').forEach(function(track){
+    var wrapEl = track.closest('.marquee');
+    if(!wrapEl) return;
+    var cs = getComputedStyle(track);
+    var duration = parseFloat(cs.animationDuration) || 30;
+    var isReverse = cs.animationDirection === 'reverse';
+    track.style.animation = 'none';
+    var halfWidth = track.scrollWidth / 2;
+    var speed = reduced ? 0 : halfWidth / duration;
+    var dir = isReverse ? 1 : -1;
+    var offset = isReverse ? -halfWidth : 0;
+    var dragging = false, dragStartX = 0, dragStartOffset = 0, hovered = false, last = null;
+
+    function wrap(v){
+      if(halfWidth <= 0) return 0;
+      v = v % halfWidth;
+      if(v > 0) v -= halfWidth;
+      return v;
+    }
+    function tick(ts){
+      if(last == null) last = ts;
+      var dt = (ts - last) / 1000;
+      last = ts;
+      if(!dragging && !hovered){
+        offset = wrap(offset + dir * speed * dt);
+      }
+      track.style.transform = 'translateX(' + offset.toFixed(2) + 'px)';
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    function pointerX(e){ return e.touches ? e.touches[0].clientX : e.clientX; }
+    function onDown(e){
+      dragging = true;
+      dragStartX = pointerX(e);
+      dragStartOffset = offset;
+      wrapEl.classList.add('dragging');
+    }
+    function onMove(e){
+      if(!dragging) return;
+      offset = wrap(dragStartOffset + (pointerX(e) - dragStartX));
+    }
+    function onUp(){
+      if(!dragging) return;
+      dragging = false;
+      wrapEl.classList.remove('dragging');
+    }
+    wrapEl.addEventListener('mousedown', onDown);
+    wrapEl.addEventListener('touchstart', onDown, { passive: true });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: true });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+    wrapEl.addEventListener('mouseenter', function(){ hovered = true; });
+    wrapEl.addEventListener('mouseleave', function(){ hovered = false; });
+  });
+})();
+</script>
+
 <script>
 (function(){
   var v = document.getElementById('presoVideo');
@@ -477,240 +1070,189 @@
 })();
 </script>
 
-<section id="projets">
-  <div class="wrap">
-    <div class="section-title">Réalisations</div>
-    <h2 class="section-heading">Sites web livrés pour l'hôtellerie, le tourisme & e-commerce
-      <small>Chaque projet : cahier des charges, design, dev, mise en ligne.</small>
-    </h2>
-    <div class="marquee marquee-projects">
-      <div class="marquee-track">
-      <div class="marquee-set">
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/maxi-market.png" alt="Maxi Market"></div>
-          <span class="tag">E-commerce</span>
-          <h3>Maxi Market</h3>
-          <p>Livraison de courses en ligne à Nosy Be, commande via site ou WhatsApp, livraison en moins de 3h.</p>
-          <a class="link" href="https://maximarket.mg/fr" target="_blank" rel="noopener">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/fleur-dylang.png" alt="Hôtel Fleur d'Ylang"></div>
-          <span class="tag">Hôtellerie</span>
-          <h3>Hôtel Fleur d'Ylang</h3>
-          <p>Site vitrine boutique hôtel à Nosy Be — charme authentique, confort & calme.</p>
-          <a class="link" href="https://www.hotelfleurdylang-nosybe.com/home" target="_blank" rel="noopener">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/vaovao-hotel.png" alt="VaoVao Hotel"></div>
-          <span class="tag">Hôtellerie</span>
-          <h3>VaoVao Hotel</h3>
-          <p>Hébergement familial en bord de mer, chambres & appartements T2, partenariats excursions.</p>
-          <a class="link" href="https://www.vaovaohotel.com" target="_blank" rel="noopener">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img class="invert-logo" src="assets/immersion-evasion.png" alt="Immersion Evasion"></div>
-          <span class="tag">Agence de voyage</span>
-          <h3>Immersion Evasion</h3>
-          <p>Agence de voyage spécialisée dans les retraites immersives bien-être & culture à Nosy Be.</p>
-          <a class="link" href="https://www.immersion-evasion.com" target="_blank" rel="noopener">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/nosy-mitsio.png" alt="Nosy Mitsio"></div>
-          <span class="tag">Tourisme</span>
-          <h3>Nosy Mitsio</h3>
-          <p>Excursions & séjours premium à Nosy Mitsio au départ de Nosy Be.</p>
-          <a class="link" href="https://www.nosymitsio.com" target="_blank" rel="noopener">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/akonba-kite.png" alt="Akomba Kite"></div>
-          <span class="tag">Tourisme & sport</span>
-          <h3>Akomba Kite</h3>
-          <p>École de kitesurf & sports nautiques à Nosy Be — cours, location de matériel, excursions encadrées par des moniteurs certifiés IKO.</p>
-          <a class="link" href="https://www.kitesurfnosybe.com/fr" target="_blank" rel="noopener">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/bat-store.png" alt="Bat'Store"></div>
-          <span class="tag">Quincaillerie</span>
-          <h3>Bat'Store</h3>
-          <p>Quincaillerie en ligne à Nosy Be — outillage, plomberie, électricité, peinture, matériaux, jardin. Livraison rapide sur toute l'île.</p>
-          <a class="link" href="https://bat-store.com" target="_blank" rel="noopener">Voir le site →</a>
-        </div>
-
-      </div>
-      <div class="marquee-set" aria-hidden="true">
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/maxi-market.png" alt="" aria-hidden="true"></div>
-          <span class="tag">E-commerce</span>
-          <h3>Maxi Market</h3>
-          <p>Livraison de courses en ligne à Nosy Be, commande via site ou WhatsApp, livraison en moins de 3h.</p>
-          <a class="link" href="https://maximarket.mg/fr" tabindex="-1">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/fleur-dylang.png" alt="" aria-hidden="true"></div>
-          <span class="tag">Hôtellerie</span>
-          <h3>Hôtel Fleur d'Ylang</h3>
-          <p>Site vitrine boutique hôtel à Nosy Be — charme authentique, confort & calme.</p>
-          <a class="link" href="https://www.hotelfleurdylang-nosybe.com/home" tabindex="-1">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/vaovao-hotel.png" alt="" aria-hidden="true"></div>
-          <span class="tag">Hôtellerie</span>
-          <h3>VaoVao Hotel</h3>
-          <p>Hébergement familial en bord de mer, chambres & appartements T2, partenariats excursions.</p>
-          <a class="link" href="https://www.vaovaohotel.com" tabindex="-1">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img class="invert-logo" src="assets/immersion-evasion.png" alt="" aria-hidden="true"></div>
-          <span class="tag">Agence de voyage</span>
-          <h3>Immersion Evasion</h3>
-          <p>Agence de voyage spécialisée dans les retraites immersives bien-être & culture à Nosy Be.</p>
-          <a class="link" href="https://www.immersion-evasion.com" tabindex="-1">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/nosy-mitsio.png" alt="" aria-hidden="true"></div>
-          <span class="tag">Tourisme</span>
-          <h3>Nosy Mitsio</h3>
-          <p>Excursions & séjours premium à Nosy Mitsio au départ de Nosy Be.</p>
-          <a class="link" href="https://www.nosymitsio.com" tabindex="-1">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/akonba-kite.png" alt="" aria-hidden="true"></div>
-          <span class="tag">Tourisme & sport</span>
-          <h3>Akomba Kite</h3>
-          <p>École de kitesurf & sports nautiques à Nosy Be — cours, location de matériel, excursions encadrées par des moniteurs certifiés IKO.</p>
-          <a class="link" href="https://www.kitesurfnosybe.com/fr" tabindex="-1">Voir le site →</a>
-        </div>
-
-        <div class="card">
-          <div class="logo-box"><img src="assets/bat-store.png" alt="" aria-hidden="true"></div>
-          <span class="tag">Quincaillerie</span>
-          <h3>Bat'Store</h3>
-          <p>Quincaillerie en ligne à Nosy Be — outillage, plomberie, électricité, peinture, matériaux, jardin. Livraison rapide sur toute l'île.</p>
-          <a class="link" href="https://bat-store.com" tabindex="-1">Voir le site →</a>
-        </div>
-
-      </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="produits">
-  <div class="wrap">
-    <div class="section-title">Produits</div>
-    <h2 class="section-heading">Au-delà des sites vitrines
-      <small>Les marques que je développe en parallèle.</small>
-    </h2>
-    <div class="marquee marquee-produits">
-      <div class="marquee-track">
-      <div class="marquee-set">
-        <div class="feature-card">
-          <div class="logo-box"><img src="assets/lemon.png" alt="Lemon PMS"></div>
-          <p>Lemon — logiciel de gestion hôtelière (PMS) : réservations, chambres, facturation, pensé pour les indépendants et petites structures.</p>
-          <a class="link" href="https://lemon-hotel-site.web.app" target="_blank" rel="noopener">Voir le site →</a>
-        </div>
-        <div class="feature-card">
-          <div class="logo-box"><img src="assets/mahay-ia.png" alt="Mahay IA"></div>
-          <p>Mahay IA — formation pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.</p>
-          <a class="link" href="https://mahay-ia--mahay-ia.us-central1.hosted.app" target="_blank" rel="noopener">Voir le site →</a>
-        </div>
-        <div class="feature-card">
-          <div class="logo-box"><img src="assets/orbit.png" alt="Orbit"></div>
-          <p>Orbit — logiciel de caisse intelligente : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.</p>
-          <a class="link" href="https://orbit-ia-site.web.app" target="_blank" rel="noopener">Voir le site →</a>
-        </div>
-      </div>
-      <div class="marquee-set" aria-hidden="true">
-        <div class="feature-card">
-          <div class="logo-box"><img src="assets/lemon.png" alt="" aria-hidden="true"></div>
-          <p>Lemon — logiciel de gestion hôtelière (PMS) : réservations, chambres, facturation, pensé pour les indépendants et petites structures.</p>
-          <a class="link" href="https://lemon-hotel-site.web.app" tabindex="-1">Voir le site →</a>
-        </div>
-        <div class="feature-card">
-          <div class="logo-box"><img src="assets/mahay-ia.png" alt="" aria-hidden="true"></div>
-          <p>Mahay IA — formation pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.</p>
-          <a class="link" href="https://mahay-ia--mahay-ia.us-central1.hosted.app" tabindex="-1">Voir le site →</a>
-        </div>
-        <div class="feature-card">
-          <div class="logo-box"><img src="assets/orbit.png" alt="" aria-hidden="true"></div>
-          <p>Orbit — logiciel de caisse intelligente : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.</p>
-          <a class="link" href="https://orbit-ia-site.web.app" tabindex="-1">Voir le site →</a>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="process">
-  <div class="wrap">
-    <div class="section-title">Processus</div>
-    <h2 class="section-heading">Comment on travaille ensemble
-      <small>Simple, cadré, sans mauvaise surprise.</small>
-    </h2>
-    <div class="process-grid">
-      <div class="step">
-        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-        <div class="step-num">01</div>
-        <h3>On discute de votre projet</h3>
-        <p>Un échange pour comprendre votre besoin, vos objectifs et votre budget.</p>
-      </div>
-      <div class="step">
-        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-        <div class="step-num">02</div>
-        <h3>On élabore le plan et la structure</h3>
-        <p>Structure du site, design et fonctionnalités — validés ensemble avant de commencer.</p>
-      </div>
-      <div class="step">
-        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
-        <div class="step-num">03</div>
-        <h3>Site livré en maximum 2 semaines</h3>
-        <p>Développement, tests et mise en ligne.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <h2>Parlons de votre projet.</h2>
-    <p>Site vitrine, e-commerce, ou produit sur-mesure. Décrivez votre besoin en quelques lignes, sans engagement.</p>
-    <div class="contact-methods">
-      <a class="btn btn-primary" href="https://wa.me/261321926659?text=Bonjour%20Yan%2C%20je%20souhaite%20un%20site%20pour..." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © 2026 YAN YM. Tous droits réservés. — Nosy Be, Madagascar
-</footer>
-
-<a class="whatsapp-btn" href="https://wa.me/261321926659?text=Bonjour%20Yan%2C%20je%20souhaite%20un%20site%20pour..." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
-  <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.34.64 4.53 1.75 6.41L4 29l7.78-1.7A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.63 28 15S22.63 3 16.004 3zm0 21.8c-1.98 0-3.83-.55-5.41-1.5l-.39-.23-4.62 1.01 1-4.5-.25-.4A9.77 9.77 0 0 1 5.2 15c0-5.96 4.85-10.8 10.8-10.8S26.8 9.04 26.8 15 21.96 24.8 16.004 24.8zm5.98-8.13c-.33-.16-1.93-.95-2.23-1.06-.3-.11-.52-.16-.74.16-.22.33-.85 1.06-1.04 1.27-.19.22-.38.24-.71.08-.33-.16-1.38-.51-2.63-1.63-.97-.87-1.63-1.94-1.82-2.27-.19-.33-.02-.5.14-.67.14-.14.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.72s1.17 3.15 1.33 3.37c.16.22 2.3 3.51 5.57 4.92.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.93-.79 2.2-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.63-.38z"/>
-  </svg>
-</a>
+<script>
+(function(){
+  var card = document.querySelector('.about .hero-photo');
+  if(!card) return;
+  card.addEventListener('click', function(){
+    card.classList.toggle('is-flipped');
+  });
+  card.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      card.classList.toggle('is-flipped');
+    }
+  });
+})();
+</script>
 
 <script>
 (function(){
-  var canvas = document.getElementById('coverCanvas');
+  var grid = document.querySelector('.process-grid');
+  if(!grid || !('IntersectionObserver' in window)) return;
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        grid.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(grid);
+})();
+</script>
+
+<script>
+(function(){
+  var canvas = document.getElementById('heroCanvas');
   if(!canvas) return;
   var ctx = canvas.getContext('2d');
-  var wrapEl = canvas.parentElement; // .hero-cover — canvas now spans the full section
-  var restSpot = wrapEl.querySelector('.globe-wrap'); // layout spacer marking the sphere's resting spot
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var w, h, dpr;
+
+  function resize(){
+    var rect = canvas.parentElement.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = rect.width; h = rect.height;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var panels = [
+    {xr:.01, yr:.06, wr:.16, hr:.20, rot:-9,  amp:16, speed:.42, phase:0.0},
+    {xr:.04, yr:.60, wr:.12, hr:.15, rot:8,   amp:11, speed:.33, phase:1.1},
+    {xr:.30, yr:.30, wr:.15, hr:.18, rot:-6,  amp:13, speed:.38, phase:2.3},
+    {xr:.64, yr:-.02,wr:.15, hr:.18, rot:11,  amp:17, speed:.36, phase:.6},
+    {xr:.82, yr:.52, wr:.20, hr:.23, rot:-5,  amp:14, speed:.27, phase:1.8},
+    {xr:.90, yr:.26, wr:.12, hr:.14, rot:6,   amp:12, speed:.46, phase:2.9},
+    {xr:.18, yr:.66, wr:.10, hr:.13, rot:-8,  amp:10, speed:.40, phase:.3}
+  ];
+
+  var colors = ['122,255,196','255,138,61','255,47,110'];
+  var particles = [];
+  for(var i=0;i<26;i++){
+    particles.push({
+      xr: Math.random(), yr: Math.random(), r: 1 + Math.random()*2.1,
+      rise: 4 + Math.random()*9, wob: (Math.random()*2-1), phase: Math.random()*Math.PI*2,
+      color: colors[i % colors.length]
+    });
+  }
+
+  function roundRectPath(x,y,rw,rh,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);
+    ctx.arcTo(x+rw,y,x+rw,y+rh,r);
+    ctx.arcTo(x+rw,y+rh,x,y+rh,r);
+    ctx.arcTo(x,y+rh,x,y,r);
+    ctx.arcTo(x,y,x+rw,y,r);
+    ctx.closePath();
+  }
+
+  var t0 = performance.now(), last = t0;
+
+  function draw(t){
+    ctx.clearRect(0,0,w,h);
+
+    panels.forEach(function(p){
+      var dy = Math.sin(t*p.speed + p.phase) * p.amp;
+      var dr = Math.sin(t*p.speed*0.6 + p.phase) * 3;
+      var pw = p.wr*w, ph = p.hr*h;
+      var x = p.xr*w, y = p.yr*h + dy;
+      ctx.save();
+      ctx.translate(x+pw/2, y+ph/2);
+      ctx.rotate((p.rot+dr)*Math.PI/180);
+      ctx.translate(-pw/2, -ph/2);
+      roundRectPath(0,0,pw,ph,22);
+      ctx.shadowColor = 'rgba(0,0,0,.55)'; ctx.shadowBlur = 46; ctx.shadowOffsetY = 22;
+      ctx.fillStyle = 'rgba(255,255,255,.055)';
+      ctx.fill();
+      ctx.shadowColor = 'transparent';
+      ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(255,255,255,.16)';
+      ctx.stroke();
+      ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(pw*.16, ph*.3); ctx.lineTo(pw*.62, ph*.3); ctx.stroke();
+      ctx.restore();
+    });
+
+    particles.forEach(function(pt){
+      if(!reduced){
+        pt.yr -= (pt.rise / h) * 0.9;
+        if(pt.yr < -0.03) pt.yr = 1.03;
+      }
+      var x = pt.xr*w + Math.sin(t*1.1 + pt.phase) * 12 * pt.wob;
+      var y = pt.yr*h;
+      var alpha = 0.35 + 0.35*Math.sin(t*2 + pt.phase);
+      ctx.beginPath();
+      ctx.arc(x, y, pt.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(' + pt.color + ',' + Math.max(0,alpha) + ')';
+      ctx.shadowColor = 'rgba(' + pt.color + ',.8)'; ctx.shadowBlur = 8;
+      ctx.fill();
+    });
+  }
+
+  function frame(now){
+    var t = (now - t0) / 1000;
+    draw(t);
+    if(!reduced) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  if(reduced) draw(0.6);
+})();
+</script>
+
+<script>
+(function(){
+  var dash = document.querySelector('.hero-dash');
+  if(!dash) return;
+
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-target') || '0');
+    var suffix = el.getAttribute('data-suffix') || '';
+    var dur = 1400, t0 = performance.now();
+    function fmt(n){ return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+    function step(now){
+      var p = Math.min(1, (now - t0) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * eased) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function playIntro(){
+    var bars = document.querySelectorAll('#dashBars i');
+    bars.forEach(function(bar, i){
+      setTimeout(function(){ bar.style.height = (bar.getAttribute('data-h') || 0) + '%'; }, i * 70);
+    });
+    var ca = document.getElementById('dvCA'), cmd = document.getElementById('dvCmd');
+    if(ca) animateCount(ca);
+    if(cmd) animateCount(cmd);
+    setTimeout(function(){ var n = document.querySelector('.dash-notif'); if(n) n.classList.add('show'); }, 650);
+    setTimeout(function(){ var a = document.querySelector('.dash-alert'); if(a) a.classList.add('show'); }, 1050);
+  }
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ playIntro(); io.unobserve(entry.target); }
+      });
+    }, { threshold: .3 });
+    io.observe(dash);
+  } else {
+    playIntro();
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var canvas = document.getElementById('playSphereCanvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var wrapEl = canvas.parentElement;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var W, H, dpr, cx, cy, baseR;
   var nodes = [];
@@ -724,7 +1266,6 @@
   var DEPTH_TIERS = 4;
   var DPR_CAP = IS_MOBILE ? 1.5 : 2;
 
-  // pointer drag: surface pulls toward the cursor/finger near the drag point, relaxes back on release
   var pointer = { active: false, x: 0, y: 0, startX: 0, startY: 0, strength: 0, target: 0 };
   var bulges = [
     { x: 0.6, y: 0.7, z: 0.2, freq: 3.2, speed: 0.55, amp: 0.10 },
@@ -749,17 +1290,11 @@
     canvas.style.width = W + 'px';
     canvas.style.height = H + 'px';
     ctx.setTransform(dpr,0,0,dpr,0,0);
-
-    // rest position/size follow the .globe-wrap layout spacer, but the canvas itself
-    // spans the full section so dragging can stretch the sphere anywhere across it
-    var sectionRect = wrapEl.getBoundingClientRect();
-    var spotRect = restSpot ? restSpot.getBoundingClientRect() : sectionRect;
-    cx = (spotRect.left - sectionRect.left) + spotRect.width / 2;
-    cy = (spotRect.top - sectionRect.top) + spotRect.height / 2;
-    baseR = Math.min(spotRect.width, spotRect.height) * 0.72;
+    cx = W / 2;
+    cy = H / 2;
+    baseR = Math.min(W, H) * 0.5;
   }
 
-  // Distribute points evenly on a sphere (fibonacci sphere)
   function buildSphere(){
     nodes = [];
     var golden = Math.PI * (3 - Math.sqrt(5));
@@ -773,7 +1308,6 @@
       nodes.push({ ox: x, oy: y, oz: z, seed: Math.random() * 1000, hue: hue });
     }
 
-    // spatial grid so nearest-neighbour search stays fast even with thousands of nodes
     var gridDim = Math.max(4, Math.ceil(Math.cbrt(NODE_COUNT / 4)));
     var cellOf = function(v){ return Math.min(gridDim - 1, Math.max(0, Math.floor((v + 1) / 2 * gridDim))); };
     var grid = {};
@@ -832,18 +1366,15 @@
   }
 
   function project(p){
-    // organic displacement: overlapping traveling waves, as if something pushes from inside
     var wobble = 1 + bulgeDisplace(p.ox, p.oy, p.oz);
     var r = baseR * wobble;
 
     var x = p.ox, y = p.oy, z = p.oz;
 
-    // rotate around Y
     var cosY = Math.cos(rotY), sinY = Math.sin(rotY);
     var x1 = x * cosY - z * sinY;
     var z1 = x * sinY + z * cosY;
 
-    // slight rotate around X for tilt + gentle sway
     var tiltX = rotX + Math.sin(t * 0.15) * 0.08;
     var cosX = Math.cos(tiltX), sinX = Math.sin(tiltX);
     var y2 = y * cosX - z1 * sinX;
@@ -863,15 +1394,12 @@
     rotY += 0.0032;
     var hueShift = (t * 12) % 360;
 
-    // ease the drag strength toward its target (ramps up while held, relaxes back on release)
     pointer.strength += (pointer.target - pointer.strength) * 0.12;
 
     ctx.clearRect(0, 0, W, H);
 
     var proj = nodes.map(project);
 
-    // pointer drag: pull nearby points (in screen space) toward the total drag offset,
-    // weighted by proximity to the pointer so the deformation stays local and organic
     if(pointer.strength > 0.001){
       var dragDX = (pointer.x - pointer.startX) * pointer.strength;
       var dragDY = (pointer.y - pointer.startY) * pointer.strength;
@@ -886,8 +1414,6 @@
       }
     }
 
-    // edges batched by hue bucket -> a handful of stroke() calls instead of thousands,
-    // keeps a full rainbow gradient around the sphere while staying fast
     var bucketPaths = new Array(HUE_BUCKETS);
     for(var i = 0; i < edges.length; i++){
       var ia = edges[i][0], ib = edges[i][1];
@@ -906,8 +1432,6 @@
       ctx.stroke(bucketPaths[hb]);
     }
 
-    // nodes (glowing dots): batched by hue+depth bucket -> a bounded number of fill() calls
-    // regardless of node count, so density can scale without costing frame time
     var pointBuckets = new Array(HUE_BUCKETS * DEPTH_TIERS);
     for(var j = 0; j < proj.length; j++){
       var p2 = proj[j];
@@ -983,100 +1507,6 @@
   }
   window.addEventListener('resize', function(){
     resize();
-  });
-})();
-</script>
-
-<script>
-(function(){
-  var card = document.querySelector('.meet .hero-photo');
-  if(!card) return;
-  card.addEventListener('click', function(){
-    card.classList.toggle('is-flipped');
-  });
-  card.addEventListener('keydown', function(e){
-    if(e.key === 'Enter' || e.key === ' '){
-      e.preventDefault();
-      card.classList.toggle('is-flipped');
-    }
-  });
-})();
-</script>
-
-<script>
-(function(){
-  var grid = document.querySelector('.process-grid');
-  if(!grid || !('IntersectionObserver' in window)) return;
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        grid.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  observer.observe(grid);
-})();
-</script>
-
-<script>
-(function(){
-  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('.marquee-track').forEach(function(track){
-    var wrapEl = track.closest('.marquee');
-    if(!wrapEl) return;
-    var cs = getComputedStyle(track);
-    var duration = parseFloat(cs.animationDuration) || 30;
-    var isReverse = cs.animationDirection === 'reverse';
-    track.style.animation = 'none';
-    var halfWidth = track.scrollWidth / 2;
-    var speed = reduced ? 0 : halfWidth / duration;
-    var dir = isReverse ? 1 : -1;
-    var offset = isReverse ? -halfWidth : 0;
-    var dragging = false, dragStartX = 0, dragStartOffset = 0, hovered = false, last = null;
-
-    function wrap(v){
-      if(halfWidth <= 0) return 0;
-      v = v % halfWidth;
-      if(v > 0) v -= halfWidth;
-      return v;
-    }
-    function tick(ts){
-      if(last == null) last = ts;
-      var dt = (ts - last) / 1000;
-      last = ts;
-      if(!dragging && !hovered){
-        offset = wrap(offset + dir * speed * dt);
-      }
-      track.style.transform = 'translateX(' + offset.toFixed(2) + 'px)';
-      requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-
-    function pointerX(e){ return e.touches ? e.touches[0].clientX : e.clientX; }
-    function onDown(e){
-      dragging = true;
-      dragStartX = pointerX(e);
-      dragStartOffset = offset;
-      wrapEl.classList.add('dragging');
-    }
-    function onMove(e){
-      if(!dragging) return;
-      offset = wrap(dragStartOffset + (pointerX(e) - dragStartX));
-    }
-    function onUp(){
-      if(!dragging) return;
-      dragging = false;
-      wrapEl.classList.remove('dragging');
-    }
-    wrapEl.addEventListener('mousedown', onDown);
-    wrapEl.addEventListener('touchstart', onDown, { passive: true });
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('touchmove', onMove, { passive: true });
-    window.addEventListener('mouseup', onUp);
-    window.addEventListener('touchend', onUp);
-    wrapEl.addEventListener('mouseenter', function(){ hovered = true; });
-    wrapEl.addEventListener('mouseleave', function(){ hovered = false; });
   });
 })();
 </script>
