@@ -8,15 +8,16 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yan-ym.web.app">
-<meta property="og:title" content="YAN YM — Des sites web qui donnent vie à vos projets">
-<meta property="og:description" content="Sites vitrines, e-commerce, produits digitaux et automatisations IA — pour indépendants et petites structures. Basé à Nosy Be, Madagascar.">
+<meta property="og:site_name" content="YAN YM">
+<meta property="og:title" content="YAN YM — Des sites web qui donnent vie à vos projets.">
+<meta property="og:description" content="Sites vitrines, e-commerce, produits digitaux et automatisations IA sur-mesure. Développeur web basé à Nosy Be, actif à yan-ym.web.app">
 <meta property="og:image" content="https://yan-ym.web.app/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="YAN YM — Des sites web qui donnent vie à vos projets">
-<meta name="twitter:description" content="Sites vitrines, e-commerce, produits digitaux et automatisations IA — pour indépendants et petites structures. Basé à Nosy Be, Madagascar.">
+<meta name="twitter:title" content="YAN YM — Des sites web qui donnent vie à vos projets.">
+<meta name="twitter:description" content="Sites vitrines, e-commerce, produits digitaux et automatisations IA sur-mesure. Développeur web basé à Nosy Be, actif à yan-ym.web.app">
 <meta name="twitter:image" content="https://yan-ym.web.app/assets/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -228,14 +229,18 @@
 
   /* SERVICES */
   .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .svc-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius-md);padding:30px;transition:border-color .2s, transform .2s, background .2s;}
+  .svc-card{position:relative;background:var(--glass);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;transition:border-color .2s, transform .2s, background .2s;}
   .svc-card:hover{border-color:var(--border-strong);background:var(--glass-hover);transform:translateY(-3px);}
-  .svc-icon{width:46px;height:46px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+  .svc-thumb{height:168px;background:var(--bg-alt);}
+  .svc-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .svc-icon{position:absolute;top:145px;left:20px;width:46px;height:46px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px -6px rgba(0,0,0,.6), 0 0 0 4px var(--bg);}
   .svc-icon svg{width:22px;height:22px;color:#0b0508;}
+  .svc-body{padding:36px 24px 24px;}
   .svc-card h3{font-size:18px;font-weight:800;margin-bottom:9px;}
   .svc-card p{color:var(--muted);font-size:14.5px;margin-bottom:16px;}
-  .svc-tags{display:flex;flex-wrap:wrap;gap:7px;}
+  .svc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;}
   .svc-tags span{font-size:11.5px;font-weight:600;color:var(--muted-dim);padding:4px 10px;border:1px solid var(--border);border-radius:999px;}
+  .svc-card .link{font-size:13px;font-weight:700;color:var(--orange);}
 
   /* REALISATIONS — bandeau défilant */
   .marquee-projects .marquee-track{gap:20px;animation-duration:38s;}
@@ -505,40 +510,64 @@
     </div>
     <div class="services-grid">
       <div class="svc-card">
+        <div class="svc-thumb"><img src="assets/services/sites-professionnels.jpg" alt="" loading="lazy"></div>
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 8h20"/></svg></div>
-        <h3>Sites vitrines</h3>
-        <p>Design sur-mesure, mobile-first, pensé pour convertir un visiteur en client.</p>
-        <div class="svc-tags"><span>Design personnalisé</span><span>Mobile-first</span><span>SEO de base</span></div>
+        <div class="svc-body">
+          <h3>Sites vitrines</h3>
+          <p>Design sur-mesure, mobile-first, pensé pour convertir un visiteur en client.</p>
+          <div class="svc-tags"><span>Design personnalisé</span><span>Mobile-first</span><span>SEO de base</span></div>
+          <a class="link" href="#/solutions/site-web-madagascar">En savoir plus →</a>
+        </div>
       </div>
       <div class="svc-card">
+        <div class="svc-thumb"><img src="assets/services/ecommerce-reservation.jpg" alt="" loading="lazy"></div>
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
-        <h3>E-commerce &amp; réservation</h3>
-        <p>Catalogue, panier, commande WhatsApp ou paiement en ligne — vendez sans friction.</p>
-        <div class="svc-tags"><span>Catalogue</span><span>Commande WhatsApp</span><span>Gestion commandes</span></div>
+        <div class="svc-body">
+          <h3>E-commerce &amp; réservation</h3>
+          <p>Catalogue, panier, commande WhatsApp ou paiement en ligne — vendez sans friction.</p>
+          <div class="svc-tags"><span>Catalogue</span><span>Commande WhatsApp</span><span>Gestion commandes</span></div>
+          <a class="link" href="#/solutions/boutique-en-ligne">En savoir plus →</a>
+        </div>
       </div>
       <div class="svc-card">
-        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 5v5l4 2"/></svg></div>
-        <h3>Produits digitaux</h3>
-        <p>Logiciels et applications sur-mesure — Lemon, Mahay IA, Orbit en sont la preuve.</p>
-        <div class="svc-tags"><span>SaaS</span><span>Dashboard</span><span>Sur-mesure</span></div>
+        <div class="svc-thumb"><img src="assets/services/gestion-stocks.jpg" alt="" loading="lazy"></div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V6a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 6v12a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 18v-2"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg></div>
+        <div class="svc-body">
+          <h3>Gestion des stocks</h3>
+          <p>Seuils d'alerte, catalogue produits et alertes de rupture pilotées par IA.</p>
+          <div class="svc-tags"><span>Seuils d'alerte</span><span>Alerte IA</span><span>Multi-produits</span></div>
+          <a class="link" href="#/solutions/orbit">En savoir plus →</a>
+        </div>
       </div>
       <div class="svc-card">
+        <div class="svc-thumb"><img src="assets/services/devis-facturation.jpg" alt="" loading="lazy"></div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h6"/></svg></div>
+        <div class="svc-body">
+          <h3>Devis &amp; facturation</h3>
+          <p>Factures numérotées automatiquement, scan de reçus par IA, suivi de trésorerie.</p>
+          <div class="svc-tags"><span>Scan facture IA</span><span>Numérotation auto</span><span>Trésorerie</span></div>
+          <a class="link" href="#/solutions/orbit">En savoir plus →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-thumb"><img src="assets/services/gestion-entreprise.jpg" alt="" loading="lazy"></div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg></div>
+        <div class="svc-body">
+          <h3>Gestion d'entreprise</h3>
+          <p>Clients, fournisseurs et rapports réunis dans un seul tableau de bord.</p>
+          <div class="svc-tags"><span>Clients &amp; fournisseurs</span><span>Rapports</span></div>
+          <a class="link" href="#/solutions/orbit">En savoir plus →</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-thumb"><img src="assets/services/ia-automatisation.jpg" alt="" loading="lazy"></div>
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg></div>
-        <h3>Automatisation &amp; IA</h3>
-        <p>Faites gagner du temps à votre activité avec des automatisations concrètes.</p>
-        <div class="svc-tags"><span>Assistant IA</span><span>Workflows</span><span>Gain de temps</span></div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
-        <h3>Identité de marque</h3>
-        <p>Logo, charte graphique et supports cohérents pour une image professionnelle.</p>
-        <div class="svc-tags"><span>Logo</span><span>Charte graphique</span></div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></div>
-        <h3>Refonte &amp; maintenance</h3>
-        <p>Site déjà en ligne mais daté ou lent ? Refonte complète ou mises à jour continues.</p>
-        <div class="svc-tags"><span>Refonte</span><span>Suivi continu</span></div>
+        <div class="svc-body">
+          <h3>Automatisation &amp; IA</h3>
+          <p>Faites gagner du temps à votre activité avec des automatisations concrètes.</p>
+          <div class="svc-tags"><span>Assistant IA</span><span>Workflows</span><span>Gain de temps</span></div>
+          <a class="link" href="#/solutions/automatisation">En savoir plus →</a>
+        </div>
       </div>
     </div>
   </div>
