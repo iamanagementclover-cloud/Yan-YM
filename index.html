@@ -212,10 +212,12 @@
   .svc-card .link{font-size:13px;font-weight:700;color:var(--orange);}
 
   /* REALISATIONS — bandeau défilant */
+  .marquee-projects{padding:6px 0;}
   .marquee-projects .marquee-track{gap:20px;animation-duration:38s;}
-  .proj-card{flex:0 0 340px;position:relative;overflow:hidden;background-color:var(--bg-alt);background-size:cover;background-position:center;border:1px solid var(--border);border-radius:var(--radius-md);padding:22px;transition:border-color .2s, transform .2s;}
-  .proj-card::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg, rgba(5,11,22,.08) 0%, rgba(5,11,22,.4) 40%, rgba(5,11,22,.88) 64%, rgba(5,11,22,.96) 100%);}
-  .proj-card:hover{border-color:var(--border-strong);transform:translateY(-3px);}
+  .proj-card{flex:0 0 340px;position:relative;z-index:0;background-color:var(--bg-alt);background-size:cover;background-position:center;border-radius:var(--radius-md);padding:22px;transition:transform .2s;}
+  .proj-card::after{content:"";position:absolute;inset:-3px;z-index:-1;border-radius:calc(var(--radius-md) + 3px);background:var(--grad);}
+  .proj-card::before{content:"";position:absolute;inset:0;z-index:0;border-radius:var(--radius-md);background:linear-gradient(180deg, rgba(5,11,22,.08) 0%, rgba(5,11,22,.4) 40%, rgba(5,11,22,.88) 64%, rgba(5,11,22,.96) 100%);}
+  .proj-card:hover{transform:translateY(-3px);}
   .proj-card>*{position:relative;z-index:1;}
   .proj-logo{width:100%;height:120px;border-radius:12px;background:rgba(10,22,38,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:18px;overflow:hidden;}
   .proj-logo img{max-width:66%;max-height:60%;object-fit:contain;}
@@ -403,7 +405,7 @@
     <div>
       <div class="eyebrow"><span class="dot"></span>À PROPOS</div>
       <h3>Yan, développeur &amp; créateur de marques</h3>
-      <p>Je conçois des sites, produits digitaux, identités visuelles et automatisations IA qui simplifient le quotidien des indépendants et entreprises, tous secteurs confondus.</p>
+      <p>Conception de sites, produits digitaux, identités visuelles et automatisations IA qui simplifient le quotidien des indépendants et entreprises, tous secteurs confondus.</p>
       <span class="flip-hint">Cliquez ou touchez la carte pour la retourner →</span>
     </div>
   </div>
@@ -726,7 +728,7 @@
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <h3>Site livré en maximum 2 semaines</h3>
+        <h3>Projet livré en maximum 2 semaines</h3>
         <p>Développement, tests et mise en ligne.</p>
       </div>
     </div>
@@ -745,7 +747,7 @@
       </div>
       <div class="contact-side">
         <div><div class="label">Basé à</div><span>Nosy Be, Madagascar</span></div>
-        <div><div class="label">Réponse</div><span>Sous 24h en semaine</span></div>
+        <div><div class="label">Réponse</div><span>Sous 2h en semaine</span></div>
         <div><div class="label">Langues</div><span>Français · English</span></div>
       </div>
     </div>
