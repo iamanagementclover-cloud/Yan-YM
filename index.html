@@ -242,10 +242,10 @@
   .btn-lg{position:relative;padding:21px 42px;font-size:16.5px;flex-shrink:0;}
 
   /* PRODUITS */
-  .produits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .prod-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius-md);padding:26px;display:flex;flex-direction:column;gap:16px;}
-  .prod-logo{width:52px;height:52px;border-radius:12px;background:var(--bg-alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;}
-  .prod-logo img{max-width:70%;max-height:70%;object-fit:contain;}
+  .marquee-produits .marquee-track{gap:20px;animation-duration:34s;animation-direction:reverse;}
+  .prod-card{flex:0 0 320px;background:var(--glass);border:1px solid var(--border);border-radius:var(--radius-md);padding:26px;display:flex;flex-direction:column;gap:16px;}
+  .prod-logo{width:84px;height:84px;border-radius:16px;background:var(--bg-alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;}
+  .prod-logo img{max-width:76%;max-height:76%;object-fit:contain;}
   .prod-card p{color:var(--muted);font-size:14px;flex:1;}
   .prod-card .link{font-size:13px;font-weight:700;color:var(--orange);}
 
@@ -321,7 +321,7 @@
   @media (max-width:900px){
     .hero-inner, .about .wrap{grid-template-columns:1fr;}
     .hero-photo{margin:0 auto;}
-    .services-grid, .produits-grid, .engage-strip, .process-grid, .solutions-grid{grid-template-columns:1fr;}
+    .services-grid, .engage-strip, .process-grid, .solutions-grid{grid-template-columns:1fr;}
     .sd-features{grid-template-columns:1fr;}
     .process-grid::before{display:none;}
     .contact-panel{grid-template-columns:1fr;padding:34px;}
@@ -673,26 +673,57 @@
 
 <section id="produits">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" style="margin-bottom:36px;">
       <div class="eyebrow-row"><div class="eyebrow"><span class="dot"></span>PRODUITS</div></div>
       <h2>Au-delà des sites vitrines</h2>
       <p>Les marques que je développe en parallèle.</p>
     </div>
-    <div class="produits-grid">
-      <div class="prod-card">
-        <div class="prod-logo"><img src="assets/lemon.png" alt="Lemon PMS"></div>
-        <p>Lemon — logiciel de gestion hôtelière (PMS) : réservations, chambres, facturation, pensé pour les indépendants et petites structures.</p>
-        <a class="link" href="#/solutions/lemon">En savoir plus →</a>
+  </div>
+  <div class="marquee marquee-produits">
+    <div class="marquee-track">
+      <div class="marquee-set">
+        <div class="prod-card">
+          <div class="prod-logo"><img src="assets/lemon.png" alt="Lemon PMS"></div>
+          <p>Lemon — logiciel de gestion hôtelière (PMS) : réservations, chambres, facturation, pensé pour les indépendants et petites structures.</p>
+          <a class="link" href="#/solutions/lemon">En savoir plus →</a>
+        </div>
+        <div class="prod-card">
+          <div class="prod-logo"><img src="assets/mahay-ia.png" alt="Mahay IA"></div>
+          <p>Mahay IA — formation pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.</p>
+          <a class="link" href="#/solutions/mahay-ia">En savoir plus →</a>
+        </div>
+        <div class="prod-card">
+          <div class="prod-logo"><img src="assets/orbit.png" alt="Orbit"></div>
+          <p>Orbit — logiciel de caisse intelligente : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.</p>
+          <a class="link" href="#/solutions/orbit">En savoir plus →</a>
+        </div>
+        <div class="prod-card">
+          <div class="prod-logo"><img src="assets/jarvis.png" alt="Jarvis"></div>
+          <p>Jarvis — l'employé IA développé par YAN AGENCY : traite vos emails, relance vos clients et gère l'administratif 24h/24, branché sur vos outils.</p>
+          <a class="link" href="#/solutions/jarvis">En savoir plus →</a>
+        </div>
       </div>
-      <div class="prod-card">
-        <div class="prod-logo"><img src="assets/mahay-ia.png" alt="Mahay IA"></div>
-        <p>Mahay IA — formation pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.</p>
-        <a class="link" href="#/solutions/mahay-ia">En savoir plus →</a>
-      </div>
-      <div class="prod-card">
-        <div class="prod-logo"><img src="assets/orbit.png" alt="Orbit"></div>
-        <p>Orbit — logiciel de caisse intelligente : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.</p>
-        <a class="link" href="#/solutions/orbit">En savoir plus →</a>
+      <div class="marquee-set" aria-hidden="true">
+        <div class="prod-card">
+          <div class="prod-logo"><img src="assets/lemon.png" alt="" aria-hidden="true"></div>
+          <p>Lemon — logiciel de gestion hôtelière (PMS) : réservations, chambres, facturation, pensé pour les indépendants et petites structures.</p>
+          <a class="link" href="#/solutions/lemon" tabindex="-1">En savoir plus →</a>
+        </div>
+        <div class="prod-card">
+          <div class="prod-logo"><img src="assets/mahay-ia.png" alt="" aria-hidden="true"></div>
+          <p>Mahay IA — formation pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.</p>
+          <a class="link" href="#/solutions/mahay-ia" tabindex="-1">En savoir plus →</a>
+        </div>
+        <div class="prod-card">
+          <div class="prod-logo"><img src="assets/orbit.png" alt="" aria-hidden="true"></div>
+          <p>Orbit — logiciel de caisse intelligente : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.</p>
+          <a class="link" href="#/solutions/orbit" tabindex="-1">En savoir plus →</a>
+        </div>
+        <div class="prod-card">
+          <div class="prod-logo"><img src="assets/jarvis.png" alt="" aria-hidden="true"></div>
+          <p>Jarvis — l'employé IA développé par YAN AGENCY : traite vos emails, relance vos clients et gère l'administratif 24h/24, branché sur vos outils.</p>
+          <a class="link" href="#/solutions/jarvis" tabindex="-1">En savoir plus →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -809,6 +840,7 @@
       <a href="#/solutions/lemon">Lemon — PMS hôtelier</a>
       <a href="#/solutions/orbit">Orbit — caisse &amp; gestion</a>
       <a href="#/solutions/mahay-ia">Mahay IA — formation</a>
+      <a href="#/solutions/jarvis">Jarvis — assistant IA</a>
     </div>
     <div>
       <h4>Contact</h4>
@@ -878,7 +910,7 @@ const SOLUTIONS = [
   {
     slug:'lemon', cat:'Produit · PMS hôtelier',
     title:'Gestion hôtelière avec Lemon',
-    summary:"Lemon est le logiciel de gestion hôtelière (PMS) développé par Yan : réservations, chambres, facturation et IA, pensé pour les indépendants et petites structures.",
+    summary:"Lemon est le logiciel de gestion hôtelière (PMS) développé par YAN AGENCY : réservations, chambres, facturation et IA, pensé pour les indépendants et petites structures.",
     lead:"Plutôt que d'empiler un tableur pour les réservations, un carnet pour le ménage et une appli pour la caisse du restaurant, Lemon centralise l'hôtel dans une seule application — disponible sur iOS, Android, Web et Windows.",
     features:[
       {h:'Réservations & disponibilités', p:'Calendrier en temps réel, devis multi-chambres exportables en PDF, réservations de groupe.'},
@@ -895,7 +927,7 @@ const SOLUTIONS = [
   {
     slug:'orbit', cat:'Produit · Caisse & gestion',
     title:'Caisse & gestion d’entreprise avec Orbit',
-    summary:"Orbit est le logiciel de caisse intelligente développé par Yan : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.",
+    summary:"Orbit est le logiciel de caisse intelligente développé par YAN AGENCY : caisse, stock, comptabilité, RH et CRM pilotés par IA, en Ariary.",
     lead:"Pensé pour un commerce ou une petite entreprise malgache : une caisse rapide au comptoir, une vue claire sur le stock et la trésorerie, et une IA qui répond aux questions plutôt que d'obliger à fouiller des rapports.",
     features:[
       {h:'Caisse pensée pour aller vite', p:'Vente, produits favoris, sélection client, stock décrémenté automatiquement, ticket numéroté sans doublon.'},
@@ -912,7 +944,7 @@ const SOLUTIONS = [
   {
     slug:'mahay-ia', cat:'Produit · Formation',
     title:'Formation IA avec Mahay IA',
-    summary:"Mahay IA est la formation développée par Yan pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.",
+    summary:"Mahay IA est la formation développée par YAN AGENCY pour apprendre à utiliser l'intelligence artificielle au quotidien, en langue accessible.",
     lead:"123 leçons réparties en 15 modules, en français, sans jargon technique — pour des indépendants, coachs ou salariés qui veulent des outils concrets plutôt qu'un cours théorique.",
     features:[
       {h:'123 leçons, 15 modules', p:'ChatGPT et prompt engineering, Leonardo AI, ElevenLabs, Suno, n8n, Vibe Coding, et un module complet sur Claude Code.'},
@@ -923,6 +955,22 @@ const SOLUTIONS = [
     cases:[],
     ctaLabel:'Voir Mahay IA',
     ctaHref:'https://mahay-ia--mahay-ia.us-central1.hosted.app'
+  },
+  {
+    slug:'jarvis', cat:'Produit · Assistant IA',
+    title:'Assistant IA avec Jarvis',
+    summary:"Jarvis est l'employé IA développé par YAN AGENCY : traite vos emails, relance vos clients, fait la veille et gère l'administratif 24h/24, branché sur vos outils.",
+    lead:"Plutôt qu'un chatbot qui attend qu'on lui parle, Jarvis agit en autonomie sur les tâches répétitives et chronophages — pendant que vous vous concentrez sur votre métier. Connecté aux outils déjà utilisés au quotidien, avec la mémoire complète de votre activité, propulsé par Claude (Anthropic).",
+    features:[
+      {h:'Traitement des emails', p:'Tri, réponses automatisées et gestion des leads directement dans votre boîte de réception.'},
+      {h:'Relances automatiques', p:"Devis, factures, clients à recontacter — Jarvis relance sans attendre qu'on le lui demande."},
+      {h:'Branché sur vos outils', p:'Gmail, Drive, CRM, WhatsApp et autres outils du quotidien connectés pour agir directement, pas seulement répondre.'},
+      {h:'Mémoire persistante', p:"Contrairement à un chatbot générique qui repart de zéro, Jarvis garde le contexte complet de votre activité d'une conversation à l'autre."},
+      {h:'Validation avant envoi', p:"Toute action visible de l'extérieur (email, message) passe par une confirmation — vous gardez le contrôle."},
+      {h:'Instance dédiée par client', p:'Chaque déploiement a sa propre configuration et ses propres données, jamais partagées ni mutualisées.'}
+    ],
+    cases:[],
+    ctaLabel:'Parler de mon projet'
   },
   {
     slug:'automatisation', cat:'Automatisation',
