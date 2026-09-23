@@ -145,11 +145,10 @@
     box-shadow:0 30px 70px -24px rgba(0,0,0,.6);
   }
   .card-3d{position:relative;width:100%;height:100%;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .9s cubic-bezier(.65,0,.35,1);}
-  .card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;}
-  .card-back{border-radius:var(--radius-lg);overflow:hidden;transform:rotateY(180deg) translateZ(30px);background:var(--grad);display:flex;align-items:center;justify-content:center;}
-  .card-back img{width:100%;height:100%;object-fit:cover;display:block;}
-  .card-media{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .9s cubic-bezier(.65,0,.35,1);}
-  .card-media img, .card-media video{width:100%;height:100%;object-fit:cover;display:block;}
+  .card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius-lg);overflow:hidden;}
+  .card-face img, .card-face video{width:100%;height:100%;object-fit:cover;display:block;}
+  .card-front{transform:translateZ(30px);}
+  .card-back{transform:rotateY(180deg) translateZ(30px);background:var(--grad);display:flex;align-items:center;justify-content:center;}
   .card-edge{position:absolute;transform-origin:0 0;}
   .card-edge-l, .card-edge-r{width:30px;top:0;height:100%;background:var(--grad);}
   .card-edge-l{left:0;transform-origin:left center;transform:rotateY(90deg);}
@@ -157,10 +156,8 @@
   .card-edge-t, .card-edge-b{height:30px;left:0;width:100%;background:var(--grad);}
   .card-edge-t{top:0;transform-origin:center top;transform:rotateX(-90deg);}
   .card-edge-b{top:100%;transform-origin:center top;transform:rotateX(-90deg);}
-  .hero-photo:hover .card-3d,.hero-photo:hover .card-media,
-  .hero-photo.is-flipped .card-3d,.hero-photo.is-flipped .card-media{transform:rotateY(180deg);}
   .hero-photo:focus-visible{outline:2px solid var(--orange);outline-offset:6px;}
-  @media (prefers-reduced-motion:reduce){.card-3d,.card-media{transition:none;}}
+  @media (prefers-reduced-motion:reduce){.card-3d{transition:none;}}
   .about h3{font-size:clamp(24px,3vw,32px);font-weight:800;margin:14px 0 14px;}
   .about p{color:var(--muted);font-size:16.5px;max-width:480px;}
   .flip-hint{display:inline-block;margin-top:18px;font-size:12.5px;color:var(--muted-dim);font-weight:600;}
@@ -394,19 +391,19 @@
   <div class="wrap">
     <div class="hero-photo" tabindex="0" role="button" aria-label="Retourner la carte de visite de Yan">
       <div class="card-3d">
+        <div class="card-face card-front"><img src="assets/yan-portrait.png" alt="Yan"></div>
         <div class="card-face card-back"><img src="assets/card-back-photo.jpg" alt="Yan Agency"></div>
         <div class="card-edge card-edge-l"></div>
         <div class="card-edge card-edge-r"></div>
         <div class="card-edge card-edge-t"></div>
         <div class="card-edge card-edge-b"></div>
       </div>
-      <div class="card-media"><img src="assets/yan-portrait.png" alt="Yan"></div>
     </div>
     <div>
       <div class="eyebrow"><span class="dot"></span>À PROPOS</div>
       <h3>Yan, développeur &amp; créateur de marques</h3>
       <p>Je conçois des sites, produits digitaux, identités visuelles et automatisations IA qui simplifient le quotidien des indépendants et entreprises, tous secteurs confondus.</p>
-      <span class="flip-hint">Survolez ou touchez la carte pour la retourner →</span>
+      <span class="flip-hint">Cliquez ou touchez la carte pour la retourner →</span>
     </div>
   </div>
 </section>
@@ -1065,15 +1062,25 @@ route();
 (function(){
   var card = document.querySelector('.about .hero-photo');
   if(!card) return;
-  card.addEventListener('click', function(){
-    card.classList.toggle('is-flipped');
-  });
+  var card3d = card.querySelector('.card-3d');
+  var turns = 0;
+  function rotate(){
+    turns++;
+    card3d.style.transform = 'rotateY(' + (turns*180) + 'deg)';
+    card.classList.toggle('is-flipped', turns % 2 === 1);
+  }
+  card.addEventListener('click', rotate);
   card.addEventListener('keydown', function(e){
     if(e.key === 'Enter' || e.key === ' '){
       e.preventDefault();
-      card.classList.toggle('is-flipped');
+      rotate();
     }
   });
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced){
+    setInterval(rotate, 2000);
+  }
 })();
 </script>
 
