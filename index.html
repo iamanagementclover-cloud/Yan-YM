@@ -1122,16 +1122,6 @@ route();
   resize();
   window.addEventListener('resize', resize);
 
-  var panels = [
-    {xr:.01, yr:.06, wr:.16, hr:.20, rot:-9,  amp:16, speed:.42, phase:0.0},
-    {xr:.04, yr:.60, wr:.12, hr:.15, rot:8,   amp:11, speed:.33, phase:1.1},
-    {xr:.30, yr:.30, wr:.15, hr:.18, rot:-6,  amp:13, speed:.38, phase:2.3},
-    {xr:.64, yr:-.02,wr:.15, hr:.18, rot:11,  amp:17, speed:.36, phase:.6},
-    {xr:.82, yr:.52, wr:.20, hr:.23, rot:-5,  amp:14, speed:.27, phase:1.8},
-    {xr:.90, yr:.26, wr:.12, hr:.14, rot:6,   amp:12, speed:.46, phase:2.9},
-    {xr:.18, yr:.66, wr:.10, hr:.13, rot:-8,  amp:10, speed:.40, phase:.3}
-  ];
-
   var colors = ['122,255,196','185,90,247','23,211,242'];
   var particles = [];
   for(var i=0;i<26;i++){
@@ -1142,41 +1132,10 @@ route();
     });
   }
 
-  function roundRectPath(x,y,rw,rh,r){
-    ctx.beginPath();
-    ctx.moveTo(x+r,y);
-    ctx.arcTo(x+rw,y,x+rw,y+rh,r);
-    ctx.arcTo(x+rw,y+rh,x,y+rh,r);
-    ctx.arcTo(x,y+rh,x,y,r);
-    ctx.arcTo(x,y,x+rw,y,r);
-    ctx.closePath();
-  }
-
   var t0 = performance.now(), last = t0;
 
   function draw(t){
     ctx.clearRect(0,0,w,h);
-
-    panels.forEach(function(p){
-      var dy = Math.sin(t*p.speed + p.phase) * p.amp;
-      var dr = Math.sin(t*p.speed*0.6 + p.phase) * 3;
-      var pw = p.wr*w, ph = p.hr*h;
-      var x = p.xr*w, y = p.yr*h + dy;
-      ctx.save();
-      ctx.translate(x+pw/2, y+ph/2);
-      ctx.rotate((p.rot+dr)*Math.PI/180);
-      ctx.translate(-pw/2, -ph/2);
-      roundRectPath(0,0,pw,ph,22);
-      ctx.shadowColor = 'rgba(0,0,0,.55)'; ctx.shadowBlur = 46; ctx.shadowOffsetY = 22;
-      ctx.fillStyle = 'rgba(255,255,255,.055)';
-      ctx.fill();
-      ctx.shadowColor = 'transparent';
-      ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(255,255,255,.16)';
-      ctx.stroke();
-      ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.lineWidth = 2;
-      ctx.beginPath(); ctx.moveTo(pw*.16, ph*.3); ctx.lineTo(pw*.62, ph*.3); ctx.stroke();
-      ctx.restore();
-    });
 
     particles.forEach(function(pt){
       if(!reduced){
