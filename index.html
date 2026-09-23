@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>YAN YM — Développeur web & produits digitaux</title>
-<meta name="description" content="Portfolio de YAN YM — développeur web à Nosy Be, sites vitrines, e-commerce et produits digitaux sur-mesure, PMS Lemon, formation IA Mahay IA.">
+<title>YAN AGENCY — Développeur web & produits digitaux</title>
+<meta name="description" content="Portfolio de YAN AGENCY — développeur web à Nosy Be, sites vitrines, e-commerce et produits digitaux sur-mesure, PMS Lemon, formation IA Mahay IA.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yan-ym.web.app">
-<meta property="og:site_name" content="YAN YM">
-<meta property="og:title" content="YAN YM — Des sites web qui donnent vie à vos projets.">
+<meta property="og:site_name" content="YAN AGENCY">
+<meta property="og:title" content="YAN AGENCY — Des sites web qui donnent vie à vos projets.">
 <meta property="og:description" content="Sites vitrines, e-commerce, produits digitaux et automatisations IA sur-mesure. Développeur web basé à Nosy Be, actif à yan-ym.web.app">
 <meta property="og:image" content="https://yan-ym.web.app/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="YAN YM — Des sites web qui donnent vie à vos projets.">
+<meta name="twitter:title" content="YAN AGENCY — Des sites web qui donnent vie à vos projets.">
 <meta name="twitter:description" content="Sites vitrines, e-commerce, produits digitaux et automatisations IA sur-mesure. Développeur web basé à Nosy Be, actif à yan-ym.web.app">
 <meta name="twitter:image" content="https://yan-ym.web.app/assets/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "YAN YM",
+  "name": "YAN AGENCY",
   "url": "https://yan-ym.web.app",
   "description": "Développeur web à Nosy Be — sites vitrines, e-commerce, produits digitaux et automatisations IA pour tout type de projet.",
   "areaServed": "Nosy Be, Madagascar",
@@ -44,11 +44,12 @@
     --text:#f3f5f8;
     --muted:#93a0b3;
     --muted-dim:#5f6c80;
-    --pink:#ff2f6e;
-    --orange:#ff8a3d;
+    --pink:#17d3f2;
+    --orange:#b95af7;
+    --blue:#3b6bfd;
     --lime:#caff33;
-    --grad: linear-gradient(90deg,var(--pink),var(--orange));
-    --glow: 0 0 0 1px rgba(255,138,61,.25), 0 8px 30px -6px rgba(255,47,110,.45);
+    --grad: linear-gradient(90deg,var(--pink),var(--blue) 55%,var(--orange));
+    --glow: 0 0 0 1px rgba(185,90,247,.25), 0 8px 30px -6px rgba(23,211,242,.45);
     --radius-lg:24px;
     --radius-md:16px;
     --radius-sm:10px;
@@ -58,8 +59,8 @@
   html{scroll-behavior:smooth;}
   body{
     background:
-      radial-gradient(900px 500px at 15% -8%, rgba(255,47,110,.14), transparent 60%),
-      radial-gradient(800px 480px at 100% 10%, rgba(255,138,61,.10), transparent 55%),
+      radial-gradient(900px 500px at 15% -8%, rgba(23,211,242,.14), transparent 60%),
+      radial-gradient(800px 480px at 100% 10%, rgba(185,90,247,.10), transparent 55%),
       var(--bg);
     color:var(--text);
     font-family:'Inter',system-ui,-apple-system,sans-serif;
@@ -98,8 +99,7 @@
   header{position:sticky;top:0;z-index:100;background:rgba(5,11,22,.7);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border-bottom:1px solid var(--border);}
   nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;max-width:var(--maxw);margin:0 auto;}
   .logo-name{font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;letter-spacing:.01em;display:flex;align-items:center;gap:7px;flex-shrink:0;}
-  .logo-name .logo-yan{height:clamp(32px,7vw,52px);width:auto;}
-  .logo-name .ym{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .logo-name .logo-yan{height:clamp(30px,6vw,44px);width:auto;}
   nav ul{list-style:none;display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
   nav a{color:var(--muted);font-size:14px;font-weight:600;transition:color .2s;}
   nav a:hover{color:var(--text);}
@@ -124,7 +124,7 @@
   .hero-bg-overlay{position:absolute;inset:0;z-index:0;pointer-events:none;
     background:
       linear-gradient(180deg, rgba(5,11,22,.5) 0%, rgba(5,11,22,.68) 55%, rgba(5,11,22,.94) 100%),
-      radial-gradient(900px 500px at 15% -8%, rgba(255,47,110,.16), transparent 60%);}
+      radial-gradient(900px 500px at 15% -8%, rgba(23,211,242,.16), transparent 60%);}
   #heroCanvas{position:absolute;inset:0;z-index:0;pointer-events:none;}
 
   .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:56px;align-items:center;}
@@ -146,8 +146,8 @@
   }
   .card-3d{position:relative;width:100%;height:100%;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .9s cubic-bezier(.65,0,.35,1);}
   .card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;}
-  .card-back{overflow:hidden;transform:rotateY(180deg) translateZ(30px);background:var(--grad);display:flex;align-items:center;justify-content:center;padding:18%;}
-  .card-back img{width:100%;height:100%;object-fit:contain;transform:scale(1.4);}
+  .card-back{border-radius:var(--radius-lg);overflow:hidden;transform:rotateY(180deg) translateZ(30px);background:var(--grad);display:flex;align-items:center;justify-content:center;}
+  .card-back img{width:100%;height:100%;object-fit:cover;display:block;}
   .card-media{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .9s cubic-bezier(.65,0,.35,1);}
   .card-media img, .card-media video{width:100%;height:100%;object-fit:cover;display:block;}
   .card-edge{position:absolute;transform-origin:0 0;}
@@ -229,7 +229,7 @@
 
   /* SOLUTIONS TEASER */
   .solutions-teaser{padding:64px 0;}
-  .solutions-cta-panel{position:relative;overflow:hidden;background:linear-gradient(155deg,rgba(255,47,110,.14),rgba(255,138,61,.06) 55%,var(--glass));border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:64px 56px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .solutions-cta-panel{position:relative;overflow:hidden;background:linear-gradient(155deg,rgba(23,211,242,.14),rgba(185,90,247,.06) 55%,var(--glass));border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:64px 56px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
   .solutions-cta-panel::before{content:"";position:absolute;top:-40%;right:-10%;width:420px;height:420px;background:radial-gradient(circle, rgba(202,255,51,.16), transparent 70%);pointer-events:none;}
   .solutions-cta-panel > div{position:relative;max-width:560px;}
   .solutions-cta-panel h2{font-size:clamp(26px,3.2vw,36px);font-weight:800;margin:16px 0 12px;line-height:1.15;}
@@ -264,7 +264,7 @@
   .sd-case{display:flex;align-items:center;gap:10px;padding:11px 16px;border:1px solid var(--border);border-radius:999px;background:var(--glass);font-size:13px;font-weight:700;transition:border-color .2s;}
   .sd-case:hover{border-color:var(--border-strong);}
   .sd-case img{width:22px;height:22px;object-fit:contain;border-radius:5px;}
-  .sd-case.cross{color:var(--orange);border-color:rgba(255,138,61,.3);background:rgba(255,138,61,.06);}
+  .sd-case.cross{color:var(--orange);border-color:rgba(185,90,247,.3);background:rgba(185,90,247,.06);}
 
   /* ENGAGEMENTS */
   .engage-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
@@ -285,7 +285,7 @@
   @media (prefers-reduced-motion:reduce){.step{opacity:1;transform:none;transition:none;}}
 
   /* CONTACT */
-  .contact-panel{background:linear-gradient(155deg,rgba(255,47,110,.12),rgba(255,138,61,.05) 60%,var(--glass));border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:56px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;}
+  .contact-panel{background:linear-gradient(155deg,rgba(23,211,242,.12),rgba(185,90,247,.05) 60%,var(--glass));border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:56px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;}
   .contact-panel h2{font-size:clamp(26px,3.4vw,36px);font-weight:800;margin-bottom:14px;}
   .contact-panel > div:first-child p{color:var(--muted);font-size:16px;max-width:420px;}
   .contact-side{border-left:1px solid var(--border);padding-left:40px;display:flex;flex-direction:column;gap:16px;}
@@ -355,7 +355,7 @@
 
 <header>
   <nav>
-    <a href="#/" class="logo-name"><img class="logo-yan" src="assets/yan-logo.png" alt="Yan"><span class="ym">YM</span></a>
+    <a href="#/" class="logo-name"><img class="logo-yan" src="assets/yan-agency-logo.png" alt="Yan Agency"></a>
     <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
     <label for="nav-toggle" class="nav-toggle-btn" aria-label="Ouvrir le menu"><span></span><span></span><span></span></label>
     <ul>
@@ -380,7 +380,7 @@
     <div>
       <div class="eyebrow"><span class="dot"></span>DÉVELOPPEUR WEB · NOSY BE, MADAGASCAR</div>
       <h1>Des sites web qui donnent <em>vie</em> à vos projets</h1>
-      <p class="lead">Sites web qui donnent envie d'acheter, systèmes de gestion qui évitent les erreurs et automatisations qui font gagner du temps. YAN YM construit les outils nécessaires à la croissance de votre entreprise.</p>
+      <p class="lead">Sites web qui donnent envie d'acheter, systèmes de gestion qui évitent les erreurs et automatisations qui font gagner du temps. YAN AGENCY construit les outils nécessaires à la croissance de votre entreprise.</p>
       <div class="cta-row">
         <a href="#projets" class="btn btn-primary">Voir mes projets</a>
         <a href="#contact" class="btn btn-ghost">Me contacter</a>
@@ -394,18 +394,18 @@
   <div class="wrap">
     <div class="hero-photo" tabindex="0" role="button" aria-label="Retourner la carte de visite de Yan">
       <div class="card-3d">
-        <div class="card-face card-back"><img src="assets/card-sticker.png" alt="Yan YM"></div>
+        <div class="card-face card-back"><img src="assets/card-back-photo.jpg" alt="Yan Agency"></div>
         <div class="card-edge card-edge-l"></div>
         <div class="card-edge card-edge-r"></div>
         <div class="card-edge card-edge-t"></div>
         <div class="card-edge card-edge-b"></div>
       </div>
-      <div class="card-media"><video src="assets/hero-yan.mp4" autoplay muted loop playsinline preload="auto"></video></div>
+      <div class="card-media"><img src="assets/yan-portrait.png" alt="Yan"></div>
     </div>
     <div>
       <div class="eyebrow"><span class="dot"></span>À PROPOS</div>
       <h3>Yan, développeur &amp; créateur de marques</h3>
-      <p>Je conçois des sites, produits digitaux, identités visuelles et automatisations IA qui simplifient le quotidien des indépendants et petites structures, tous secteurs confondus.</p>
+      <p>Je conçois des sites, produits digitaux, identités visuelles et automatisations IA qui simplifient le quotidien des indépendants et entreprises, tous secteurs confondus.</p>
       <span class="flip-hint">Survolez ou touchez la carte pour la retourner →</span>
     </div>
   </div>
@@ -783,7 +783,7 @@
 <footer>
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <div class="logo-name"><img class="logo-yan" src="assets/yan-logo.png" alt="Yan"><span class="ym">YM</span></div>
+      <div class="logo-name"><img class="logo-yan" src="assets/yan-agency-logo.png" alt="Yan Agency"></div>
       <p>Développeur web à Nosy Be — sites vitrines, e-commerce, produits digitaux et automatisations IA.</p>
     </div>
     <div>
@@ -809,7 +809,7 @@
       <span style="display:block;color:var(--muted-dim);font-size:13.5px;margin-top:2px;">Nosy Be, Madagascar</span>
     </div>
   </div>
-  <div class="wrap footer-bottom">© 2026 YAN YM. Tous droits réservés.</div>
+  <div class="wrap footer-bottom">© 2026 YAN AGENCY. Tous droits réservés.</div>
 </footer>
 
 <a class="whatsapp-btn" href="https://wa.me/261321926659?text=Bonjour%20Yan%2C%20je%20souhaite%20un%20site%20pour..." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
@@ -1122,7 +1122,7 @@ route();
     {xr:.18, yr:.66, wr:.10, hr:.13, rot:-8,  amp:10, speed:.40, phase:.3}
   ];
 
-  var colors = ['122,255,196','255,138,61','255,47,110'];
+  var colors = ['122,255,196','185,90,247','23,211,242'];
   var particles = [];
   for(var i=0;i<26;i++){
     particles.push({
